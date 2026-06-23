@@ -1,0 +1,50 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 95%;
+    margin: auto;
+}
+
+.main{
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    
+}
+.main__title{
+    width: 100%;
+    color:white;
+    /* font-weight: bold; */
+    text-align: center;
+    background-color: orange;
+    border: 5px solid lightcyan;
+    display: inline-block;
+
+}
+.main__section{
+    width: 100%;
+    border: 5px solid palegreen;
+}
+#product-list{
+    border: 5px solid black;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.product{
+    /* border: 5px solid red; */
+    padding: 3px;
+    text-align: center;
+}
+
+.product__img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
