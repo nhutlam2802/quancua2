@@ -1,0 +1,138 @@
+.cart-header {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+   
+    background:#f35b31;
+        
+
+    padding: 5px;
+    
+    margin-bottom: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.cart-header h1{
+    color: white;
+    margin: 0;
+}
+
+.cart-icon{
+    font-size:40px;
+    color:white;
+    padding-right: 4px;
+    margin-right: 5px;
+
+}
+
+
+
+
+
+body {
+    background-color: #f2f0ee;
+    margin: 30px;
+    font-family: Arial, sans-serif;
+}
+
+
+.cart-container{
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.cart-row{
+    display: grid;
+
+    grid-template-columns:
+   
+    2fr
+    1fr
+    1fr
+    1fr
+    80px;
+
+    align-items: center;
+
+    text-align: center;
+
+    border-bottom: 1px solid #eee;
+
+    padding: 10px;
+}
+
+.cart-title{
+    background: #f87b4e;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+.cart-row:hover{
+    background: #fff8ee;
+}
+
+.thanhtien{
+    color: #ff4d1c;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.cart-footer{
+    display: flex;
+    margin-top: 10px;
+   flex-direction: column;
+    align-items: flex-end;
+    padding: 30px 20px;
+}
+
+.tong-tien{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+}
+#tongtien{
+    color: #ff4d1c;
+    font-size: 32px;
+}
+
+.cart-buttons{
+    display:flex;
+    gap:15px;
+}
+.back-btn{
+    background: white;
+    color: #ff5a1f;
+
+    border: 2px solid #ff5a1f;
+
+    padding: 15px 30px;
+
+    font-size: 20px;
+
+    border-radius: 10px;
+}
+.checkout-btn{
+    background: #ff5a1f;
+    color: white;
+
+    border: none;
+
+    padding: 15px 40px;
+
+    font-size: 20px;
+
+    border-radius: 10px;
+}
+
+td:hover {
+    background-color: #fff8ee;
+}
+button:hover{
+    background-color: #875a37;
+}
+
+
