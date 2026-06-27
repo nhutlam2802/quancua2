@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="giohang.css">
+</head>
+
+<body>
+
+    <header class="cart-header">
+        <span class="cart-icon">🛒</span>
+        <h1>GIỎ HÀNG</h1>
+    </header>
+
+    <div class="cart-container">
+
+        <div class="cart-row cart-title">
+        
+            <div>Tên sản phẩm</div>
+            <div>Số lượng</div>
+            <div>Giá</div>
+            <div>Thành tiền</div>
+            <div>Xóa</div>
+        </div>
+
+        <div id="cart-body"></div>
+
+    </div>
+
+    <footer class="cart-footer">
+
+        <div class="tong-tien">
+            Tổng tiền:
+            <span id="tongtien">0</span>đ
+        </div>
+
+        <div class="cart-buttons">
+
+            <button class="back-btn"
+            onclick="window.location.href='sanpham.html'">
+                ← Tiếp tục mua hàng
+            </button>
+
+            <button class="checkout-btn" onclick="window.location.href='thanhtoan.html'">
+                Thanh toán
+            </button>
+
+        </div>
+
+    </footer>
+
+    <script src="giohangcoppy.js"></script>
+
+</body>
+</html>
