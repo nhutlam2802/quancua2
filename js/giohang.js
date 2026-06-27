@@ -1,4 +1,16 @@
 function hienThiGioHang(){
+    const mergedCart = [];
+    cart.forEach(item => {
+        const found = mergedCart.find(sp =>
+            sp.product.id === item.product.id &&
+            sp.variant.size === item.variant.size
+        );
+        if(found){
+            found.quantity += Number(item.quantity);
+        }else{
+            mergedCart.push({...item});
+        }
+    });
 
     const cart =
     JSON.parse(localStorage.getItem("cart")) || [];
@@ -9,7 +21,7 @@ function hienThiGioHang(){
     let html = "";
     let tongTien = 0;
 
-    cart.forEach((item,index)=>{
+    mergedCart.forEach((item,index)=>{
 
         const thanhTien =
         item.variant.price * item.quantity;
