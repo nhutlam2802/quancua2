@@ -44,7 +44,7 @@ function inputamount(){
             input.value--;
         })
         input.addEventListener("input",()=>{
-            if (input.value>300) input.value=100;
+            if (input.value>100) input.value=100;
         })
 
 }
