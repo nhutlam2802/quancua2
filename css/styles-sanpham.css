@@ -1,19 +1,14 @@
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    width: 95%;
-    margin: auto;
-}
-
-.main{
+.page-main{
     width: 100%;
     background-color: white;
-    padding: 10px;
+    /* padding: 10px;     */
+    display: grid;
+    grid-template-areas: 
+    "main__title"
+    "product-list"
+    ;
+
     
 }
 .main__title{
@@ -22,66 +17,56 @@ body {
     /* font-weight: bold; */
     text-align: center;
     background-color: #FFB347;
-    display: inline-block;
+    display: grid;
+    grid-area: main__title;
 
 }
-.main__section{
+/* .main__section{
     width: 100%;
-}
+    display: grid;
+    grid-area: main__section;
+} */
 .product-list{
     /* border: 5px solid black; */
     padding: 10px;
     display: grid;
+    grid-template-areas: product-list;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 .product{
+    background-color: wheat;
+    display: grid;
+    grid-template-areas: 
+    "product__img"
+    "product__caption"
+    "price";
     /* border: 5px solid red; */
-    padding: 3px;
     text-align: center;
 }
 
 .product__img{
-    width: 100%;
+    margin: 5px;
+    padding: 3px;
+    width: 95%;
     height: 200px;
     object-fit: cover;
+    grid-template-areas: product__img;
+    align-items: center;
 }
-.product-detail{
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    width: 40%;
-    max-width: 400px;
+.product a{
+    grid-template-areas: product__caption;
+    grid-template-rows: repeat(2,1fr);
+    font-style: normal;
+    color: black;
+    text-decoration: none;
 }
-
-.product-detail__img{
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-}
-
-.product__infor{
-    flex: 1;
-    font-size: medium;
-}
-.product__btn{
-    width: 200px;
-    height: 30px;
-    background-color: orange;
-    margin:5px;
-}
-
-.product__info-label{
-    font-size: 30px;
+.product p {
     font-weight: bold;
+    color: rgb(218, 15, 15);
+    grid-template-areas: price;
 }
 
-.product__info-select{
-    font-size: 20px;
-    padding: 5px 10px;
-}
-
-.product__price{
-    font-size: 32px;
-    font-weight: bold;
+.product a:hover {
+    color: rgb(48, 183, 228);
 }

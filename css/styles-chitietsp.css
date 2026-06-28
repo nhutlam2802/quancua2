@@ -1,0 +1,46 @@
+.page-main{
+    width: 100%;
+    background-color: white;
+    /* padding: 10px;     */
+    display: grid;
+    grid-template-areas: 
+    "product-detail aside";
+}
+.product-detail{
+    grid-area: product-detail;
+    display: grid;
+    grid-template-areas: 
+    "product-detail__img product-detail__infor";
+}
+.product-detail__img{
+    max-width: 500px;
+    grid-area: product-detail__img;
+}
+.product-detail__infor{
+    grid-area: product-detail__infor;
+}
+.product-detail__infor h2{
+    font-size: 1.5rem;
+}
+.product-detail__count{
+    display: flex;
+}
+.product-detail__count-btn{
+    color: orange;
+    text-align: center;
+}
+.product-detail__price p{
+    font-size: 1.5rem;
+    color: red;
+}
+.product-detail__action{
+    display: flex;
+}
+.product-detail__action button{
+    margin: 5px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    max-width: 100px;
+    border: 1px orange;
+}

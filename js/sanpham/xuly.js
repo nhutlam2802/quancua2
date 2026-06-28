@@ -20,8 +20,8 @@ function khoitaotrangchitiet(){
         if (product) {
             product_detail.innerHTML=product.thongtinsp();
         }
-    const sizeSelect = document.querySelector(".product__info-select");
-    const price = document.querySelector(".product__price");
+    const sizeSelect = document.querySelector(".product-detail__info-select");
+    const price = document.querySelector(".product-detail__price");
         doigia(product,sizeSelect,price);
     sizeSelect.addEventListener("change",function(){
         doigia(product,sizeSelect,price)
@@ -31,7 +31,7 @@ function khoitaotrangchitiet(){
 function inputamount(){
     const sum = document.getElementById("sum");
     const minus = document.getElementById("minus");
-    const input = document.querySelector(".product__count-input");
+    const input = document.querySelector(".product-detail__count-input");
     input.value=1;
         sum.addEventListener("click",()=>
         {
@@ -49,9 +49,9 @@ function inputamount(){
 
 }
 function add_cart(product) {
-    const input = document.querySelector(".product__count-input");
+    const input = document.querySelector(".product-detail__count-input");
     const add = document.getElementById("add-cart");
-    const sizeSelect = document.querySelector(".product__info-select");
+    const sizeSelect = document.querySelector(".product-detail__info-select");
     add.addEventListener("click", () => {
         const cart = JSON.parse(localStorage.getItem("cart")) || []; //tim du lieu luu duoi dang cart 
     //trong localStorage, chua co thi tao 1 mang rong
