@@ -216,3 +216,19 @@ button:hover{
         padding:12px;
     }
 }
+
+@media (min-width:1024px){
+
+    .combo-container{
+        gap:30px;
+    }
+
+    .content h1{
+        font-size:60px;
+    }
+
+    .content h2{
+        font-size:60px;
+    }
+}
+
