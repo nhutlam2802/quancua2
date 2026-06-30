@@ -26,6 +26,7 @@ function khoitaotrangchitiet(){
         doigia(product,sizeSelect,price)
     });
     add_cart(product);
+    add_suggest(product);
 }
 function inputamount(){
     const sum = document.getElementById("sum");
@@ -62,6 +63,19 @@ function add_cart(product) {
     buy.addEventListener("click",() => {
         window.location.href="giohang.html";
     })
+}
+function add_suggest(sp) {
+    const suggest = document.querySelector(".suggest__content");
+
+    const index = list_product.findIndex(item => item.id === sp.id);
+
+    let html = "";
+
+    for (let i = 1; i <= 4; i++) {
+        const item = list_product[(index + i) % list_product.length];
+        html += item.add_thongtin();
+    }
+    suggest.innerHTML = html;
 }
 
 

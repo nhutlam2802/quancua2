@@ -4,22 +4,15 @@
     background-color: white;
     /* padding: 10px;     */
     display: grid;
+    gap: 10px;
     grid-template-areas: 
-    "product-detail";
-}
-.product{
-    background-color: rgb(252, 244, 229);
-    display: grid;
-    grid-template-areas: 
-    "product__img"
-    "product__caption"
-    "price";
-    /* border: 5px solid red; */
-    text-align: center;
+    "product-detail"
+    "suggest";
 }
 .product-detail{
     grid-area: product-detail;
     display: grid;
+    gap: 10px;
     grid-template-areas: 
     "product-detail__img product-detail__infor";
 }
@@ -60,26 +53,23 @@
     font-size: 1rem;
     cursor: pointer;
 }
-.combo{
-    grid-area: combo;
+.suggest{
+    grid-area: suggest;
     display: grid;
     gap: 5px;
     grid-template-areas: 
-    "cb-image"
-    "cb-content";
+    "sg-title"
+    "sg-content";
 }
-.combo__title{
-    color: #2C3E50;
-    background-color: orange;
-    font-size: 1rem;
-    grid-area: cb-title;
-    text-align: center;
+.suggest__title{
+     text-align: center;
+     color: #2C3E50;
+     background-color: #FFB347;
+     grid-area: sg-title;
 }
-.combo__content{
+.suggest__content{
+    grid-area: sg-content;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5,1fr);
-    gap: 5px;
-    grid-area: cb-content;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
-
