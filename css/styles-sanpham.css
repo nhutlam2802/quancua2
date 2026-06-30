@@ -8,8 +8,6 @@
     "main__title"
     "product-list"
     ;
-
-    
 }
 .main__title{
     width: 100%;
@@ -21,11 +19,6 @@
     grid-area: main__title;
 
 }
-/* .main__section{
-    width: 100%;
-    display: grid;
-    grid-area: main__section;
-} */
 .product-list{
     /* border: 5px solid black; */
     padding: 10px;
@@ -35,7 +28,7 @@
     gap: 20px;
 }
 .product{
-    background-color: wheat;
+    background-color: rgb(252, 244, 229);
     display: grid;
     grid-template-areas: 
     "product__img"
@@ -63,7 +56,7 @@
 }
 .product p {
     font-weight: bold;
-    color: rgb(218, 15, 15);
+    color:orangered;
     grid-template-areas: price;
 }
 

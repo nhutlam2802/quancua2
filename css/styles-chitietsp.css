@@ -1,10 +1,22 @@
+
 .page-main{
     width: 100%;
     background-color: white;
     /* padding: 10px;     */
     display: grid;
     grid-template-areas: 
-    "product-detail aside";
+    "product-detail"
+    "suggest";
+}
+.product{
+    background-color: rgb(252, 244, 229);
+    display: grid;
+    grid-template-areas: 
+    "product__img"
+    "product__caption"
+    "price";
+    /* border: 5px solid red; */
+    text-align: center;
 }
 .product-detail{
     grid-area: product-detail;
@@ -21,26 +33,74 @@
 }
 .product-detail__infor h2{
     font-size: 1.5rem;
+    font-weight: normal;
+}
+.product-detail__price {
+   color: orangered;
 }
 .product-detail__count{
     display: flex;
+    align-items: center;
+    text-align: center;
 }
 .product-detail__count-btn{
     color: orange;
-    text-align: center;
 }
-.product-detail__price p{
-    font-size: 1.5rem;
-    color: red;
-}
+
 .product-detail__action{
     display: flex;
 }
 .product-detail__action button{
-    margin: 5px;
+    margin: 10px;
     background-color: orange;
     color: white;
     text-align: center;
-    max-width: 100px;
-    border: 1px orange;
+    height: 50px;
+    max-width: 150px;
+    border: 1px solid orange;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.combo{
+    grid-area: combo;
+    display: grid;
+    gap: 5px;
+    grid-template-areas: 
+    "cb-title"
+    "cb-content";
+}
+.combo__title{
+    color: #2C3E50;
+    background-color: orange;
+    font-size: 1rem;
+    grid-area: cb-title;
+    text-align: center;
+}
+.combo__content{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,1fr);
+    gap: 5px;
+    grid-area: cb-content;
+}
+.suggestion{
+    grid-area: suggest;
+    display: grid;
+    gap: 5px;
+    grid-template-areas: 
+    "sg-title"
+    "sg-content";
+}
+.suggestion__title{
+     text-align: center;
+     color: #2C3E50;
+     background-color: orange;
+     grid-area: sg-title;
+}
+.suggestion__content{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px;
+    grid-area: sg-content;
 }
