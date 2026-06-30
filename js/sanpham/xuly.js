@@ -1,6 +1,5 @@
 import { list_product } from "./listproduct.js";
 import { Item } from "./sanpham.js";
-// localStorage.clear(); 
 function khoitao_trangsp(){
     const product_list = document.querySelector(".product-list");
     if (!product_list) return;
@@ -64,6 +63,7 @@ function add_cart(product) {
         window.location.href="giohang.html";
     })
 }
+
 
 khoitao_trangsp();
 khoitaotrangchitiet();
