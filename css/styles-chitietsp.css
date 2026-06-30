@@ -5,8 +5,7 @@
     /* padding: 10px;     */
     display: grid;
     grid-template-areas: 
-    "product-detail"
-    "suggest";
+    "product-detail";
 }
 .product{
     background-color: rgb(252, 244, 229);
@@ -66,7 +65,7 @@
     display: grid;
     gap: 5px;
     grid-template-areas: 
-    "cb-title"
+    "cb-image"
     "cb-content";
 }
 .combo__title{
@@ -83,24 +82,4 @@
     gap: 5px;
     grid-area: cb-content;
 }
-.suggestion{
-    grid-area: suggest;
-    display: grid;
-    gap: 5px;
-    grid-template-areas: 
-    "sg-title"
-    "sg-content";
-}
-.suggestion__title{
-     text-align: center;
-     color: #2C3E50;
-     background-color: orange;
-     grid-area: sg-title;
-}
-.suggestion__content{
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3,1fr);
-    gap: 5px;
-    grid-area: sg-content;
-}
+
