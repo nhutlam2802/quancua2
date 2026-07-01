@@ -1,6 +1,6 @@
 
 .page-main{
-    width: 100%;
+    max-width: 100%;
     background-color: white;
     /* padding: 10px;     */
     display: grid;
@@ -11,16 +11,20 @@
 }
 .product-detail{
     grid-area: product-detail;
+    max-width: 95vw;
     display: grid;
-    gap: 10px;
+    gap:10px;
     grid-template-areas: 
     "product-detail__img product-detail__infor";
+    grid-template-columns: auto 1fr;
 }
 .product-detail__img{
     max-width: 500px;
+    height: auto;
     grid-area: product-detail__img;
 }
 .product-detail__infor{
+    gap: 20px;
     grid-area: product-detail__infor;
 }
 .product-detail__infor h2{
@@ -28,15 +32,16 @@
     font-weight: normal;
 }
 .product-detail__price {
-   color: orangered;
+    color: orangered;
 }
 .product-detail__count{
     display: flex;
-    align-items: center;
     text-align: center;
+    gap: 2px;
 }
 .product-detail__count-btn{
-    color: orange;
+    color: orangered;
+    font-weight: bold;
 }
 
 .product-detail__action{
@@ -57,14 +62,14 @@
     grid-area: suggest;
     display: grid;
     gap: 5px;
+    justify-self: center;
     grid-template-areas: 
     "sg-title"
     "sg-content";
 }
 .suggest__title{
-     text-align: center;
-     color: #2C3E50;
-     background-color: #FFB347;
+     text-align: left;
+     color: orangered;
      grid-area: sg-title;
 }
 .suggest__content{
@@ -72,4 +77,54 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+}
+/* ipad */
+@media(max-width: 1024px) {
+    .product-detail__infor h2{
+        font-size: 25px;
+    }
+    p{
+        font-size: 20px;
+    }
+    .suggest__content{
+        grid-template-columns: repeat(4,1fr);
+    }
+    .product-detail{
+        margin: 0;
+        max-width: 90vw;
+        grid-template-areas: 
+        "product-detail__img"
+        "product-detail__infor";
+    }
+    .product-detail__action button{
+        max-width: 35vw;
+        font-size: 20px;
+    }
+}
+/* dien thoai */
+@media(max-width: 768px){
+    .product-detail__infor h2{
+        font-size: 20px;
+    }
+    p{
+        font-size: 17px;
+    }
+    .product-detail{
+        margin: 0;
+        max-width: 95vw;
+        grid-template-areas: 
+        "product-detail__img"
+        "product-detail__infor";
+    }
+    .suggest__content{
+        max-width: 95vw;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .product-detail__img{
+        max-width: 95vw;
+    }
+     .product-detail__action button{
+        max-width: 25vw;
+        font-size: 17px;
+    }
 }

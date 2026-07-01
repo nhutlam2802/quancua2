@@ -17,6 +17,7 @@
     background-color: #FFB347;
     display: grid;
     grid-area: main__title;
+    justify-self: center;
 
 }
 .product-list{
@@ -26,6 +27,8 @@
     grid-template-areas: product-list;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    align-self: center;
+    justify-self: center;
 }
 .product{
     background-color: rgb(252, 244, 229);
@@ -45,7 +48,8 @@
     height: 200px;
     object-fit: cover;
     grid-template-areas: product__img;
-    align-items: center;
+    align-self: center;
+    justify-self: center;
 }
 .product a{
     grid-template-areas: product__caption;
@@ -62,4 +66,27 @@
 
 .product a:hover {
     color: rgb(48, 183, 228);
+}
+/* ipad */
+@media(max-width: 1024px) {
+    .product a{
+        font-size: 25px;
+    }
+    .product p{
+        font-size: 20px;
+    }
+    .product-list{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+@media(max-width: 768px){
+    .product a{
+        font-size: 20px;
+    }
+    .product p{
+        font-size: 17px;
+    }
+    .product-list{
+        grid-template-columns: repeat(2,1fr);
+    }
 }
