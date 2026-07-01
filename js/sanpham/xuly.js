@@ -51,7 +51,8 @@ function inputamount(){
 function add_cart(product) {
     const input = document.querySelector(".product-detail__count-input");
     const add = document.getElementById("add-cart");
-    const sizeSelect = document.querySelector(".product__info-select");
+    const sizeSelect = document.querySelector(".product-detail__info-select");
+    const buy = document.getElementById("buy");
     add.addEventListener("click", () => {
         const cart = JSON.parse(localStorage.getItem("cart")) || []; //tim du lieu luu duoi dang cart 
     //trong localStorage, chua co thi tao 1 mang rong
