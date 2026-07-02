@@ -5,9 +5,7 @@
     font-family:'Times New Roman', Times, serif;
 }
 
-h1{
-    font-family: 'Bitter';
-}
+h1,
 h2{
     font-family: 'Bitter';
 }
@@ -33,7 +31,7 @@ h2{
     );
 }
 
-body{
+page-main{
     background:#fff8ec;
     padding:30px;
 }
@@ -158,7 +156,7 @@ button:hover{
 
 @media(max-width:768px){
 
-    body{
+    page-main{
         padding:15px;
     }
 
