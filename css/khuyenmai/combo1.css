@@ -5,9 +5,7 @@
     font-family:'Times New Roman', Times, serif;
 }
 
-h1{
-    font-family: 'Bitter';
-}
+h1,
 h2{
     font-family: 'Bitter';
 }
@@ -33,7 +31,7 @@ h2{
     );
 }
 
-body{
+page-main{
     background:#fff8ec;
     padding:30px;
 }
@@ -87,34 +85,6 @@ body{
     line-height: 2;
 }
 
-/*@media  (min-width: 768px){
-    .container{
-        flex-direction: column;
-
-    }
-    .content h1{
-    color:#738004;
-    margin-bottom:20px;
-    font-size: 55px;
-    text-shadow: 2px 2px 5px rgba(248, 228, 228, 0.5);
-
-}
-
-.content h2{
-    color:#ef8a16;
-    margin-bottom:25px;
-    font-size: 55px;
-    text-shadow: 2px 2px 5px rgba(248, 228, 228, 0.5);
-}
-.product img{
-    width:100%;
-    border-radius:12px;
-}
-
-    
-}
-*/
-
 .combo-container{
     display: flex;
     gap: 20px;
@@ -129,67 +99,6 @@ body{
     width:45%;
     text-align:center;
 }
-/*
-@media(max-width:768px){
-
-    body{
-        padding:15px;
-    }
-
-    .title{
-        font-size:35px;
-    }
-
-    .title1{
-        font-size:40px;
-    }
-
-    .combo-container{
-        flex-direction:column;
-        padding:20px;
-    }
-
-    .content,
-    .product{
-        width:100%;
-    }
-
-    .content h1{
-        font-size:40px;
-        text-align:center;
-    }
-
-    .content h2{
-        font-size:40px;
-        text-align:center;
-    }
-
-    .content li{
-        font-size:20px;
-    }
-
-    .product img{
-        width:100%;
-        height:auto;
-    }
-
-    .price-box{
-        gap:10px;
-    }
-
-    .old-price{
-        font-size:20px;
-    }
-
-    .new-price{
-        font-size:28px;
-    }
-
-    button{
-        font-size:18px;
-        padding:12px;
-    }
-}*/
 
 .product img{
     width:100%;
@@ -259,7 +168,7 @@ button:hover{
 
 @media(max-width:768px){
 
-    body{
+    page-main{
         padding:15px;
     }
 
