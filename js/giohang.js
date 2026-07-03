@@ -1,55 +1,38 @@
-function hienThiGioHang(){
-    const mergedCart = [];
-    cart.forEach(item => {
-        const found = mergedCart.find(sp =>
-            sp.product.id === item.product.id &&
-            sp.variant.size === item.variant.size
-        );
-        if(found){
-            found.quantity += Number(item.quantity);
-        }else{
-            mergedCart.push({...item});
-        }
-    });
+function hienThiGioHang() {
 
     const cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
+        JSON.parse(localStorage.getItem("cart")) || [];
 
     const cartBody =
-    document.getElementById("cart-body");
+        document.getElementById("cart-body");
 
     let html = "";
     let tongTien = 0;
 
-    mergedCart.forEach((item,index)=>{
+    cart.forEach((item, index) => {
 
         const thanhTien =
-        item.variant.price * item.quantity;
+            item.variant.price * item.quantity;
 
         tongTien += thanhTien;
 
         html += `
         <div class="cart-row">
 
-
             <div>
                 ${item.product.name}
                 <br>
-                <small>
-                    Size: ${item.variant.size}
-                </small>
+                <small>Size: ${item.variant.size}</small>
             </div>
 
             <div>
-
-                <button onclick="giamSL(${index})">-</button>
+                <button class="btn-minus" data-index="${index}">-</button>
 
                 <span class="sl">
                     ${item.quantity}
                 </span>
 
-                <button onclick="tangSL(${index})">+</button>
-
+                <button class="btn-plus" data-index="${index}">+</button>
             </div>
 
             <div>
@@ -61,7 +44,7 @@ function hienThiGioHang(){
             </div>
 
             <div>
-                <button onclick="xoaSP(${index})">
+                <button class="btn-delete" data-index="${index}">
                     X
                 </button>
             </div>
@@ -73,13 +56,47 @@ function hienThiGioHang(){
     cartBody.innerHTML = html;
 
     document.getElementById("tongtien").innerText =
-    tongTien.toLocaleString("vi-VN");
+        tongTien.toLocaleString("vi-VN");
+
+    
+    document.querySelectorAll(".btn-plus").forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            tangSL(Number(this.dataset.index));
+
+        });
+
+    });
+
+   
+    document.querySelectorAll(".btn-minus").forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            giamSL(Number(this.dataset.index));
+
+        });
+
+    });
+
+   
+    document.querySelectorAll(".btn-delete").forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            xoaSP(Number(this.dataset.index));
+
+        });
+
+    });
+
 }
 
-function tangSL(index){
+function tangSL(index) {
 
     let cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
+        JSON.parse(localStorage.getItem("cart")) || [];
 
     cart[index].quantity++;
 
@@ -91,12 +108,12 @@ function tangSL(index){
     hienThiGioHang();
 }
 
-function giamSL(index){
+function giamSL(index) {
 
     let cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
+        JSON.parse(localStorage.getItem("cart")) || [];
 
-    if(cart[index].quantity > 1){
+    if (cart[index].quantity > 1) {
         cart[index].quantity--;
     }
 
@@ -108,14 +125,14 @@ function giamSL(index){
     hienThiGioHang();
 }
 
-function xoaSP(index){
+function xoaSP(index) {
 
-    if(confirm("Bạn có chắc muốn xóa sản phẩm?")){
+    if (confirm("Bạn có chắc muốn xóa sản phẩm?")) {
 
         let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+            JSON.parse(localStorage.getItem("cart")) || [];
 
-        cart.splice(index,1);
+        cart.splice(index, 1);
 
         localStorage.setItem(
             "cart",
@@ -124,6 +141,43 @@ function xoaSP(index){
 
         hienThiGioHang();
     }
+
 }
 
-window.onload = hienThiGioHang;
+function hienFormThanhToan() {
+
+    document.getElementById("checkout-form").style.display = "block";
+
+    document.getElementById("checkout-form").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+function datHang() {
+
+    alert("Đặt hàng thành công!");
+
+    localStorage.removeItem("cart");
+
+    hienThiGioHang();
+
+    document.getElementById("checkout-form").style.display = "none";
+
+}
+
+window.addEventListener("load", function () {
+
+    hienThiGioHang();
+
+    document.getElementById("back-btn").addEventListener("click", function () {
+
+        window.location.href = "sanpham.html";
+
+    });
+
+    document.getElementById("checkout-btn").addEventListener("click", hienFormThanhToan);
+
+    document.getElementById("btn-order").addEventListener("click", datHang);
+
+});
