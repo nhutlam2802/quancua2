@@ -3,29 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="css/giohang.css">
+    <link rel="stylesheet" href="/css/styles-trangchu.css">
+    <link rel="stylesheet" href="/css/giohang.css">
     <link rel="icon" type="image/png" href="/images/quancua2-favicon.png">
-
     <title>Giỏ hàng</title>
 </head>
 
 <body>
-
     <div id="top"></div>
-
     <div id="header"></div>
-
     <main class="page-main">
-
-        <header class="cart-header">
+        <section class="cart-header">
             <span class="cart-icon">🛒</span>
             <h1>GIỎ HÀNG</h1>
-        </header>
-
-        <div class="cart-container">
-
+        </section>
+        
+        <section class="cart-container">
             <div class="cart-row cart-title">
                 <div>Tên sản phẩm</div>
                 <div>Số lượng</div>
@@ -33,12 +27,10 @@
                 <div>Thành tiền</div>
                 <div>Xóa</div>
             </div>
-
             <div id="cart-body"></div>
+        </section>
 
-        </div>
-
-        <footer class="cart-footer">
+        <section class="cart-footer">
 
             <div class="tong-tien">
                 Tổng tiền:
@@ -58,30 +50,68 @@
                 </button>
 
             </div>
-            <div class="checkout-info" id="checkout-form">
+            <div class="modal" id="checkout-modal">
 
-                <h2>Thông tin nhận hàng</h2>
+                <div class="modal-content">
 
-                <input type="text" id="hoten" placeholder="Họ và tên">
+                    <span class="close-modal" id="close-modal">&times;</span>
 
-                <input type="text" id="sdt" placeholder="Số điện thoại">
+                    <h2>Thông tin nhận hàng</h2>
 
-                <textarea id="diachi" placeholder="Địa chỉ"></textarea>
+                    <input
+                        type="text"
+                        id="hoten"
+                        placeholder="Họ và tên">
 
-                <button id="btn-order" >
-                    Đặt hàng
-                </button>
+                    <input
+                        type="text"
+                        id="sdt"
+                        placeholder="Số điện thoại">
+
+                    <textarea
+                        id="diachi"
+                        placeholder="Địa chỉ"></textarea>
+
+                    <hr>
+
+                    <h3>Đơn hàng của bạn:</h3>
+
+                    <div id="order-list"></div>
+
+                    <p>
+
+                        <strong>Tổng số lượng:</strong>
+
+                        <span id="order-quantity">0</span>
+
+                    </p>
+
+                    <p>
+
+                        <strong>Tổng tiền:</strong>
+
+                        <span id="order-total">0</span>đ
+
+                    </p>
+
+                    <button id="btn-order">
+
+                        Xác nhận đặt hàng
+
+                    </button>
+
+                </div>
 
             </div>
 
-        </footer>
+        </section>
 
     </main>
 
     <div id="footer"></div>
 
     <script src="/js/load-components.js"></script>
-    <script src="js/giohang.js"></script>
+    <script src="/js/giohang.js"></script>
 
 </body>
 </html>
