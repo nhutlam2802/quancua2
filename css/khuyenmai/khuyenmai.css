@@ -1,4 +1,4 @@
-.page-main{
+body{
     margin-top: 160px;
     padding: 20px 0;
 }
@@ -76,7 +76,7 @@
 
 @media (min-width: 768px){
 
-    .page-main{
+    body{
         margin-top: 180px;
     }
 
