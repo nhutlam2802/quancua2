@@ -31,7 +31,7 @@ h2{
     );
 }
 
-page-main{
+body{
     background:#fff8ec;
     padding:30px;
 }
@@ -168,7 +168,7 @@ button:hover{
 
 @media(max-width:768px){
 
-    page-main{
+    body{
         padding:15px;
     }
 
