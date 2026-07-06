@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 html {
@@ -8,12 +9,12 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
     background-color: #fff;
     color: #2C3E50;
 }
 
-/* Top bar */
+/* Top */
 .top_container {
     display: flex;
     justify-content: space-between;
@@ -26,12 +27,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.top_left {
-    color: black;
+    z-index: 1000;  /* Thu tu lop hien thi cao hon */
 }
 
 .top_left i {
@@ -49,6 +45,7 @@ body {
     color: #d35400;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .top_right a i {
@@ -56,7 +53,7 @@ body {
 }
 
 .top_right a:hover {
-    text-decoration: underline;
+    color: orange;
 }
 
 .search-box {
@@ -80,15 +77,11 @@ body {
     color: white;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .search-box button:hover {
     background-color: #d35400;
-}
-
-.page {
-    background-color: white;
-    font-family: Arial, sans-serif;
 }
 
 /* Header */
@@ -99,11 +92,10 @@ body {
     background-color: #FFB347;
     padding: 10px 20px;
     position: fixed;
-    top: 40px; /* bằng chiều cao top_container */
+    top: 40px; 
     left: 0;
     width: 100%;
-    z-index: 999;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 999; /* Thu tu lop hien thi thap hon phan top*/
 }
 
 .page-header__logo {
@@ -114,17 +106,18 @@ body {
 .page-header__navbar {
     display: flex;
     justify-content: center;
-    flex-grow: 1;
+    gap: 40px;
+    flex-grow: 1; /* Cho phép navbar chiếm không gian còn lại */
 }
 
 .page-header__link {
     color: #2C3E50;
     text-decoration: none;
-    margin: 0 20px;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 24px;
     padding: 8px 15px;
     border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 .page-header__link:hover {
@@ -132,7 +125,7 @@ body {
 }
 
 .page-header__cart {
-    position: absolute;
+    position: absolute; /* Đặt vị trí tuyệt đối cho giỏ hàng */
     right: 50px;
     font-size: 24px;
 }
@@ -140,11 +133,16 @@ body {
 .page-header__cart a {
     color: #2C3E50;
     text-decoration: none;
-    position: relative;
+    position: relative; /* Cho phép đặt vị trí tuyệt đối cho cart-count */
+    transition: color 0.3s ease;
+}
+
+.page-header__cart a:hover {
+    color: white;
 }
 
 .page-header__cart .cart-count {
-    position: absolute;
+    position: absolute; /* Đặt vị trí tuyệt đối cho số lượng giỏ hàng */
     top: -8px;
     right: -10px;
     background-color: red;
@@ -154,117 +152,262 @@ body {
     font-size: 12px;
 }
 
+/* Main */
 .page-main {
-    min-height: 600px;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    margin-top: 160px; /* chừa khoảng trống cho top + header */
-}
-
-.page-main .intro {
-    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
+    padding-top: 160px;
+}
+
+/* Banner Slider */
+.page-main__banner-slider {
+    width: 100%;
+    aspect-ratio: 1920 / 700;
+    overflow: hidden;
+    position: relative;
+}
+
+.page-main__banner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.page-main__banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.page-main__banner.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.page-main__banner-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.page-main__banner-btn--prev {
+    left: 20px;
+}
+
+.page-main__banner-btn--next {
+    right: 20px;
+}
+
+.page-main__banner-btn:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.page-main__banner-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.page-main__banner-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.page-main__banner-dot:hover {
+    background-color: #ffd580;
+}
+
+.page-main__banner-dot.active {
+    background-color: #ffd580;
+}
+
+/* Mon an ban chay */
+.suggest {
     text-align: center;
+    margin-top: 40px;
 }
 
-.page-main h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+.suggest__title {
+    color: orangered;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
-.page-main p {
-    font-size: 16px;
-    color: #555;
+.suggest__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    justify-content: center; 
+    align-items: start;
+    margin: 0 auto;
+    max-width: 1100px; 
 }
+
+.suggest__content .product {
+    background-color: #fff8e1;
+    border: 1px solid orange;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    width: 300px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.suggest__content .product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.suggest__content .product__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.suggest__content .product a {
+    display: block;
+    font-weight: bold;
+    color: #d35400;
+    margin: 10px 0;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.suggest__content .product a:hover {
+    color: orange;
+}
+
+.suggest__content .product p {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 
 .page-footer {
     background-color: #2C3E50;
     color: #fff;
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; 
+    flex-wrap: wrap; /* Cho phép các cột xuống dòng khi không đủ chỗ */
     justify-content: space-between;
     padding: 30px 50px;
     font-size: 14px;
+    margin-top: 40px;
 }
 
-.footer-logo {
-    flex: 1 1 200px;
+.page-footer__logo {
+    flex: 1 1 200px; /* Cho phép logo chiếm không gian tối thiểu 200px */
 }
 
-.footer-logo img {
+.page-footer__logo img {
     max-height: 120px;
+    max-width: 100%;
+    height: auto;
 }
 
-.footer-columns {
+.page-footer__columns {
     flex: 3 1 600px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
 }
 
-.footer-col h3 {
+.page-footer__col h3 {
     font-size: 18px;
     margin-bottom: 12px;
     color: #FFD580;
 }
 
-.footer-col p {
+.page-footer__col p {
     margin-bottom: 10px;
     line-height: 1.5;
 }
 
-.footer-col a {
+.page-footer__col a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
     display: block;
     margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
-.footer-col a:hover {
+.page-footer__col a:hover {
     color: #FFD580;
 }
 
-.footer-col ul {
+.page-footer__col ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-.footer-col ul li {
+.page-footer__col ul li {
     margin-bottom: 8px;
 }
 
-.footer-col.social {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.footer-col.social h3 {
-    margin-bottom: 10px;
-    color: #FFD580;
-}
-
-.social-icons {
+.page-footer__social-icons {
     display: flex;
     gap: 15px;
 }
 
-.social-icons a {
+.page-footer__social-icons a {
     color: #fff;
     font-size: 18px;
     transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
+.page-footer__social-icons a:hover {
     color: orange;
 }
 
-.footer-legal {
+.page-footer__legal {
     flex-basis: 100%;
     text-align: center;
     margin-top: 20px;
-    font-size: 14px;
     color: #ccc;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+    }
+
+    .page-header__logo {
+        height: 70px;
+    }
+
+    .page-header__navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-header__cart {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .page-footer__columns {
+        grid-template-columns: 1fr;
+    }
 }

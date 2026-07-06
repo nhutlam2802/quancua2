@@ -15,15 +15,43 @@
     <div id="header"></div>
 
     <main class="page-main">
-        <section class="intro">
-            <h1>Chào mừng đến Quán của 2</h1>
+        <section class="page-main__banner-slider">
+            <div class="page-main__banner active">
+                <img src="/images/banner1.png" alt="Banner 1">
+            </div>
+            <div class="page-main__banner">
+                <img src="/images/banner2.png" alt="Banner 2">
+            </div>
+            <div class="page-main__banner">
+                <img src="/images/banner3.png" alt="Banner 3">
+            </div>
+        
+            <button class="page-main__banner-btn page-main__banner-btn--prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="page-main__banner-btn page-main__banner-btn--next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div class="page-main__banner-dots">
+                <span class="page-main__banner-dot active"></span>
+                <span class="page-main__banner-dot"></span>
+                <span class="page-main__banner-dot"></span>
+            </div>
         </section>
+        
+        <section class="suggest">
+            <h2 class="suggest__title">Món ăn bán chạy</h2>
+            <div class="suggest__content"></div>
+        </section>
+
+
     </main>
 
     <div id="footer"></div>
 
     <script src="/js/load-components.js"></script>
+    <script type="module" src="/js/trangchu.js"></script>
 
 </body>
-
 </html>
