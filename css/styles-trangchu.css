@@ -239,52 +239,52 @@ body {
     background-color: #ffd580;
 }
 
-/* Mon an ban chay */
-.suggest {
+/* Món ăn bán chạy (trang chi tiết sản phẩm) */
+.suggest-detail {
     text-align: center;
     margin-top: 40px;
 }
 
-.suggest__title {
+.suggest-detail__title {
     color: orangered;
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 25px;
 }
 
-.suggest__content {
+.suggest-detail__content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    justify-content: center; 
+    justify-content: center;
     align-items: start;
     margin: 0 auto;
-    max-width: 1100px; 
+    max-width: 1100px;
 }
 
-.suggest__content .product {
+.suggest-detail__content .product {
     background-color: #fff8e1;
     border: 1px solid orange;
     border-radius: 12px;
     padding: 15px;
     text-align: center;
-    width: 300px; 
+    width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.suggest__content .product:hover {
+.suggest-detail__content .product:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.suggest__content .product__img {
+.suggest-detail__content .product__img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-.suggest__content .product a {
+.suggest-detail__content .product a {
     display: block;
     font-weight: bold;
     color: #d35400;
@@ -293,14 +293,154 @@ body {
     font-size: 20px;
 }
 
-.suggest__content .product a:hover {
+.suggest-detail__content .product a:hover {
     color: orange;
 }
 
-.suggest__content .product p {
+.suggest-detail__content .product p {
     color: black;
     font-size: 18px;
     font-weight: bold;
+}
+
+/* Khuyến mãi */
+.promotion {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.promotion__title {
+    color: #d35400;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.promotion__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.promotion__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.promotion__item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* Phóng to nhẹ khi hover */
+.promotion__item:hover img {
+    transform: scale(1.05);
+}
+
+/* Hiệu ứng 4 đường viền chạy */
+.promotion__item::before,
+.promotion__item::after {
+    content: "";
+    position: absolute;
+    background: orange;
+    transition: all 0.5s ease;
+}
+
+/* Đường ngang */
+.promotion__item::before {
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+}
+
+.promotion__item:hover::before {
+    width: 100%;
+}
+
+.promotion__item::after {
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+}
+
+.promotion__item:hover::after {
+    width: 100%;
+}
+
+/* Đường dọc */
+.promotion__item span::before,
+.promotion__item span::after {
+    content: "";
+    position: absolute;
+    background: orange;
+    transition: all 0.5s ease;
+}
+
+/* Thêm span để tạo 2 đường dọc */
+.promotion__item span::before {
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+}
+
+.promotion__item:hover span::before {
+    height: 100%;
+}
+
+.promotion__item span::after {
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0;
+}
+
+.promotion__item:hover span::after {
+    height: 100%;
+}
+
+/* Đường gạch chân trang trí dưới tiêu đề */
+.suggest-detail__title,
+.promotion__title {
+    position: relative;
+    display: inline-block;
+    color: orangered;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.suggest-detail__title::after,
+.promotion__title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background-color: #d35400;
+}
+
+.suggest-detail__title::before,
+.promotion__title::before {
+    content: "❧"; /* ký tự hoa văn */
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #d35400;
 }
 
 
