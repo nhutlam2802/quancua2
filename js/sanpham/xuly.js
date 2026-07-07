@@ -1,45 +1,9 @@
 import { list_product } from "./listproduct.js";
 import { Item } from "./sanpham.js";
-function add_thongtin(product){ //chuyen thanh cac phan tu html cua product
-        return `
-        <div class="product">
-            <img class="product__img" src="${product.image}">
-            <a href="chitietsp.html?id=${product.id}">${product.name}</a>
-            <p>${product.variant[0].price.toLocaleString('vi-VN')}đ</p>
-        </div>
-    `;
-    }
-function thongtinsp(product) {
-        return `
-        <div class="product-detail">
-            <img class="product-detail__img"src="${product.image}">
-            <div class="product-detail__infor">
-                <h2>${product.name}</h2>
-                <label class="product-detail__label">Phân loại:</label>
-                <select class="product-detail__info-select">
-                    ${product.variant.map(v =>
-                        `<option value="${v.size}">${v.size}</option>`
-                    ).join("")}
-                </select>
-                <p class ="product-detail__price" > ${product.variant[0].price.toLocaleString('vi-VN')}đ</p>
-                <div class="product-detail__count">
-                    <p> Số lượng:</p>
-                    <button class="product-detail__count-btn" id="sum">+</button>
-                    <input class="product-detail__count-input" type="number">
-                    <button class="product-detail__count-btn" id = "minus">-</button>
-                </div>
-                <div class="product-detail__action">
-                    <button class="product-detail__btn" id="buy"> Mua ngay </button>
-                    <button class="product-detail__btn" id="add-cart">Thêm vào giỏ hàng</button>
-                </div>
-            </div>
-        </div>
-        `;
-    }
 function khoitao_trangsp(){
     const product_list = document.querySelector(".product-list");
     if (!product_list) return;
-    product_list.innerHTML=list_product.map(item=>add_thongtin(item)).join("");
+    product_list.innerHTML=list_product.map(item=>item.add_thongtin()).join("");
     
 }
 function doigia(product,sizeSelect,price){
@@ -53,7 +17,7 @@ function khoitaotrangchitiet(){
     const id = Number(params.get("id"));
     const product = list_product.find(item => item.id == id); //so sanh tuyet doi
         if (product) {
-            product_detail.innerHTML=thongtinsp(product);
+            product_detail.innerHTML=product.thongtinsp();
         }
     const sizeSelect = document.querySelector(".product-detail__info-select");
     const price = document.querySelector(".product-detail__price");
@@ -114,7 +78,7 @@ function add_suggest(sp) {
 
     for (let i = 1; i <= 4; i++) {
         const item = list_product[(index + i) % list_product.length];
-        html += add_thongtin(item);
+        html += item.add_thongtin();
     }
     suggest.innerHTML = html;
 }
