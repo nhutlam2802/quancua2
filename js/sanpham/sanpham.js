@@ -23,7 +23,7 @@ export class Product {
     thongtinsp() {
             return `
             <div class="product-detail">
-                <img class="product-detail__img"src="${product.image}">
+                <img class="product-detail__img"src="${this.image}">
                 <div class="product-detail__infor">
                     <h2>${this.name}</h2>
                     <label class="product-detail__label">Phân loại:</label>
