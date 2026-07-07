@@ -1,6 +1,26 @@
 function hienThiGioHang() {
-    const cart =
+    let cart =
         JSON.parse(localStorage.getItem("cart")) || [];
+    let newCart = [];
+
+    cart.forEach(item => {
+
+        let index = newCart.findIndex(sp =>
+            sp.product.id == item.product.id &&
+            sp.variant.size == item.variant.size
+        );
+
+        if (index != -1) {
+            newCart[index].quantity += Number(item.quantity);
+        } else {
+            newCart.push(item);
+        }
+
+    });
+
+     cart = newCart;
+
+     localStorage.setItem("cart", JSON.stringify(cart));
     const cartBody =
         document.getElementById("cart-body");
     let html = "";
