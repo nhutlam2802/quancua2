@@ -3,6 +3,7 @@
     justify-content:center;
     align-items:center;
     background:#FFB347;
+    width: 100%;
     padding: 5px;
     margin-bottom: 5px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
@@ -23,12 +24,14 @@
 
 body {
     background-color: #f9f9f9;
-    margin: 30px;
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
 }
 
 .cart-container{
     background: white;
+    width: 100%;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
@@ -52,7 +55,7 @@ body {
     background:#FFFDD0;
     color:#2C3E50;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 25px;
     padding: 10px 0;
 }
 
@@ -72,6 +75,7 @@ body {
    flex-direction: column;
     align-items: flex-end;
     padding: 30px 20px;
+    box-sizing: border-box;
 }
 
 .tong-tien{
@@ -116,9 +120,6 @@ button:hover{
 
 @media screen and (min-width: 1025px){
 
-    body{
-        margin:30px;
-    }
 
     .cart-row{
         grid-template-columns:120px 2fr 1fr 1fr 1fr 80px;
@@ -133,9 +134,6 @@ button:hover{
 
 @media screen and (min-width:769px) and (max-width:1024px){
 
-    body{
-        margin:20px;
-    }
 
     .cart-row{
         grid-template-columns:100px 2fr 1fr 1fr 1fr 70px;
@@ -156,9 +154,7 @@ button:hover{
 
 @media screen and (max-width:768px){
 
-    body{
-        margin:10px;
-    }
+    
 
     .cart-title{
         display:none;
@@ -210,7 +206,8 @@ button:hover{
     cursor:pointer;
 }
 .page-main{
-    margin-top: 0;
+    margin-top: 21px;
+    width: 100%;
 }
 
 .modal{
