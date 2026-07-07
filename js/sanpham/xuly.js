@@ -89,16 +89,20 @@ function add_cart(product) {
     const add = document.getElementById("add-cart");
     const sizeSelect = document.querySelector(".product-detail__info-select");
     const buy = document.getElementById("buy");
-    add.addEventListener("click", () => {
+    function infor(){
         const cart = JSON.parse(localStorage.getItem("cart")) || []; //tim du lieu luu duoi dang cart 
     //trong localStorage, chua co thi tao 1 mang rong
         const variant = product.variant.find(v=>v.size==sizeSelect.value);
         const item = new Item(product,variant,input.value);
         cart.push(item);
-        localStorage.setItem("cart", JSON.stringify(cart));     
+        localStorage.setItem("cart", JSON.stringify(cart));  
+    }
+    add.addEventListener("click", () => { 
+        infor();  
     });
     buy.addEventListener("click",() => {
         window.location.href="giohang.html";
+        infor();
     })
 }
 function add_suggest(sp) {
