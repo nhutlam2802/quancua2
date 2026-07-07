@@ -16,7 +16,7 @@ export class Item{
     constructor(product, variant, quantity){
         this.product = product;
         this.variant = variant;
-        this.quantity = quantity;
+        this.quantity = Number(quantity);
     }
 }
 
