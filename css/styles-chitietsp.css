@@ -33,6 +33,7 @@
 }
 .product-detail__price {
     color: orangered;
+    font-size: 1.4rem;
 }
 .product-detail__count{
     display: flex;
