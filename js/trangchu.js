@@ -65,3 +65,11 @@ document.querySelectorAll(".promotion__item").forEach(item => {
     const span = document.createElement("span");
     item.appendChild(span);
 });
+
+
+const menuBtn = document.querySelector(".menu-toggle");
+const navbar = document.querySelector(".page-header__navbar");
+
+menuBtn.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+});
