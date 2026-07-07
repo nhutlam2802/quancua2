@@ -50,7 +50,7 @@ const best_seller = [
 
 // 2. Render ra trang chủ
 function renderBestSeller() {
-    const container = document.querySelector(".suggest__content");
+    const container = document.querySelector(".suggest-detail__content");
     if (!container) return;
     container.innerHTML = best_seller
         .filter(item => item) // loại bỏ undefined
@@ -60,3 +60,16 @@ function renderBestSeller() {
 }
 
 document.addEventListener("DOMContentLoaded", renderBestSeller);
+
+document.querySelectorAll(".promotion__item").forEach(item => {
+    const span = document.createElement("span");
+    item.appendChild(span);
+});
+
+
+const menuBtn = document.querySelector(".menu-toggle");
+const navbar = document.querySelector(".page-header__navbar");
+
+menuBtn.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+});
