@@ -196,11 +196,11 @@ body{
 }
 
 
-.content{
+.combo-content{
     width:45%;
 }
 
-.content h1{
+.combo-content h1{
     color:#738004;
     margin-bottom:20px;
     font-size: 55px;
@@ -208,24 +208,24 @@ body{
 
 }
 
-.content h2{
+.combo-content h2{
     color:#ef8a16;
     margin-bottom:25px;
     font-size: 55px;
     text-shadow: 2px 2px 5px rgba(248, 228, 228, 0.5);
 }
 
-.content ul {
+.combo-content ul {
     list-style: none;
     padding-left: 0;
 }
-.content li{
+.combo-content li{
     line-height:2;
     color:black;
     font-size: 24px;
 }
 
-.content li::before {
+.combo-content li::before {
     content: "✔ ";
     color: rgb(37, 36, 36);
     font-weight: bold;
@@ -238,7 +238,7 @@ body{
     gap: 20px;
 }
 
-.content,
+.combo-content,
 .product {
     flex:1;
 }
@@ -333,22 +333,22 @@ button:hover{
         padding:20px;
     }
 
-    .content,
+    .combo-content,
     .product{
         width:100%;
     }
 
-    .content h1{
+    .combo-content h1{
         font-size:40px;
         text-align:center;
     }
 
-    .content h2{
+    .combo-content h2{
         font-size:40px;
         text-align:center;
     }
 
-    .content li{
+    .combo-content li{
         font-size:20px;
     }
 
@@ -381,26 +381,26 @@ button:hover{
         gap:30px;
     }
 
-    .content h1{
+    .combo-content h1{
         font-size:60px;
     }
 
-    .content h2{
+    .combo-content h2{
         font-size:60px;
     }
 }
 
 /*combo2*/
-#combo2 .content h1{
+#combo2 .combo-content h1{
     color:#ed7fc3;
 
 }
 /*combo4*/
-#combo4 .content h1{
+#combo4 .combo-content h1{
     color:#62357d;
 }
 /*combo9*/
-#combo9 .content h1{
+#combo9 .combo-content h1{
     color:#840527;
 
 }
