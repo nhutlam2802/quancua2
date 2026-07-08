@@ -75,6 +75,15 @@ function hienThiGioHang() {
             xoaSP(Number(this.dataset.index));
         });
     });
+    if (cart.length === 0) {
+
+        cartBody.innerHTML = `
+            <div class="empty-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
+            </div>
+        `;}
+
 }
 
 function tangSL(index) {
