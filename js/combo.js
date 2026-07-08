@@ -1,5 +1,5 @@
 import { list_product_combo } from "./listproductcombo.js";
-import { Item } from "./sanpham.js";
+import { Item } from "./sanpham/sanpham.js";
 const input = document.querySelector(".product-detail__count-input");
 const plus = document.getElementById("sum");
 const minus = document.getElementById("minus");
