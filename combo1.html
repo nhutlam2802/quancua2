@@ -28,27 +28,46 @@
                 </ul>
             </div>
             <div class="product">
-                <img src="/images/combo1nguoi.png"
-                    alt="Combo 1 người">
-                <div class="price-box">
-                    <span class="old-price">
-                        95.000đ
-                    </span>
-                    <span class="discount">
-                        -23%
-                    </span>
-                    <span class="new-price">
-                        73.000đ
-                    </span>
+                <img src="/images/combo1nguoi.png" alt="Combo 1 người">
+
+                    <div class="price-box">
+                        <span class="old-price">
+                            95.000đ
+                        </span>
+                        <span class="discount">
+                            -23%
+                        </span>
+                        <span class="new-price">
+                            73.000đ
+                        </span>
+                    </div>
+                <div class="product-detail__count">
+                    <button type="button" id="minus">-</button>
+
+                <input
+                    type="number"
+                    class="product-detail__count-input"
+                    value="1"
+                    min="1"
+                    max="100">
+            <button type="button" id="sum">+</button>
                 </div>
-                <button onclick="MuaNgay('Combo 1 người')">
-                    Mua ngay
-                </button>
-            </div>
-        </div>
+    <button
+        id="add-cart"
+        class="product-detail__btn"
+        data-id="1">
+        Thêm vào giỏ hàng
+        </button>
+    <button
+        id="buy"
+        class="product-detail__btn"
+        data-id="1">
+        Mua ngay
+    </button>
+</div>
 </section>
     </main>
     <div id="footer"></div>
     <script src="/js/load-components.js"></script>
-    <script src="/js/combo.js"></script>
+    <script type="module" src="/js/combo.js"></script>
 </body>
