@@ -275,3 +275,20 @@ button:hover{
 .modal-content h3{
     margin-bottom:15px;
 }
+
+.empty-cart{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.empty-cart i{
+    font-size:70px;
+    color:#FFB347;
+    margin-bottom:20px;
+}
+
+
+.empty-cart p{
+    color:#666;
+    font-size:18px;
+}
