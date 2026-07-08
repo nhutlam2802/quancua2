@@ -1,4 +1,4 @@
-import { Product, Variant } from "./sanpham.js";
+import { Product, Variant } from "./sanpham/sanpham.js";
 
 export const list_product_combo = [
 
