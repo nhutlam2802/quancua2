@@ -6,7 +6,6 @@
 <title>Đăng nhập — Quán của 2</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="dangnhap.css">
-
 </head>
 <body>
 
@@ -45,8 +44,6 @@
 
 <main>
     <div class="auth-wrap">
-
-        <!-- FORM ĐĂNG NHẬP -->
         <div class="auth-form-col">
             <form class="auth-form">
                 <h1>Đăng nhập</h1>
@@ -57,18 +54,17 @@
                     <input type="text" id="login-id" placeholder="09xx xxx xxx hoặc email" required>
                 </div>
 
-                <div class="field">
+               <div class="field">
                     <label for="login-pass">Mật khẩu</label>
-                    <input type="password" id="login-pass" placeholder="Nhập mật khẩu" required>
+                    <input type="password" id="login-pass" placeholder="Nhập mật khẩu">
+                    <p id="loi-dang-nhap" class="error-msg"></p>
                 </div>
 
                 <div class="field-row">
                     <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
                     <a href="#">Quên mật khẩu?</a>
                 </div>
-
-                <button type="submit" class="btn">Đăng nhập</button>
-
+                <button type="button" class="btn" onclick="kiemTraDangNhap()">Đăng nhập</button>
                 <div class="divider">hoặc</div>
 
                 <div class="social-row">
@@ -135,6 +131,8 @@
         <p>© 2026 Quán của 2. All rights reserved.</p>
     </div>
 </footer>
-
+<script src="dangnhap.js"></script>
+</body>
+</html>
 </body>
 </html>
