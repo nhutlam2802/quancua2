@@ -237,16 +237,26 @@
 
 .combo-content h1{
     color:#738004;
-    margin-bottom:20px;
-    font-size:60px;
-    text-shadow:2px 2px 5px rgba(248,228,228,.5);
+    font-size:55px;
 }
 
 .combo-content h2{
     color:#ef8a16;
-    margin-bottom:25px;
-    font-size:60px;
+    font-size:55px;
+}
+
+.combo-content h1,
+.combo-content h2{
+    display:block;
+    width:fit-content;
+    margin:0 auto 20px;
+    padding:10px 20px;
+    margin-bottom:20px;
+    border-radius:50px;
+    background:#fff8e8;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
     text-shadow:2px 2px 5px rgba(248,228,228,.5);
+    line-height:1.2;
 }
 
 .combo-content ul{
