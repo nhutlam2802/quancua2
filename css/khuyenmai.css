@@ -1,4 +1,11 @@
 /* KHUYẾN MÃI*/
+
+.page-main{
+    width:100%;
+    margin:0 auto;
+    padding-top:180px;
+}
+
 .banner{
     width: 90%;
     margin: 0 auto 30px;
@@ -10,11 +17,11 @@
 }
 
 .banner h2{
-    font-size: 22px;
+    font-size: 40px;
 }
 
 .banner p{
-    font-size: 16px;
+    font-size: 22px;
 }
 
 .container{
@@ -55,13 +62,14 @@
 
 .content h2{
     color: #ff6f00;
-    font-size: 18px;
+    font-size: 30px;
     margin-bottom: 10px;
     min-height: 40px;
 }
 
 .content p{
     color: #666;
+    font-size: 20px;
     line-height: 1.6;
 }
 
@@ -69,73 +77,114 @@
     text-decoration: none;
     color: inherit;
 }
+@media (max-width:1024px){
 
-@media (min-width: 768px){
-
-    body{
-        margin-top: 180px;
+    .page-main{
+        padding-top:150px;
+        margin-top:0;
     }
 
     .banner h2{
-        font-size: 36px;
+        font-size:42px;
     }
 
     .banner p{
-        font-size: 22px;
+        font-size:24px;
     }
 
     .container{
-        gap: 25px;
-    }
-
-    .card{
-        flex-direction: row;
+        gap:30px;
     }
 
     .card img{
-        width: 320px;
-        height: 220px;
-        object-fit: cover;
+        width:360px;
+        height:240px;
     }
 
     .content h2{
-        font-size: 24px;
+        font-size:28px;
     }
 
     .content p{
-        font-size: 16px;
+        font-size:18px;
+    }
+
+    .combo-content h1,
+    .combo-content h2{
+        font-size:60px;
     }
 }
 
-@media (min-width: 1024px){
+@media (max-width:768px){
 
-    body{
-        margin-top: 200px;
+    .page-main{
+        padding-top:50px;
+        margin-top:0;
     }
 
     .banner h2{
-        font-size: 42px;
+        font-size:36px;
     }
 
     .banner p{
-        font-size: 24px;
+        font-size:22px;
     }
 
     .container{
-        gap: 30px;
+        gap:25px;
+    }
+
+    .card{
+        flex-direction:row;
     }
 
     .card img{
-        width: 360px;
-        height: 240px;
+        width:320px;
+        height:220px;
+        object-fit:cover;
     }
 
     .content h2{
-        font-size: 28px;
+        font-size:24px;
     }
 
     .content p{
-        font-size: 18px;
+        font-size:16px;
+    }
+
+    .combo-container{
+        flex-direction:column;
+    }
+
+    .combo-content,
+    .product{
+        width:100%;
+    }
+
+    .combo-content h1,
+    .combo-content h2{
+        text-align:center;
+        font-size:40px;
+    }
+
+    .combo-content li{
+        font-size:20px;
+    }
+
+    .title{
+        font-size:36px;
+    }
+
+    .title1{
+        font-size:40px;
+    }
+
+    .product img{
+        width:100%;
+    }
+
+    .product-detail__btn{
+        font-size:18px;
     }
 }
 
@@ -188,16 +237,26 @@
 
 .combo-content h1{
     color:#738004;
-    margin-bottom:20px;
     font-size:55px;
-    text-shadow:2px 2px 5px rgba(248,228,228,.5);
 }
 
 .combo-content h2{
     color:#ef8a16;
-    margin-bottom:25px;
     font-size:55px;
+}
+
+.combo-content h1,
+.combo-content h2{
+    display:block;
+    width:fit-content;
+    margin:0 auto 20px;
+    padding:10px 20px;
+    margin-bottom:20px;
+    border-radius:50px;
+    background:#fff8e8;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
     text-shadow:2px 2px 5px rgba(248,228,228,.5);
+    line-height:1.2;
 }
 
 .combo-content ul{
@@ -318,6 +377,16 @@
     background:linear-gradient(to right,#e64a19,#d84315);
 }
 
+@media(max-width:1024px){
+    .combo-content h1{
+        font-size:60px;
+    }
+
+    .combo-content h2{
+        font-size:60px;
+    }
+}
+
 @media(max-width:768px){
 
     .combo-container{
@@ -356,15 +425,6 @@
     }
 }
 
-@media(min-width:1024px){
-    .combo-content h1{
-        font-size:60px;
-    }
-
-    .combo-content h2{
-        font-size:60px;
-    }
-}
 
 #combo2 .combo-content .title{
     color:#ed7fc3;
@@ -378,6 +438,3 @@
     color:#840527;
 }
 
-.page-main{
-    padding-top:0;
-}

@@ -1,53 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đăng ký — Quán của 2</title>
+<title>Đăng ký</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="dangki.css">
-
+<link rel="stylesheet" href="/css/style-trangchu.css">
+<link rel="stylesheet" href="/css/dangki.css">
 </head>
 <body>
 
-<div class="top_container">
-    <div class="top_left">
-        <i class="fa-solid fa-location-dot"></i> 101/4 3/2, Phường Ninh Kiều, TP Cần Thơ |
-        <i class="fa-solid fa-phone"></i> 0943914915 |
-        <i class="fa-solid fa-clock"></i> 10:00 - 22:00
-    </div>
-    <div class="top_right">
-        <a href="dangki.html"><i class="fa-solid fa-user-plus"></i> Đăng ký</a>
-        <span>|</span>
-        <a href="dangnhap.html"><i class="fa-solid fa-right-to-bracket"></i> Đăng nhập</a>
-        <div class="search-box">
-            <input type="text" placeholder="Tìm sản phẩm...">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </div>
-</div>
-
-<header class="page-header">
-    <img class="page-header__logo" src="images.jpg/quancua2-logo.png" alt="Quán của 2 logo">
-    <nav class="page-header__navbar">
-        <a class="page-header__link" href="trangchu.html">Trang chủ</a>
-        <a class="page-header__link" href="gioithieu.html">Giới thiệu</a>
-        <a class="page-header__link" href="sanpham.html">Sản phẩm</a>
-        <a class="page-header__link" href="khuyenmai.html">Khuyến mãi</a>
-        <a class="page-header__link" href="tintuc.html">Tin tức</a>
-        <div class="page-header__cart">
-            <a href="giohang.html">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="cart-count">0</span>
-            </a>
-        </div>
-    </nav>
-</header>
+<div id="top"></div>
+<div id="header"></div>
 
 <main>
     <div class="auth-wrap">
 
-        <!-- GIỚI THIỆU BÊN TRÁI -->
         <div class="auth-side">
             <span class="badge">Thành viên mới</span>
             <h2>Tham gia Quán của 2 — ăn vặt xịn, ưu đãi riêng.</h2>
@@ -92,19 +61,17 @@
                     <input type="password" id="reg-pass" placeholder="Tối thiểu 8 ký tự" required minlength="8">
                     <p class="hint">Nên có chữ hoa, chữ thường và ít nhất 1 số.</p>
                 </div>
-
-                <div class="field">
-                    <label for="reg-pass2">Nhập lại mật khẩu</label>
-                    <input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu" required minlength="8">
-                </div>
-
+                    <div class="field">
+                        <label for="reg-pass2">Nhập lại mật khẩu</label>
+                        <input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu" required minlength="8"> 
+                        <p id="loi-mat-khau" class="error-msg"></p>
+                    </div>
                 <label class="terms-row">
                     <input type="checkbox" required>
                     <span>Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a>.</span>
                 </label>
 
-                <button type="submit" class="btn">Đăng ký tài khoản</button>
-
+                <button type="button" class="btn" onclick="kiemTraDangKy()">Đăng ký tài khoản</button>
                 <p class="switch-line">Đã có tài khoản? <a href="dangnhap.html">Đăng nhập</a></p>
             </form>
         </div>
@@ -112,40 +79,9 @@
     </div>
 </main>
 
-<footer class="page-footer">
-    <div class="page-footer__logo">
-        <img src="images.jpg/quancua2-logo.png" alt="Quán của 2 logo">
-    </div>
-    <div class="page-footer__columns">
-        <div class="page-footer__col">
-            <h3>LIÊN HỆ</h3>
-            <p><i class="fa-solid fa-location-dot"></i> 101/4 3/2, Ninh Kiều, Cần Thơ</p>
-            <p><i class="fa-solid fa-phone"></i> 0943914915</p>
-            <p><i class="fa-solid fa-envelope"></i> quancua2@gmail.com</p>
-        </div>
-        <div class="page-footer__col">
-            <h3>LIÊN KẾT NHANH</h3>
-            <ul>
-                <li><a href="trangchu.html">Trang chủ</a></li>
-                <li><a href="gioithieu.html">Giới thiệu</a></li>
-                <li><a href="sanpham.html">Sản phẩm</a></li>
-                <li><a href="khuyenmai.html">Khuyến mãi</a></li>
-                <li><a href="tintuc.html">Tin tức</a></li>
-            </ul>
-        </div>
-        <div class="page-footer__col">
-            <h3>KẾT NỐI</h3>
-            <div class="page-footer__social-icons">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="page-footer__legal">
-        <p>© 2026 Quán của 2. All rights reserved.</p>
-    </div>
-</footer>
+<footer id="footer"></footer>
 
+<script src="/js/load-components.js"></script>
+<script src="/js/dangki.js"></script>
 </body>
 </html>
