@@ -348,6 +348,11 @@ body {
     cursor: pointer;
 }
 
+.promotion__link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .promotion__item img {
     width: 100%;
     height: 300px;
@@ -459,6 +464,7 @@ body {
     color: #d35400;
 }
 
+/* Footer */
 .page-footer {
     background-color: #2C3E50;
     color: #fff;
