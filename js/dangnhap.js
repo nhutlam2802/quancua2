@@ -22,12 +22,12 @@ function kiemTraDangNhap() {
         return; 
     }
 
-    // 2. Lấy mật khẩu từ trong kho ra (dựa vào số điện thoại)
-    let matKhauTrongKho = localStorage.getItem(soDienThoai);
+    // 2. Lấy thông tin khách hàng từ trong kho ra (dựa vào số điện thoại)
+    let khachHang = JSON.parse(localStorage.getItem(soDienThoai));
 
     // ===============================================================
     // 3. THÊM MỚI: Kiểm tra xem tài khoản đã tồn tại trong kho chưa
-    if (matKhauTrongKho === null) {
+    if (khachHang === null) {
         // Hiện hộp thoại báo lỗi (Hệ thống sẽ đứng đợi ở đây)
         alert("Chưa có tài khoản, hãy đăng ký tài khoản!");
         
@@ -38,11 +38,13 @@ function kiemTraDangNhap() {
     // ===============================================================
 
     // 4. Kiểm tra xem mật khẩu nhập vào có khớp với kho không
-    if (matKhauTrongKho === matKhauNhapVao) {
+    if (khachHang.matKhau === matKhauNhapVao) {
         // Thành công: Chữ xanh và tự động chuyển trang
         thongBaoLoi.style.setProperty("color", "#27ae60", "important");
         thongBaoLoi.innerText = "Đăng nhập thành công!";
         thongBaoLoi.style.display = "block";
+
+        localStorage.setItem("userLogin", JSON.stringify(khachHang));
 
         setTimeout(function() {
             window.location.href = "trangchu.html";
