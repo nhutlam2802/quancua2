@@ -1,28 +1,20 @@
 function hienThiGioHang() {
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+    let cart=JSON.parse(localStorage.getItem("cart")) || [];
     let newCart = [];
-
     cart.forEach(item => {
-
         let index = newCart.findIndex(sp =>
             sp.product.id == item.product.id &&
             sp.variant.size == item.variant.size
         );
-
         if (index != -1) {
             newCart[index].quantity += Number(item.quantity);
         } else {
             newCart.push(item);
         }
-
     });
-
      cart = newCart;
-
      localStorage.setItem("cart", JSON.stringify(cart));
-    const cartBody =
-        document.getElementById("cart-body");
+    const cartBody=document.getElementById("cart-body");
     let html = "";
     let tongTien = 0;
     cart.forEach((item, index) => {
@@ -126,6 +118,12 @@ function xoaSP(index) {
 function hienFormThanhToan() {
         let modal = document.getElementById("checkout-modal");
         modal.style.display = "flex";
+        let user = JSON.parse(localStorage.getItem("userLogin"));
+
+        if(user){
+            document.getElementById("hoten").value = user.hoTen;
+            document.getElementById("sdt").value = user.soDienThoai;
+        }
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         let tongSL = 0;
         let tongTien = 0;
@@ -152,6 +150,21 @@ function dongFormThanhToan(){
 }
 
 function datHang(){
+    let user = localStorage.getItem("userLogin");
+    if(user === null){
+        alert("Vui lòng đăng nhập để đặt hàng!");
+        window.location.href = "dangnhap.html";
+        return;
+    }
+    let diaChi = document.getElementById("diachi");
+    diaChi.classList.remove("input-error");
+
+    if(diaChi.value.trim() === ""){
+        diaChi.classList.add("input-error");
+        diaChi.focus();
+        return;
+    }
+
     alert("Đặt hàng thành công!");
     localStorage.removeItem("cart");
     document.getElementById("checkout-modal").style.display = "none";
@@ -166,5 +179,8 @@ window.addEventListener("load", function(){
     document.getElementById("checkout-btn").addEventListener("click", hienFormThanhToan);
     document.getElementById("close-modal").addEventListener("click", dongFormThanhToan);
     document.getElementById("btn-order").addEventListener("click", datHang);
+    document.getElementById("diachi").addEventListener("input", function () {
+    this.classList.remove("input-error");
+});
 });
 
