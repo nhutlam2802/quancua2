@@ -32,12 +32,16 @@ export class Product {
                             `<option value="${v.size}">${v.size}</option>`
                         ).join("")}
                     </select>
-                    <p class ="product-detail__price" > ${this.variant[0].price.toLocaleString('vi-VN')}đ</p>
+                    <p class ="product-detail__price"> ${this.variant[0].price.toLocaleString('vi-VN')}đ</p>
                     <div class="product-detail__count">
                         <p> Số lượng:</p>
                         <button class="product-detail__count-btn" id="sum">+</button>
                         <input class="product-detail__count-input" type="number">
                         <button class="product-detail__count-btn" id = "minus">-</button>
+                    </div>
+                    <div class="product-detail__status">
+                        <P> Đã bán: 40</P>
+                        <p> Còn lại: 60 </p>
                     </div>
                     <div class="product-detail__action">
                         <button class="product-detail__btn" id="buy"> Mua ngay </button>

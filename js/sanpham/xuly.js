@@ -45,6 +45,7 @@ function inputamount(){
         })
         input.addEventListener("input",()=>{
             if (input.value>100) input.value=100;
+            if (input.value<1) input.value=1;
         })
 
 }
@@ -62,7 +63,8 @@ function add_cart(product) {
         localStorage.setItem("cart", JSON.stringify(cart));  
     }
     add.addEventListener("click", () => { 
-        infor();  
+        infor();
+        alert("Đã thêm vào giỏ hàng thành công!");  
     });
     buy.addEventListener("click",() => {
         window.location.href="giohang.html";
