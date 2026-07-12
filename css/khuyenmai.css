@@ -3,7 +3,7 @@
 .page-main{
     width:100%;
     margin:0 auto;
-    padding-top:50px;
+    padding-top:140px;
 }
 
 .banner{
@@ -433,32 +433,4 @@
 
 #combo9 .combo-content h1{
     color:#840527;
-}
-
-/* Phần viền */
-
-/* Khối chính */
-.page-main{
-    outline:2px solid red;
-}
-
-/* Khối cấp 1 */
-.banner,
-.container,
-.combo-container{
-    outline:2px dashed blue;
-}
-
-/* Khối cấp 2 */
-.card,
-.content,
-.combo-content,
-.product{
-    outline:2px dashed green;
-}
-
-/* Khối cấp 3 */
-.price-box,
-.product-detail__count{
-    outline:1px dashed orange;
 }
