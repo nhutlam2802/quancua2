@@ -32,9 +32,28 @@ function kiemTraDangKy() {
         thongBaoLoi.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Hai mật khẩu không giống nhau!';
         thongBaoLoi.style.display = "block"; 
     } 
-    // 3. Thành công và lưu dữ liệu
+    // 3. Kiểm tra xem tài khoản đã tồn tại chưa
+    // 3. Kiểm tra số điện thoại đã đăng ký chưa
+    else if (localStorage.getItem(soDienThoai) !== null) {
+        oDienThoai.classList.add("input-error");
+        thongBaoLoi.innerHTML =
+            '<i class="fa-solid fa-circle-exclamation"></i> Số điện thoại đã được đăng ký!';
+        thongBaoLoi.style.display = "block";
+    }
+
+    // 4. Thành công và lưu dữ liệu
     else {
-        localStorage.setItem(soDienThoai, matKhau);
+        let hoTen = document.getElementById("reg-name").value;
+
+        let khachHang = {
+            hoTen: hoTen,
+            soDienThoai: soDienThoai,
+            matKhau: matKhau
+        };
+
+        localStorage.setItem(soDienThoai, JSON.stringify(khachHang));
+
+    
         
         thongBaoLoi.style.setProperty("color", "#27ae60", "important");
         thongBaoLoi.innerText = "Đăng ký thành công!";
