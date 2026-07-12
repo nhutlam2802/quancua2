@@ -46,6 +46,7 @@
     border: 5px solid lightblue;
 }
 .product-detail__infor{
+    width: 400px;
     gap: 20px;
     grid-area: product-detail__infor;
     border-radius: 10px;
