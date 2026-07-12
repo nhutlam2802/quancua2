@@ -1,9 +1,11 @@
+// Khai báo class phân loại 
 export class Variant{
     constructor(size,price){
         this.size=size;
         this.price=price;
     }
 }
+// Khai báo class Sản phẩm
 export class Product {
     constructor(id,name,image,variant) {
         this.id=id;
@@ -11,7 +13,8 @@ export class Product {
         this.image = image;
         this.variant = variant;
     }
-    add_thongtin(){ //chuyen thanh cac phan tu html cua product
+    // Chuyển thông tin cơ bản của sản phẩm thành một chuỗi html để hiển thị
+    add_thongtin(){ 
             return `
             <div class="product">
                 <img class="product__img" src="${this.image}">
@@ -20,6 +23,7 @@ export class Product {
             </div>
         `;
         }
+    //Chuyển thông tin chi tiết của sản phẩm thành một chuỗi html để hiển thị
     thongtinsp() {
             return `
             <div class="product-detail">
@@ -52,6 +56,7 @@ export class Product {
             `;
         }
 }
+// Khai báo class Item, là sản phẩm trong giỏ hàng
 export class Item{
     constructor(product, variant, quantity){
         this.product = product;

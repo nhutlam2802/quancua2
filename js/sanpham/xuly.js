@@ -10,6 +10,13 @@ function doigia(product,sizeSelect,price){
     const variant = product.variant.find(v=>v.size==sizeSelect.value);
     price.innerText = `${variant.price.toLocaleString('vi-VN')}đ`;
 }
+function createbreadcrumb(product){
+    const breadcrumb = document.querySelector(".breadcrumb");
+    breadcrumb.innerHTML= 
+        `   <li> <a href="trangchu.html">Trang chủ</a></li>
+            <li> <a href="sanpham.html">Thực đơn</a></li>
+            <li> <a href="chitietsp.html?id=${product.id}">${product.name}</a></li>`
+}
 function khoitaotrangchitiet(){
     const product_detail=document.querySelector(".product__detail");
     if(!product_detail) return;
@@ -25,6 +32,7 @@ function khoitaotrangchitiet(){
     sizeSelect.addEventListener("change",function(){
         doigia(product,sizeSelect,price)
     });
+    createbreadcrumb(product);
     add_cart(product);
     add_suggest(product);
 }
