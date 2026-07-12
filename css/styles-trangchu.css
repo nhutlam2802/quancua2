@@ -32,7 +32,6 @@ body {
     z-index: 1000;
 }
 
-/* Ẩn thông tin địa chỉ trên mobile */
 .top_left {
     display: none;
 }
