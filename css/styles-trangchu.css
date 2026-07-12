@@ -406,38 +406,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Hai đường viền ngang */
-
-.promotion__item::before,
-.promotion__item::after {
-    content: "";
-    position: absolute;
-    background: orange;
-    transition: width 0.5s ease;
-}
-
-.promotion__item::before {
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-}
-
-.promotion__item:hover::before {
-    width: 100%;
-}
-
-.promotion__item::after {
-    right: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-}
-
-.promotion__item:hover::after {
-    width: 100%;
-}
-
 /* Footer */
 .page-footer {
     display: flex;
