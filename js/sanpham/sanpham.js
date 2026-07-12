@@ -19,9 +19,10 @@ export class Product {
             <div class="product">
                 <img class="product__img" src="${this.image}">
                 <a href="chitietsp.html?id=${this.id}">${this.name}</a>
-                <p>${this.variant[0].price.toLocaleString('vi-VN')}đ</p>
+                <p id="price">${this.variant[0].price.toLocaleString('vi-VN')}đ</p>
+                <p id ="rating">Đánh giá: 4.5 <span class="fa -solid fa-star"></span></p>
             </div>
-        `;
+        `; 
         }
     //Chuyển thông tin chi tiết của sản phẩm thành một chuỗi html để hiển thị
     thongtinsp() {
@@ -44,7 +45,7 @@ export class Product {
                         <button class="product-detail__count-btn" id = "minus">-</button>
                     </div>
                     <div class="product-detail__status">
-                        <P> Đã bán: 40</P>
+                        <P> Đã bán: 400</P>
                         <p> Còn lại: 60 </p>
                     </div>
                     <div class="product-detail__action">

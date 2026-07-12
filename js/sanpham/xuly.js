@@ -1,5 +1,8 @@
 import { list_product } from "./listproduct.js";
 import { Item } from "./sanpham.js";
+// Dùng map duyệt qua từng phần tử của mảng list_product (mảng chứa dữ liệu các sản phẩm)
+// Dùng hàm add_thongtin để chuyển các thông tin cơ bản của sản phẩm thành chuỗi html, các chuỗi html tạo thành 
+// 1 mảng mới, dùng join("") để liên kết các phần tử của mảng đó lại thành một chuỗi html
 function khoitao_trangsp(){
     const product_list = document.querySelector(".product-list");
     if (!product_list) return;
@@ -10,6 +13,7 @@ function doigia(product,sizeSelect,price){
     const variant = product.variant.find(v=>v.size==sizeSelect.value);
     price.innerText = `${variant.price.toLocaleString('vi-VN')}đ`;
 }
+
 function createbreadcrumb(product){
     const breadcrumb = document.querySelector(".breadcrumb");
     breadcrumb.innerHTML= 
@@ -26,10 +30,13 @@ function khoitaotrangchitiet(){
         if (product) {
             product_detail.innerHTML=product.thongtinsp();
         }
+        else {
+            window.location.href="chitietsp.html?id=1"
+        }
     const sizeSelect = document.querySelector(".product-detail__info-select");
     const price = document.querySelector(".product-detail__price");
         doigia(product,sizeSelect,price);
-    sizeSelect.addEventListener("change",function(){
+    sizeSelect.addEventListener("change",()=>{
         doigia(product,sizeSelect,price)
     });
     createbreadcrumb(product);
