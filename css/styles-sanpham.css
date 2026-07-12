@@ -3,51 +3,36 @@
     box-sizing: border-box;
 }
 .page-main{
+    margin-top: 180px;
     width: 100%;
     background-color: white;
-    /* padding: 10px;     */
-    display: grid;
-    grid-template-areas: 
-    "main__title"
-    "product-list"
-    ;
+    padding: 10px;
 }
 .main__title{
-    margin: 5px;
+    margin:10px;
     width: 100%;
     padding: 5px;
     font-size: 1.5rem;
     color: orangered;
-    /* font-weight: bold; */
     text-align: center;
     background-color: white;
-    border: 2px dashed lightblue;
-    display: grid;
-    grid-area: main__title;
+    border: 3px dashed lightblue;
     justify-self: center;
-
 }
 .product-list{
-    /* border: 5px solid black; */
     padding: 10px;
     display: grid;
-    grid-template-areas: product-list;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     align-self: center;
     justify-self: center;
-    border: 5px dashed lightgreen;
+    border: 3px dashed lightgreen;
 }
 .product{
     padding: 10px;
     margin: 10px;
     background-color: rgb(252, 244, 229);
     display: grid;
-    grid-template-areas: 
-    "product__img"
-    "product__caption"
-    "price";
-    /* border: 5px solid red; */
     text-align: center;
     border-radius: 10px;
     border: 2px solid orange;
@@ -61,46 +46,37 @@
     width: 95%;
     height: 200px;
     object-fit: cover;
-    grid-template-areas: product__img;
     align-self: center;
     justify-self: center;
+    border: 2px solid orange;
 }
 .product a{
-    grid-template-areas: product__caption;
     font-style: normal;
     color: orangered;
     font-weight: bold;
     text-decoration: none;
+    font-size: 1rem;
+    border: 2px solid yellow;
 }
 .product p {
     font-weight: bold;
     color:black;
-    grid-template-areas: price;
+    font-size: 1rem;
+    border: 2px solid pink;
 }
 
 .product a:hover {
     color: rgb(48, 183, 228);
 }
 /* ipad */
-@media(max-width: 1024px) {
-    .product a{
-        font-size: 25px;
-    }
-    .product p{
-        font-size: 20px;
-    }
+@media(min-width: 601px) {
     .product-list{
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(3,1fr);
     }
 }
-@media(max-width: 768px){
-    .product a{
-        font-size: 20px;
-    }
-    .product p{
-        font-size: 17px;
-    }
+/* laptop */
+@media(min-width:  1025px){
     .product-list{
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(4,1fr);
     }
 }
