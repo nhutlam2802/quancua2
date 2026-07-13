@@ -13,6 +13,10 @@ async function initComponents() {
         loadComponent("footer", "/components/footer.html")
     ]);
 
+    if (typeof hienThiNguoiDung === "function") {
+        hienThiNguoiDung();
+    }
+    
     initMenu();
 }
 
