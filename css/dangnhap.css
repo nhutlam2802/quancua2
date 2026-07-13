@@ -1,11 +1,8 @@
+
 .auth-wrap {
     display: flex;
     max-width: 1000px;
-    margin-top: 80px;     
-    margin-left: auto;    
-    margin-right: auto;   
-    margin-bottom: 0;
-    margin-bottom: 0 ;
+    margin: 180px auto;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
