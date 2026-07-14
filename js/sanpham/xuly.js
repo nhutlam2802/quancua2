@@ -3,7 +3,7 @@ import { Item } from "./sanpham.js";
 // Dùng map duyệt qua từng phần tử của mảng list_product (mảng chứa dữ liệu các sản phẩm)
 // Dùng hàm add_thongtin để chuyển các thông tin cơ bản của sản phẩm thành chuỗi html, các chuỗi html tạo thành 
 // 1 mảng mới, dùng join("") để liên kết các phần tử của mảng đó lại thành một chuỗi html
-function khoitao_trangsp(){
+function khoitaotrangsp(){
     const product_list = document.querySelector(".product-list");
     if (!product_list) return;
     product_list.innerHTML=list_product.map(item=>item.add_thongtin()).join("");
@@ -101,6 +101,6 @@ function add_suggest(sp) {
 }
 
 
-khoitao_trangsp();
+khoitaotrangsp();
 khoitaotrangchitiet();
 inputamount();
