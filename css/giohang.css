@@ -1,5 +1,4 @@
 
-
 .page-main{
     margin-top:21px;
     
@@ -36,14 +35,7 @@
 
 .cart-title{
     display:none;
-   /* display:grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 80px;
-    align-items:center;
-    text-align:center;
-    background:#ffb347;
-    color:white;
-    font-weight:bold;
-    padding:15px;*/
+   
 }
 
 .cart-row{
@@ -52,13 +44,6 @@
     align-items:flex-start;
     gap:12px;
     padding:20px;
-    /*display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 80px;
-    align-items:center;
-    text-align:center;
-    padding:15px;
-    border-bottom:1px solid #ddd;
-    background:#fff;*/
 }
 
 .cart-row div{
