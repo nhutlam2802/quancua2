@@ -1,10 +1,10 @@
 .news-intro {
     text-align: center;
+    padding-top: 180px;
     margin-bottom: 40px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 180px;
 }
 
 .news-intro h1 {
@@ -127,4 +127,24 @@
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+@media screen and (min-width: 601px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media screen and (min-width: 1025px) {
+    .featured {
+        flex-direction: row;
+    }
+    .featured-content {
+        width: 60%;
+    }
+    .featured-image {
+        width: 40%;
+    }
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
 }

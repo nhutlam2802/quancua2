@@ -1,12 +1,12 @@
+
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1000px;
-    margin: 0 auto 50px;
+    margin: 180px auto 50px auto;
     background: white;
     padding: 40px;
-    padding-top: 180px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
@@ -156,4 +156,22 @@
 .cta p {
     margin-bottom: 20px;
     font-size: 16px;
+}
+
+@media screen and (min-width: 601px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media screen and (min-width: 1025px) {
+    .hero {
+        flex-direction: row;
+        text-align: left;
+    }
+    .story {
+        flex-direction: row;
+    }
+    .values-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tài khoản</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles-trangchu.css">
+    <link rel="stylesheet" href="/css/dangki.css">
+    <link rel="stylesheet" href="/css/thongtin.css">
+
+    <link rel="icon" type="image/png" href="/images/quancua2-favicon.png">
+</head>
+
+<body>
+
+<div id="top"></div>
+<div id="header"></div>
+
+<main>
+    <div class="auth-wrap">
+
+        <div class="auth-side">
+            <span class="badge">Tài khoản</span>
+
+            <h2>Thông tin thành viên Quán của 2</h2>
+
+            <p>
+                Bạn có thể xem và cập nhật thông tin cá nhân,
+                đổi mật khẩu để bảo vệ tài khoản của mình.
+            </p>
+
+            <ul>
+                <li><i class="fa-solid fa-user"></i> Quản lý thông tin cá nhân</li>
+                <li><i class="fa-solid fa-lock"></i> Đổi mật khẩu</li>
+                <li><i class="fa-solid fa-shield-halved"></i> Bảo mật tài khoản</li>
+            </ul>
+        </div>
+
+        <div class="auth-form-col">
+
+            <div class="auth-form">
+
+                <h1>Thông tin tài khoản</h1>
+
+                <div class="field">
+                    <label>Họ và tên</label>
+                    <input type="text" id="info-name" readonly>
+                </div>
+
+                <div class="field">
+                    <label>Số điện thoại</label>
+                    <input type="text" id="info-phone" readonly>
+                </div>
+
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" id="info-email" readonly>
+                </div>
+
+                <div class="field">
+                    <label>Mật khẩu</label>
+                    <div class="password-box">
+                        <input type="password" id="info-pass" readonly>
+                        <button type="button" id="toggle-pass">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Mật khẩu mới</label>
+                    <input type="password" id="new-pass" placeholder="Nhập mật khẩu mới">
+                </div>
+
+                <div class="field">
+                    <label>Nhập lại mật khẩu mới</label>
+                    <input type="password" id="new-pass2" placeholder="Nhập lại mật khẩu">
+                </div>
+
+                <button class="btn" onclick="doiMatKhau()">
+                    Đổi mật khẩu
+                </button>
+
+                <p id="doi-pass-msg" class="error-msg"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<div id="footer"></div>
+
+<script type="module" src="/js/load-components.js"></script>
+<script src="/js/user.js"></script>
+<script src="/js/thongtin.js"></script>
+
+</body>
+</html>

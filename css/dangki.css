@@ -2,10 +2,9 @@
 .auth-wrap {
     display: flex;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 180px auto;
     background: white;
     border-radius: 10px;
-    padding-top: 180px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     overflow: hidden;
 }
@@ -157,4 +156,15 @@
     border: 1px solid #d23f31 !important; 
     background-color: #fff9f9; 
     outline: none;
+
+}
+@media screen and (min-width: 601px) {
+    .field-2col {
+        flex-direction: row; 
+    }
+}
+@media screen and (min-width: 1025px) {
+    .auth-wrap {
+        flex-direction: row; 
+    }
 }
