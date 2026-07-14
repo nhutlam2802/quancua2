@@ -182,21 +182,6 @@ body {
     color: #2C3E50;
 }
 
-.cart-count {
-    position: absolute;
-    top: -0.4rem;
-    right: -0.5rem;
-    min-width: 1.2rem;
-    height: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: red;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 0.7rem;
-}
-
 /* Main */
 .page-main {
     width: 100%;
