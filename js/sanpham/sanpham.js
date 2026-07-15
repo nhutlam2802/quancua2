@@ -40,7 +40,7 @@ export class Product {
                     <div class="product-detail__count">
                         <p> Số lượng:</p>
                         <button class="product-detail__count-btn" id="sum">+</button>
-                        <input class="product-detail__count-input" type="number">
+                        <input class="product-detail__count-input" type="number" value=1>
                         <button class="product-detail__count-btn" id = "minus">-</button>
                     </div>
                     <div class="product-detail__status">
