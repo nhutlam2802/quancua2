@@ -13,6 +13,7 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     background-color: #fff;
     color: #2C3E50;
+    border: 3px dashed yellow;  /*Wireframe*/
 }
 
 /* Top */
