@@ -305,7 +305,7 @@ body {
     border: 1px solid orange;
     border-radius: 0.75rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     /*border: 2px dashed purple;  Wireframe*/
 }
 
