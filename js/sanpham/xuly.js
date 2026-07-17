@@ -71,12 +71,14 @@ function add_cart(product) {
     const sizeSelect = document.querySelector(".product-detail__info-select");
     const buy = document.getElementById("buy");
     function infor(){
-        const cart = JSON.parse(localStorage.getItem("cart")) || []; //tim du lieu luu duoi dang cart 
-    //trong localStorage, chua co thi tao 1 mang rong
+        const cart = JSON.parse(localStorage.getItem("userLogin")) || []; //tim du lieu luu duoi dang cart 
+        const cartKey = "cart_" + user.soDienThoai;
+        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+        //trong localStorage, chua co thi tao 1 mang rong
         const variant = product.variant.find(v=>v.size==sizeSelect.value);
         const item = new Item(product,variant,input.value);
         cart.push(item);
-        localStorage.setItem("cart", JSON.stringify(cart));  
+        localStorage.setItem("cartKey", JSON.stringify(cart));  
     }
     add.addEventListener("click", () => { 
         if(checklogin()) {
