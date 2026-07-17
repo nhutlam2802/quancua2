@@ -7,7 +7,9 @@
 
 function hienThiGioHang() {
     /*Đọc dữ liệu giỏ hàng từ localStorage. Nếu không có thì tạo mảng rỗng.*/
-    let cart=JSON.parse(localStorage.getItem("cart")) || [];
+    let user = JSON.parse(localStorage.getItem("userLogin"));
+    let cartKey = "cart_" + user.soDienThoai;
+    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     /*Gộp các sản phẩm cùng loại và cùng size. Nếu đã tồn tại thì cộng dồn số lượng.*/
     let newCart = []; /*Tạo mảng mới để lưu các sản phẩm đã gộp.*/
     cart.forEach(item => {
@@ -23,45 +25,68 @@ function hienThiGioHang() {
     }); 
     /*Cập nhật lại giỏ hàng trong localStorage với mảng mới đã gộp.*/
      cart = newCart;
-     localStorage.setItem("cart", JSON.stringify(cart));
+     localStorage.setItem("cartKey", JSON.stringify(cart));
      /*Hiển thị danh sách sản phẩm lên trang.*/
     const cartBody=document.getElementById("cart-body"); /*nơi hiển thị danh sách sản phẩm trong giỏ hàng.*/
-    let html = ""; /*Tạo chuỗi HTML để hiển thị danh sách sản phẩm.*/
-    let tongTien = 0; /*Biến để tính tổng tiền.*/
-    cart.forEach((item, index) => { /*Duyệt qua từng sản phẩm trong giỏ hàng.*/
-        const thanhTien = item.variant.price * item.quantity;/*Tính thành tiền của sản phẩm.*/
-        tongTien += thanhTien;
-        html += ` 
-        <div class="cart-row">
-            <div>
-                ${item.product.name}
-                <br>
-                <small>Size: ${item.variant.size}</small>
-            </div>
-            <div>
-                <button class="btn-minus" data-index="${index}">-</button>
-                <span class="sl">
-                    ${item.quantity}
-                </span>
-                <button class="btn-plus" data-index="${index}">+</button>
-            </div>
-            <div>
-                ${item.variant.price.toLocaleString("vi-VN")}đ
-            </div>
-            <div class="thanhtien">
-                ${thanhTien.toLocaleString("vi-VN")}đ
-            </div>
-            <div>
-                <button class="btn-delete" data-index="${index}">
-                    X
-                </button>
-            </div>
-        </div>
-        `;
-    });
-    cartBody.innerHTML = html;
-    document.getElementById("tongtien").innerText =
-        tongTien.toLocaleString("vi-VN");
+    
+    cartBody.replaceChildren();
+let tongTien = 0;
+
+cart.forEach((item, index) => {
+    const thanhTien = item.variant.price * item.quantity;
+    tongTien += thanhTien;
+
+    const row = document.createElement("div");
+    row.className = "cart-row";
+
+    const ten = document.createElement("div");
+    ten.append(item.product.name);
+    ten.append(document.createElement("br"));
+    const size = document.createElement("small");
+    size.textContent = "Size: " + item.variant.size;
+    ten.append(size);
+
+    const sl = document.createElement("div");
+
+    const tru = document.createElement("button");
+    tru.className = "btn-minus";
+    tru.dataset.index = index;
+    tru.textContent = "-";
+
+    const soLuong = document.createElement("span");
+    soLuong.className = "sl";
+    soLuong.textContent = item.quantity;
+
+    const cong = document.createElement("button");
+    cong.className = "btn-plus";
+    cong.dataset.index = index;
+    cong.textContent = "+";
+
+    sl.append(tru, soLuong, cong);
+
+    const gia = document.createElement("div");
+    gia.textContent = item.variant.price.toLocaleString("vi-VN") + "đ";
+
+    const tt = document.createElement("div");
+    tt.className = "thanhtien";
+    tt.textContent = thanhTien.toLocaleString("vi-VN") + "đ";
+
+    const xoa = document.createElement("div");
+    const nutXoa = document.createElement("button");
+    nutXoa.className = "btn-delete";
+    nutXoa.dataset.index = index;
+    nutXoa.textContent = "X";
+    xoa.append(nutXoa);
+
+    row.append(ten, sl, gia, tt, xoa);
+    cartBody.append(row);
+});
+
+document.getElementById("tongtien").textContent =
+    tongTien.toLocaleString("vi-VN");
+    
+   
+   
     document.querySelectorAll(".btn-plus").forEach(button => {
         button.addEventListener("click", function () {
             tangSL(Number(this.dataset.index));
@@ -78,49 +103,50 @@ function hienThiGioHang() {
         });
     });
     if (cart.length === 0) {
+    cartBody.replaceChildren();
 
-        cartBody.innerHTML = `
-            <div class="empty-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <p>Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
-            </div>
-        `;}
+    const div = document.createElement("div");
+    div.className = "empty-cart";
 
+    const icon = document.createElement("i");
+    icon.className = "fa-solid fa-cart-shopping";
+
+    const p = document.createElement("p");
+    p.textContent = "Bạn chưa có sản phẩm nào trong giỏ hàng.";
+
+    div.append(icon, p);
+    cartBody.append(div);
+}
 }
 
 function tangSL(index) {
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+    let user = JSON.parse(localStorage.getItem("userLogin"));
+    let cartKey = "cart_" + user.soDienThoai;
+    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     cart[index].quantity++;
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+    localStorage.setItem(cartKey, JSON.stringify(cart));
     hienThiGioHang();
 }
 
 function giamSL(index) {
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+    let user = JSON.parse(localStorage.getItem("userLogin"));
+    let cartKey = "cart_" + user.soDienThoai;
+    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     if (cart[index].quantity > 1) {
         cart[index].quantity--;
     }
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+    
     hienThiGioHang();
 }
 
 function xoaSP(index) {
     if (confirm("Bạn có chắc muốn xóa sản phẩm?")) {
-        let cart =
-            JSON.parse(localStorage.getItem("cart")) || [];
+        let user = JSON.parse(localStorage.getItem("userLogin"));
+        let cartKey = "cart_" + user.soDienThoai;
+        let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
         cart.splice(index, 1);
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
+        localStorage.setItem(cartKey,JSON.stringify(cart));
         hienThiGioHang();
     }
 }
@@ -134,25 +160,28 @@ function hienFormThanhToan() {
             document.getElementById("hoten").value = user.hoTen;
             document.getElementById("sdt").value = user.soDienThoai;
         }
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartKey = "cart_" + user.soDienThoai;
+        let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
         let tongSL = 0;
         let tongTien = 0;
-        let html = "";
-        for(let i = 0; i < cart.length; i++){
+        const orderList = document.getElementById("order-list");
+        orderList.replaceChildren();
+
+        for (let i = 0; i < cart.length; i++) {
             tongSL += Number(cart[i].quantity);
             tongTien += cart[i].quantity * cart[i].variant.price;
-            html +=
-            "<p>"
-            + cart[i].product.name
-            + " (" + cart[i].variant.size + ")"
-            + " x " + cart[i].quantity
-            + "</p>";
+
+            const p = document.createElement("p");
+            p.textContent = cart[i].product.name +
+                " (" + cart[i].variant.size + ") x " + cart[i].quantity;
+
+            orderList.append(p);
         }
-        document.getElementById("order-list").innerHTML = html;
         document.getElementById("order-quantity").innerText = tongSL;
         document.getElementById("order-total").innerText =
-        tongTien.toLocaleString("vi-VN");
-    }
+            tongTien.toLocaleString("vi-VN"); 
+}
+
 
 
 function dongFormThanhToan(){
@@ -176,7 +205,9 @@ function datHang(){
     }
 
     alert("Đặt hàng thành công!");
-    localStorage.removeItem("cart");
+    let user = JSON.parse(localStorage.getItem("userLogin"));
+    let cartKey = "cart_" + user.soDienThoai;
+    localStorage.removeItem(cartKey);
     document.getElementById("checkout-modal").style.display = "none";
     hienThiGioHang();
 }
@@ -193,4 +224,3 @@ window.addEventListener("load", function(){
     this.classList.remove("input-error");
 });
 });
-
