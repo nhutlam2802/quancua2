@@ -1,27 +1,37 @@
+/*chức năng hienThiGioHang: Đọc dữ liệu giỏ hàng từ localStorage.
+                            Gộp các sản phẩm cùng loại và cùng size.
+                            Hiển thị danh sách sản phẩm lên trang.
+                            Tính tổng tiền.
+                            Gán sự kiện cho các nút tăng, giảm, xóa.
+                            Nếu giỏ hàng rỗng thì hiển thị thông báo.*/
+
 function hienThiGioHang() {
+    /*Đọc dữ liệu giỏ hàng từ localStorage. Nếu không có thì tạo mảng rỗng.*/
     let cart=JSON.parse(localStorage.getItem("cart")) || [];
-    let newCart = [];
+    /*Gộp các sản phẩm cùng loại và cùng size. Nếu đã tồn tại thì cộng dồn số lượng.*/
+    let newCart = []; /*Tạo mảng mới để lưu các sản phẩm đã gộp.*/
     cart.forEach(item => {
-        let index = newCart.findIndex(sp =>
+        let index = newCart.findIndex(sp => /*Tìm kiếm sản phẩm cùng loại và cùng size trong mảng mới.*/
             sp.product.id == item.product.id &&
             sp.variant.size == item.variant.size
         );
-        if (index != -1) {
+        if (index != -1) { /*Nếu tìm thấy thì cộng dồn số lượng.*/
             newCart[index].quantity += Number(item.quantity);
         } else {
-            newCart.push(item);
+            newCart.push(item);  /*Nếu không tìm thấy thì thêm sản phẩm vào mảng mới.*/
         }
-    });
+    }); 
+    /*Cập nhật lại giỏ hàng trong localStorage với mảng mới đã gộp.*/
      cart = newCart;
      localStorage.setItem("cart", JSON.stringify(cart));
-    const cartBody=document.getElementById("cart-body");
-    let html = "";
-    let tongTien = 0;
-    cart.forEach((item, index) => {
-        const thanhTien =
-            item.variant.price * item.quantity;
+     /*Hiển thị danh sách sản phẩm lên trang.*/
+    const cartBody=document.getElementById("cart-body"); /*nơi hiển thị danh sách sản phẩm trong giỏ hàng.*/
+    let html = ""; /*Tạo chuỗi HTML để hiển thị danh sách sản phẩm.*/
+    let tongTien = 0; /*Biến để tính tổng tiền.*/
+    cart.forEach((item, index) => { /*Duyệt qua từng sản phẩm trong giỏ hàng.*/
+        const thanhTien = item.variant.price * item.quantity;/*Tính thành tiền của sản phẩm.*/
         tongTien += thanhTien;
-        html += `
+        html += ` 
         <div class="cart-row">
             <div>
                 ${item.product.name}
