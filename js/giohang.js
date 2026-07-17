@@ -103,20 +103,20 @@ document.getElementById("tongtien").textContent =
         });
     });
     if (cart.length === 0) {
-    cartBody.replaceChildren();
+        cartBody.replaceChildren();
 
-    const div = document.createElement("div");
-    div.className = "empty-cart";
+        const div = document.createElement("div");
+        div.className = "empty-cart";
 
-    const icon = document.createElement("i");
-    icon.className = "fa-solid fa-cart-shopping";
+        const icon = document.createElement("i");
+        icon.className = "fa-solid fa-cart-shopping";
 
-    const p = document.createElement("p");
-    p.textContent = "Bạn chưa có sản phẩm nào trong giỏ hàng.";
+        const p = document.createElement("p");
+        p.textContent = "Bạn chưa có sản phẩm nào trong giỏ hàng.";
 
-    div.append(icon, p);
-    cartBody.append(div);
-}
+        div.append(icon, p);
+        cartBody.append(div);
+    }
 }
 
 function tangSL(index) {
