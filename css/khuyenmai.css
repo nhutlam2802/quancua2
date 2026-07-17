@@ -69,7 +69,7 @@
 
 .content p{
     color: #666;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 1.6;
 }
 
@@ -77,162 +77,7 @@
     text-decoration: none;
     color: inherit;
 }
-@media screen and (min-width:601px){
 
-    .page-main{
-        padding-top:180px;
-        margin-top:0;
-    }
-
-    .banner h2{
-        font-size:42px;
-    }
-
-    .banner p{
-        font-size:24px;
-    }
-
-    .container{
-        gap:30px;
-    }
-
-    .card img{
-        width:360px;
-        height:240px;
-    }
-
-    .content h2{
-        font-size:28px;
-    }
-
-    .content p{
-        font-size:18px;
-    }
-
-    .combo-content h1,
-    .combo-content h2{
-        font-size:60px;
-    }
-
-    .combo-content h1{
-        font-size:60px;
-    }
-
-    .combo-content h2{
-        font-size:60px;
-    }
-
-    .combo-container{
-        flex-direction:column;
-    }
-
-    .combo-content,
-    .product{
-        width:100%;
-    }
-
-    .combo-content h1,
-    .combo-content h2{
-        text-align:center;
-        font-size:40px;
-    }
-
-    .combo-content li{
-        font-size:20px;
-    }
-
-    .title{
-        font-size:36px;
-    }
-
-    .title1{
-        font-size:40px;
-    }
-    
-    .product img{
-        width:100%;
-    }
-
-    .product-detail__btn{
-        font-size:18px;
-    }
-}
-
-@media screen and (min-width:1025px){
-
-    .page-main{
-        padding-top:200px;
-        margin-top:0;
-    }
-
-    .banner h2{
-        font-size:36px;
-    }
-
-    .banner p{
-        font-size:22px;
-    }
-
-    .container{
-        gap:25px;
-    }
-
-    .card{
-        flex-direction:row;
-    }
-
-    .card img{
-        width:320px;
-        height:220px;
-        object-fit:cover;
-    }
-
-    .content h2{
-        font-size:24px;
-    }
-
-    .content p{
-        font-size:16px;
-    }
-
-    .combo-container{
-        flex-direction:row;
-    }
-
-    .combo-content,
-    .product{
-        width:100%;
-    }
-
-
-    .combo-content li{
-        font-size:20px;
-    }
-
-    .title{
-        font-size:36px;
-    }
-
-    .title1{
-        font-size:40px;
-    }
-
-    .product img{
-        width:100%;
-    }
-
-    .product-detail__btn{
-        font-size:18px;
-    }
-
-    .combo-content h1{
-        font-size:60px;
-    }
-
-    .combo-content h2{
-        font-size:60px;
-    }
-}
 
 /* COMBO1 */
 
@@ -252,12 +97,14 @@
     font-size:50px;
     text-align:center;
     background:linear-gradient(#f0ddd7,white);
+    white-space:nowrap;
 }
 
 .title1{
     font-size:55px;
     text-align:center;
     background:linear-gradient(#f0ddd7,white);
+    white-space:nowrap;
 }
 
 .combo-container{
@@ -294,15 +141,16 @@
 .combo-content h1,
 .combo-content h2{
     display:block;
-    width:fit-content;
+    width:100%;
+    max-width:700px;
     margin:0 auto 20px;
     padding:10px 20px;
-    margin-bottom:20px;
     border-radius:50px;
     background:#fff8e8;
     box-shadow:0 4px 10px rgba(0,0,0,.15);
     text-shadow:2px 2px 5px rgba(248,228,228,.5);
     line-height:1.2;
+    text-align:center;
 }
 
 .combo-content ul{
@@ -433,4 +281,175 @@
 
 #combo9 .combo-content h1{
     color:#840527;
+}
+
+@media screen and (min-width:601px){
+
+    .page-main{
+        padding-top:180px;
+        margin-top:0;
+    }
+
+    .banner h2{
+        font-size:28px;
+    }
+
+    .banner p{
+        font-size:18px;
+    }
+
+    .container{
+        gap:30px;
+    }
+
+    .card img{
+        width:360px;
+        height:240px;
+    }
+
+    .content h2{
+        font-size:24px;
+    }
+
+    .content p{
+        font-size:16px;
+    }
+
+    .combo-container{
+        flex-direction:column;
+    }
+
+    .combo-content,
+    .product{
+        width:100%;
+    }
+
+    .combo-content h1,
+    .combo-content h2{
+    text-align:center;
+    font-size:36px;
+}
+    .combo-content li{
+        font-size:20px;
+    }
+
+    .title{
+        font-size:40px;
+    }
+
+    .title1{
+        font-size:44px;
+    }
+
+    .product img{
+        width:100%;
+    }
+
+    .old-price{
+        font-size:22px;
+    }
+
+    .discount{
+        font-size:18px;
+    }
+
+    .new-price{
+        font-size:28px;
+    }
+
+    .product-detail__count-input{
+        font-size:18px;
+    }
+
+    .product-detail__btn{
+        font-size:18px;
+    }
+}
+
+@media screen and (min-width:1025px){
+
+    .page-main{
+        padding-top:200px;
+        margin-top:0;
+    }
+
+    .banner h2{
+        font-size:40px;
+    }
+
+    .banner p{
+        font-size:24px;
+    }
+
+    .container{
+        gap:25px;
+    }
+
+    .card{
+        flex-direction:row;
+    }
+
+    .card img{
+        width:320px;
+        height:220px;
+        object-fit:cover;
+    }
+
+    .content h2{
+        font-size:28px;
+    }
+
+    .content p{
+        font-size:18px;
+    }
+
+    .combo-container{
+        flex-direction:row;
+    }
+
+    .combo-content,
+    .product{
+        width:100%;
+    }
+
+    .combo-content h1,
+    .combo-content h2{
+        font-size:55px;
+    }
+
+    .combo-content li{
+        font-size:24px;
+    }
+
+    .title{
+        font-size:50px;
+    }
+
+    .title1{
+        font-size:55px;
+    }
+
+    .product img{
+        width:100%;
+    }
+
+    .old-price{
+        font-size:24px;
+    }
+
+    .discount{
+        font-size:20px;
+    }
+
+    .new-price{
+        font-size:32px;
+    }
+
+    .product-detail__count-input{
+        font-size:20px;
+    }
+
+    .product-detail__btn{
+        font-size:20px;
+    }
 }

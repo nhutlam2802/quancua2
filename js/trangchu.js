@@ -1,31 +1,25 @@
 let currentBanner = 0;
 const banners = document.querySelectorAll(".page-main__banner");
 const dots = document.querySelectorAll(".page-main__banner-dot");
-const totalBanners = banners.length;
 
 function showBanner(index) {
-    banners.forEach((banner, i) => {
-        banner.classList.toggle("active", i === index);
-        if (dots[i]) {
-            dots[i].classList.toggle("active", i === index);
-        }
-    });
+    banners.forEach((banner, i) => banner.classList.toggle("active", i === index));
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
 }
 
 function nextBanner() {
-    currentBanner = (currentBanner + 1) % totalBanners;
+    currentBanner = (currentBanner + 1) % banners.length;
     showBanner(currentBanner);
 }
 
 function prevBanner() {
-    currentBanner = (currentBanner - 1 + totalBanners) % totalBanners;
+    currentBanner = (currentBanner - 1 + banners.length) % banners.length;
     showBanner(currentBanner);
 }
 
-setInterval(nextBanner, 5000); // Tu dong chuyen banner moi 5 giay
+document.querySelector(".page-main__banner-btn--next").addEventListener("click", nextBanner);
 
 document.querySelector(".page-main__banner-btn--prev").addEventListener("click", prevBanner);
-document.querySelector(".page-main__banner-btn--next").addEventListener("click", nextBanner);
 
 dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
@@ -33,6 +27,8 @@ dots.forEach((dot, index) => {
         showBanner(currentBanner);
     });
 });
+
+setInterval(nextBanner, 5000);
 
 showBanner(currentBanner);
 
@@ -45,7 +41,7 @@ const best_seller = [
     list_product.find(p => p.id === 4), // Mì trộn
     list_product.find(p => p.id === 6), // Gà rán
     list_product.find(p => p.id === 8), // Khoai tây chiên
-    list_product.find(p => p.id === 11) // Gà lắc phô mai
+    list_product.find(p => p.id === 11) // Gà lắc
 ];
 
 // 2. Render ra trang chủ
@@ -60,8 +56,3 @@ function renderBestSeller() {
 }
 
 document.addEventListener("DOMContentLoaded", renderBestSeller);
-
-document.querySelectorAll(".promotion__item").forEach(item => {
-    const span = document.createElement("span");
-    item.appendChild(span);
-});
