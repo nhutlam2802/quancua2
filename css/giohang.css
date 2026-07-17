@@ -1,23 +1,20 @@
-
 .page-main{
-    margin-top:21px;
-    
+    margin-top:21px; 
 }
 
 .cart-header{
-    display:flex;
+    display:flex;  /*gom icon và gihang thành flexbox*/
     justify-content:center;
     align-items:center;
     background:#f79e21;
     padding:5px;
     margin-top:8px; 
     margin-bottom:5px;
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
+    box-shadow:0 4px 15px rgba(0,0,0,.15); /*tạo bóng 0 lệch trái 4px xuống 15px độ mờ*/
 }
 
 .cart-header h1{
     color:#2C3E50;
-    margin:0;
 }
 
 .cart-icon{
@@ -25,34 +22,33 @@
     color:#2C3E50;
     margin-right:5px;
 }
-
+/*khung chứa toàn bộ sp*/
 .cart-container{
     background:white;
-    border-radius:15px;
-    overflow:hidden;
+    border-radius:15px;  /*bo góc*/
+    overflow:hidden;     /* ẩn phần thừa*/
     box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .cart-title{
-    display:none;
-   
+    display:none; /*ẩn tittle trên đt*/
 }
 
 .cart-row{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+    display:flex; 
+    flex-direction:column; /*gom các div thành 1 cột*/
+    align-items:flex-start; /*canh trái*/
     gap:12px;
-    padding:20px;
+    padding:20px; 
 }
-
+/*áp cho các div trong cart-row*/
 .cart-row div{
     width:100%;
     display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
+    justify-content:space-between; /* căn đều các div trong cart-row*/
+    align-items:flex-end; /*canh dưới*/
 }
-
+/*khi click vào thì đổi màu nền*/
 .cart-row:hover{
     background:#fff8ee;
 }
@@ -60,23 +56,24 @@
 .thanhtien{
     color:#ff4d1c;
     font-size:22px;
-    font-weight:bold;
+    font-weight:bold; /*in đậm*/
 }
 
 .cart-footer{
     display:flex;
     flex-direction:column;
     align-items:center;
-    margin-top:10px;
-    padding:30px 20px;
+    margin-top:10px; 
+    padding:30px 20px; /*padding trên dưới 30px, trái phải 20px*/
 }
 
 .tong-tien{
     font-size:32px;
     font-weight:bold;
-    margin-bottom:10px;
+    margin-bottom:10px;  
+    
 }
-
+/*id  của số tiền*/
 #tongtien{
     color:#ff4d1c;
     font-size:32px;
@@ -88,7 +85,7 @@
     width:100%;
     gap:15px;
 }
-
+/*button quay lại và thanh toán*/
 .back-btn,
 .checkout-btn{
     width:100%;
@@ -100,7 +97,7 @@
 .back-btn{
     background:white;
     color:#2C3E50;
-    border:2px solid #ff5a1f;
+    border:2px solid #ff5a1f; /*viền ngoài*/
 }
 
 .checkout-btn{
@@ -113,14 +110,13 @@
     background:#f5f5f5;
 }
 
-.checkout-btn:hover,
-#btn-order:hover{
+.checkout-btn:hover{
     background:#e89d32;
 }
 
 .modal{
-    display:none;
-    position:fixed;
+    display:none; /*ẩn modal mặc định*/
+    position:fixed; /**/
     top:0;
     left:0;
     width:100%;
