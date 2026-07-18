@@ -25,7 +25,7 @@ function hienThiGioHang() {
     }); 
     /*Cập nhật lại giỏ hàng trong localStorage với mảng mới đã gộp.*/
      cart = newCart;
-     localStorage.setItem("cartKey", JSON.stringify(cart));
+     localStorage.setItem(cartKey, JSON.stringify(cart));
      /*Hiển thị danh sách sản phẩm lên trang.*/
     const cartBody=document.getElementById("cart-body"); /*nơi hiển thị danh sách sản phẩm trong giỏ hàng.*/
     
@@ -152,16 +152,28 @@ function xoaSP(index) {
 }
 
 function hienFormThanhToan() {
+        const user = JSON.parse(localStorage.getItem("userLogin"));
+
+        if (!user) {
+            alert("Vui lòng đăng nhập!");
+            return;
+        }
+
+        let cartKey = "cart_" + user.soDienThoai;
+        let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+        // Không cho mở form nếu giỏ hàng trống
+        if (cart.length === 0) {
+            alert("Giỏ hàng đang trống! Vui lòng thêm sản phẩm trước khi đặt hàng.");
+            return;
+        }
         let modal = document.getElementById("checkout-modal");
         modal.style.display = "flex";
-        let user = JSON.parse(localStorage.getItem("userLogin"));
 
         if(user){
             document.getElementById("hoten").value = user.hoTen;
             document.getElementById("sdt").value = user.soDienThoai;
         }
-        let cartKey = "cart_" + user.soDienThoai;
-        let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
         let tongSL = 0;
         let tongTien = 0;
         const orderList = document.getElementById("order-list");
@@ -189,8 +201,8 @@ function dongFormThanhToan(){
 }
 
 function datHang(){
-    let user = localStorage.getItem("userLogin");
-    if(user === null){
+    const user = JSON.parse(localStorage.getItem("userLogin"));
+    if(!user){
         alert("Vui lòng đăng nhập để đặt hàng!");
         window.location.href = "dangnhap.html";
         return;
@@ -205,7 +217,6 @@ function datHang(){
     }
 
     alert("Đặt hàng thành công!");
-    let user = JSON.parse(localStorage.getItem("userLogin"));
     let cartKey = "cart_" + user.soDienThoai;
     localStorage.removeItem(cartKey);
     document.getElementById("checkout-modal").style.display = "none";
