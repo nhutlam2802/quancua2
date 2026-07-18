@@ -7,34 +7,54 @@ const minus = document.getElementById("minus");
 const add = document.getElementById("add-cart");
 const buy = document.getElementById("buy");
 
-if (input) input.value = 1;
+input.value = 1;
 
-// Lấy id từ HTML
+// Lấy id sản phẩm
 const id = Number(add.dataset.id);
 
 // Tìm sản phẩm
-const product = list_product_combo.find(item => item.id === id);
+const product = list_product_combo.find(item => item.id == id);
 
-// Hàm kiểm tra sản phẩm đã tồn tại trong giỏ chưa
-function isExistedInCart(item, cart) {
-    return cart.findIndex(cartItem => cartItem.product.id === item.product.id);
+// Kiểm tra sản phẩm đã có trong giỏ chưa
+function isExistedInCart(item, cartItemArr) {
+    for (let i = 0; i < cartItemArr.length; i++) {
+        if (
+            cartItemArr[i].product.id == item.product.id &&
+            cartItemArr[i].variant.size == item.variant.size
+        ) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 // Tăng số lượng
-plus.onclick = () => {
-    input.value = Number(input.value) + 1;
-};
+plus.addEventListener("click", function () {
+    input.value++;
+});
 
 // Giảm số lượng
-minus.onclick = () => {
-    if (Number(input.value) > 1) {
-        input.value = Number(input.value) - 1;
+minus.addEventListener("click", function () {
+    if (input.value > 1) {
+        input.value--;
     }
-};
+});
 
 // Hàm thêm vào giỏ
 function addToCart() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let user = JSON.parse(localStorage.getItem("userLogin"));
+
+    // Chưa đăng nhập
+    if (!user) {
+        alert("Vui lòng đăng nhập trước khi mua hàng!");
+        window.location.href = "dangnhap.html";
+        return false;
+    }
+
+    let cartKey = "cart_" + user.soDienThoai;
+    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
     const item = new Item(
         product,
         product.variant[0],
@@ -42,20 +62,28 @@ function addToCart() {
     );
 
     const index = isExistedInCart(item, cart);
+
     if (index >= 0) {
         cart[index].quantity += Number(input.value);
     } else {
         cart.push(item);
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
+
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+
+    return true;
 }
-// Thêm giỏ hàng
-add.onclick = () => {
-    addToCart();
-    alert("Đã thêm vào giỏ hàng!");
-};
-// Mua ngay
-buy.onclick = () => {
-    addToCart();
-    location.href = "giohang.html";
-};
+
+// Nút thêm vào giỏ hàng
+add.addEventListener("click", function () {
+    if (addToCart()) {
+        alert("Đã thêm vào giỏ hàng!");
+    }
+});
+
+// Nút mua ngay
+buy.addEventListener("click", function () {
+    if (addToCart()) {
+        window.location.href = "giohang.html";
+    }
+});
