@@ -42,30 +42,18 @@ minus.addEventListener("click", function () {
 
 // Hàm thêm vào giỏ
 function addToCart() {
-<<<<<<< HEAD
     const user = JSON.parse(localStorage.getItem("userLogin"));
-
-    if (!user) {
-        alert("Vui lòng đăng nhập trước khi thêm vào giỏ hàng!");
-        return;
-=======
-
-    let user = JSON.parse(localStorage.getItem("userLogin"));
 
     // Chưa đăng nhập
     if (!user) {
         alert("Vui lòng đăng nhập trước khi mua hàng!");
         window.location.href = "dangnhap.html";
         return false;
->>>>>>> 1cb1e7d9b37064b361feb604724b16023b7391a7
     }
 
     let cartKey = "cart_" + user.soDienThoai;
     let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cb1e7d9b37064b361feb604724b16023b7391a7
     const item = new Item(
         product,
         product.variant[0],
@@ -79,14 +67,10 @@ function addToCart() {
     } else {
         cart.push(item);
     }
-<<<<<<< HEAD
-    localStorage.setItem(cartKey, JSON.stringify(cart));
-=======
 
     localStorage.setItem(cartKey, JSON.stringify(cart));
 
     return true;
->>>>>>> 1cb1e7d9b37064b361feb604724b16023b7391a7
 }
 
 // Nút thêm vào giỏ hàng
