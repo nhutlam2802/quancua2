@@ -3,7 +3,7 @@ import { Product, Variant } from "./sanpham/sanpham.js";
 export const list_product_combo = [
 
     new Product(
-        1,
+        101,
         "Combo 1 người",
         "/images/combo1nguoi.png",
         [
@@ -12,7 +12,7 @@ export const list_product_combo = [
     ),
 
     new Product(
-        2,
+        102,
         "Combo 2 người",
         "/images/combo2nguoi.png",
         [
@@ -21,7 +21,7 @@ export const list_product_combo = [
     ),
 
     new Product(
-        4,
+        104,
         "Combo 4 người",
         "/images/combo4nguoi.png",
         [
@@ -30,7 +30,7 @@ export const list_product_combo = [
     ),
 
     new Product(
-        9,
+        109,
         "Combo 9 người",
         "/images/combo9nguoi.png",
         [
