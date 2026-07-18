@@ -1,54 +1,54 @@
-import { list_product } from "./listproduct.js";
-import { Item } from "./sanpham.js";
-// Dùng map duyệt qua từng phần tử của mảng list_product (mảng chứa dữ liệu các sản phẩm)
-// Dùng hàm add_thongtin để chuyển các thông tin cơ bản của sản phẩm thành chuỗi html, các chuỗi html tạo thành 
-// 1 mảng mới, dùng join("") để liên kết các phần tử của mảng đó lại thành một chuỗi html
-function khoitaotrangsp(){
-    const product_list = document.querySelector(".product-list");
-    if (!product_list) return;
-    product_list.innerHTML=list_product.map(item=>item.add_thongtin()).join("");
-}
-function doigia(product,sizeSelect,price){
-    const variant = product.variant.find(v=>v.size==sizeSelect.value);
-    price.innerText = `${variant.price.toLocaleString('vi-VN')}đ`;
-}
 
-function createbreadcrumb(product){
-    const breadcrumb = document.querySelector(".breadcrumb");
-    breadcrumb.innerHTML= 
-        `   <li> <a href="trangchu.html">Trang chủ</a></li>
-            <li> <a href="sanpham.html">Thực đơn</a></li>
-            <li> <a href="chitietsp.html?id=${product.id}">${product.name}</a></li>`
+//Bao gồm các chức năng cho trang sản phẩm và chi tiết sản phẩm:
+//Trang sản phẩm: 
+    // + Chuyển đổi định dạng giá tiền 
+    // +Đổi đánh giá sao theo id 
+//Trang chi tiết:
+    //+Dựa vào JSON lưu dữ liệu sản phẩm, tạo tự động các nút phân loại, chuyển đổi giá theo phân loại
+    // +Kiểm tra đăng nhập 
+    // +Xử lý tăng giảm sản phẩm 
+    // +Đưa sản phẩm được chọn vào localStorange để xử lý giỏ hàng 
+
+
+import { listproduct } from "./listproduct.js";
+//Hàm chuyển đổi định dạng giá tiền, từ chuỗi số bình thường thành định dạng VNĐ
+function setPrice()
+{
+    const price = document.querySelectorAll(".product-price");
+    price.forEach(product=>{
+        product.innerText = Number(product.innerText)
+        .toLocaleString("de-DE",{style: 'currency',currency:'VND'});
+    },false)
 }
-function khoitaotrangchitiet(){
-    const product_detail=document.querySelector(".product__detail");
-    if(!product_detail) return;
-    const params = new URLSearchParams(window.location.search);
-    const id = Number(params.get("id"));
-    const product = list_product.find(item => item.id == id); //so sanh tuyet doi
-        if (product) {
-            product_detail.innerHTML=product.thongtinsp();
-        }
-        else {
-            window.location.href="chitietsp.html?id=1"
-        }
-    const sizeSelect = document.querySelector(".product-detail__info-select");
-    const price = document.querySelector(".product-detail__price");
-        doigia(product,sizeSelect,price);
-    sizeSelect.addEventListener("change",()=>{
-        doigia(product,sizeSelect,price)
-    });
-    createbreadcrumb(product);
-    add_cart(product);
-    add_suggest(product);
-    score(product);
-    rating(product);
+//Hàm cập nhật đánh giá sao, vì chưa có cơ sở dữ liệu để lưu trữ nên cập nhật thủ công theo id sản phẩm
+function rating()
+{
+    const star=document.querySelectorAll(".product-score");
+    const id = document.querySelectorAll(".product-id");
+    for(let i =0;i<id.length;i++)
+    {
+        if(id[i].textContent==1||id[i].textContent==4||id[i].textContent==7||id[i].textContent==10)
+            star[i].innerText="4.7";
+        else if(id[i].textContent==2||id[i].textContent==5||id[i].textContent==8||id[i].textContent==11)
+            star[i].innerText="4.0";
+    }
 }
+//Kiểm tra người dùng đã đăng nhập hay chưa, chỉ khi đăng nhập mới được sử dụng chức năng mua hàng
+function checklogin(){
+    const user = JSON.parse(localStorage.getItem("userLogin"));
+    if (user==null) {
+        alert("Vui lòng đăng nhập trước khi mua hàng.");
+        return false;
+    }
+    else return true;
+}
+//Tăng giảm số lượng sản phẩm, theo nút bấm hoặc cho người dùng nhập theo ý muốn, ít nhất là 1, lớn nhất là 100, 
+// tự động sửa số lượng nếu nhập vượt ngoài phạm vi
+//Báo lỗi nếu nhập kí tự khác số hoặc bỏ trống, chuyển số lượng về thành 1
 function inputamount(){
     const sum = document.getElementById("sum");
     const minus = document.getElementById("minus");
-    const input = document.querySelector(".product-detail__count-input");
-    input.value=1;
+    const input = document.getElementById("quantity");
         sum.addEventListener("click",()=>
         {
             if(input.value>=1&&input.value<=1000)
@@ -62,65 +62,93 @@ function inputamount(){
         input.addEventListener("input",()=>{
             if (input.value>100) input.value=100;
             if (input.value<0) input.value=1;
+            if (input.value==""||isNaN(input.value)) 
+            //isNaN(is not a number): kiểm tra xem dữ liệu có phải số hay k
+            //nếu là số trả về false, không phải số trả về true
+            {
+                alert("Vui lòng nhập số lượng hợp lệ!");
+                input.value=1;
+            }
         })
-
 }
-function add_cart(product) {
-    const input = document.querySelector(".product-detail__count-input");
-    const add = document.getElementById("add-cart");
-    const sizeSelect = document.querySelector(".product-detail__info-select");
-    const buy = document.getElementById("buy");
-    function infor(){
-        const cart = JSON.parse(localStorage.getItem("userLogin")) || []; //tim du lieu luu duoi dang cart 
-        const cartKey = "cart_" + user.soDienThoai;
-        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-        //trong localStorage, chua co thi tao 1 mang rong
-        const variant = product.variant.find(v=>v.size==sizeSelect.value);
-        const item = new Item(product,variant,input.value);
-        cart.push(item);
-        localStorage.setItem("cartKey", JSON.stringify(cart));  
+//Thêm dữ liệu sản phẩm được chọn vào localStorage, lưu dưới khóa là cartKey.
+function addcart(id,sizeSelected,quantity,price){
+    //Tạo object item để lưu dữ liệu sản phẩm, có các key bên trái, value bên phải
+    let item={                          
+        id: id,
+        name: listproduct[id].name,
+        size: sizeSelected,
+        price: price,
+        quantity:Number(quantity),
     }
-    add.addEventListener("click", () => { 
-        if(checklogin()) {
-            infor();
-            alert("Đã thêm vào giỏ hàng thành công!");
-        }  
-    });
-    buy.addEventListener("click",() => {
-        window.location.href="giohang.html";
-        infor();
+    //Lấy thông tin đăng nhập của người dùng hiện tại trong localStorage
+    let user = JSON.parse(localStorage.getItem("userLogin"));
+    //Tạo key cartKey bằng cách ghép cart và số điện thoại của user
+    const cartKey = "cart_"+user.soDienThoai;
+    //Lấy ra cartKey lưu về cartItems, chưa có thì tạo 1 mảng cartItems rỗng
+    let cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
+    //Đưa sản phẩm vào mảng cartItems
+    cartItems.push(item);
+    //Lưu vào localStorage dưới khóa là cartKey
+    localStorage.setItem(cartKey,JSON.stringify(cartItems));
+}
+
+//Xu ly hien thi trang chi tiet san pham
+function setupproductdetailpage(){
+    //Dùng URLSearchParams để lấy ra tham số trên đường dẫn, vì đường dẫn trước đó đã có tham số id 
+    const url = new URLSearchParams(window.location.search);
+    const id=url.get("id");
+    const name=document.querySelector(".product__detail-name");
+    const img = document.querySelector(".product__detail-img");
+    const price = document.querySelector(".product__detail-price");
+    const product = listproduct[id];
+    const variant = listproduct[id].variant; 
+    //Mặc định khi người dùng chưa chọn size thì lưu size và price là giá trị đầu tiên trong variant
+    let sizeSelected=variant[0].size;
+    let priceSelected=variant[0].price;
+    name.innerText=product.name;
+    img.src=product.img;
+    price.innerText=Number(variant[0].price).toLocaleString("vi-VN")+"đ";
+    const size=document.querySelector(".product__detail-size");
+    let button="";
+    //Dựa theo dữ liệu từng sản phẩm trong mảng listproduct, để tạo các nút chọn phân loại tương ứng
+    for(let i=0;i<variant.length;i++)
+    {
+        button = document.createElement("button");
+        size.appendChild(button);
+        button.textContent=variant[i].size;
+        button.className="size-button";
+        button.addEventListener("click",()=>{
+            price.innerText = Number(variant[i].price).toLocaleString("vi-VN")+"đ";
+            sizeSelected = variant[i].size;
+            priceSelected = variant[i].price;
+        })
+    }
+    const add = document.getElementById("add-cart");
+    const buy = document.getElementById("buy");
+    add.addEventListener("click",()=>{
+        if(checklogin())
+        {   
+            const quantity = document.getElementById("quantity").value;
+            addcart(id,sizeSelected,quantity,priceSelected);
+            alert("Đã thêm vào giỏ hàng thành công");
+        }
+    })
+    buy.addEventListener("click",()=>{
+        if(checklogin())
+        {
+            const quantity = document.getElementById("quantity").value;
+            addcart(id,sizeSelected,quantity,priceSelected);
+            window.location.href="giohang.html";
+        }
     })
 }
-function add_suggest(sp) {
-    const suggest = document.querySelector(".suggest__content");
 
-    const index = list_product.findIndex(item => item.id === sp.id);
+function setup(){
+    setPrice();
+    rating();
+    setupproductdetailpage();
+    inputamount();
+}
 
-    let html = "";
-
-    for (let i = 1; i <= 4; i++) {
-        const item = list_product[(index + i) % list_product.length];
-        html += item.add_thongtin();
-    }
-    suggest.innerHTML = html;
-}
-function checklogin(){
-    const user = JSON.parse(localStorage.getItem("userLogin"));
-    if (!user) {
-        alert("Vui lòng đăng nhập trước khi mua hàng.");
-        return false;
-    }
-    else return true;
-}
-function score(product){
-    const score = document.getElementById("rating-score");
-    if(product.id==1|| product.id==4 || product.id==7||product.id==11){
-        score.innerText="TỔNG 4.7/5 trên tổng số 256 đánh giá";}
-    if(product.id==2|| product.id==6 || product.id==9||product.id==12){
-        score.innerText="TỔNG 4.5/5 trên tổng số 256 đánh giá";}
-    if(product.id==3|| product.id==5 || product.id==8||product.id==10){
-        score.innerText="TỔNG 4.0/5 trên tổng số 256 đánh giá";}
-}
-khoitaotrangsp();
-khoitaotrangchitiet();
-inputamount();
+window.addEventListener("load",setup,false);
