@@ -34,7 +34,15 @@ minus.onclick = () => {
 
 // Hàm thêm vào giỏ
 function addToCart() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const user = JSON.parse(localStorage.getItem("userLogin"));
+
+    if (!user) {
+        alert("Vui lòng đăng nhập trước khi thêm vào giỏ hàng!");
+        return;
+    }
+
+    let cartKey = "cart_" + user.soDienThoai;
+    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     const item = new Item(
         product,
         product.variant[0],
@@ -47,7 +55,7 @@ function addToCart() {
     } else {
         cart.push(item);
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem(cartKey, JSON.stringify(cart));
 }
 // Thêm giỏ hàng
 add.onclick = () => {
