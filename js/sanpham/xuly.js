@@ -126,6 +126,7 @@ function setupproductdetailpage(){
     }
     const add = document.getElementById("add-cart");
     const buy = document.getElementById("buy");
+    inputamount();
     add.addEventListener("click",()=>{
         if(checklogin())
         {   
@@ -148,7 +149,6 @@ function setup(){
     setPrice();
     rating();
     setupproductdetailpage();
-    inputamount();
 }
 
 window.addEventListener("load",setup,false);
