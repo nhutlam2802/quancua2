@@ -7,8 +7,9 @@
     //+Dựa vào JSON lưu dữ liệu sản phẩm, tạo tự động các nút phân loại, chuyển đổi giá theo phân loại
     // +Kiểm tra đăng nhập 
     // +Xử lý tăng giảm sản phẩm 
+    // +Xử lý sự kiện gửi bình luận
+    // +Cập nhật điểm đánh giá khớp với đánh giá sao
     // +Đưa sản phẩm được chọn vào localStorange để xử lý giỏ hàng 
-
 
 import { listproduct } from "./listproduct.js";
 //Hàm chuyển đổi định dạng giá tiền, từ chuỗi số bình thường thành định dạng VNĐ
@@ -33,11 +34,23 @@ function rating()
             star[i].innerText="4.0";
     }
 }
+//Cập nhật điểm đánh giá trùng với đánh giá sao trước đó bên trang sản phẩm
+function score(id)
+{
+    const score=document.getElementById("rating-score");
+    for(let i =0;i<id.length;i++)
+    {
+        if(id==1||id==4||id==7||id==10)
+            score.innerText="4.7";
+        else if(id==2||id==5||id==8||id==11)
+            score.innerText="4.0";
+    }
+}
 //Kiểm tra người dùng đã đăng nhập hay chưa, chỉ khi đăng nhập mới được sử dụng chức năng mua hàng
 function checklogin(){
     const user = JSON.parse(localStorage.getItem("userLogin"));
     if (user==null) {
-        alert("Vui lòng đăng nhập trước khi mua hàng.");
+        alert("Vui lòng đăng nhập để tiếp tục.");
         return false;
     }
     else return true;
@@ -92,7 +105,27 @@ function addcart(id,sizeSelected,quantity,price){
     //Lưu vào localStorage dưới khóa là cartKey
     localStorage.setItem(cartKey,JSON.stringify(cartItems));
 }
-
+//Kiểm tra xem người dùng đã nhập bình luận hay chưa
+function checkempty(){
+    const comment = document.getElementById("comment-message");
+    if (comment.value=="") return true;
+    else return false;
+}
+//Gửi bình luận
+function sendcomment(){
+    const comment = document.getElementById("comment-message");
+    const send = document.getElementById("submit");
+    send.addEventListener("click",()=>{
+        if(checklogin())
+        {
+            if(checkempty()) 
+                alert("Bạn chưa nhập bình luận!");
+            else 
+                alert("Bình luận đã được gửi đi. Xin cảm ơn ý kiến của bạn.");
+                comment.value="";
+        }
+    })
+}
 //Xu ly hien thi trang chi tiet san pham
 function setupproductdetailpage(){
     //Dùng URLSearchParams để lấy ra tham số trên đường dẫn, vì đường dẫn trước đó đã có tham số id 
@@ -124,6 +157,7 @@ function setupproductdetailpage(){
             priceSelected = variant[i].price;
         })
     }
+    //Thêm xử lý sự kiện các nút thêm vào giỏ hàng, mua hàng
     const add = document.getElementById("add-cart");
     const buy = document.getElementById("buy");
     inputamount();
@@ -143,6 +177,8 @@ function setupproductdetailpage(){
             window.location.href="giohang.html";
         }
     })
+    sendcomment();
+    score(id);
 }
 
 function setup(){
