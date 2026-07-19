@@ -5,6 +5,8 @@
     width: 95%;
 }
 .product__detail-img{
+    border-radius: 10px;
+    background-color: rgb(252, 244, 229);
     margin: 10px;
     padding: 10px;
     width: 250px;
@@ -12,6 +14,8 @@
     object-fit: cover;
 }
 .product-infor{
+    border-radius: 10px;
+    background-color: rgb(252, 244, 229);
     margin: 5px;
     padding: 10px;
     font-size: 1.4rem;
@@ -41,9 +45,14 @@
     font-size: 1.2rem;
     text-align: center;
     border-radius: 10px;
-    border: 2px solid orange;
+    border: none;
     cursor: pointer;
 }    
+.size-button:hover,
+#submit:hover,
+.product__detail-action button:hover{
+    background-color: orangered;
+}
 .product__detail-price{
     color: orangered;
     font-weight: bold;
@@ -52,7 +61,7 @@
     display: flex;
     gap:10px;
 }
-.product__detail-action>button{
+.product__detail-action button{
     margin: 10px;
     background-color: orange;
     color: white;
@@ -60,16 +69,20 @@
     width: 170px;
     font-weight: bold;
     border-radius: 10px;
-    border: 2px solid orange;
+    border: none;
     font-size: 1rem;
-}    
-
-.fa-star{
+    cursor: pointer;
+}
+.commit{
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(252, 244, 229);
+    border-radius: 10px;
+}
+.fa-star,.fa-star-half-stroke{
     color: gold;
 }
-.fa-star-half-stroke{
-    color: gold;
-} 
+
 .review{
     font-size: 1rem;
     margin: 10px;
@@ -83,7 +96,12 @@
     color: orangered;
     text-align: center;
 }
-
+.commet-form {
+    display: grid;
+}
+#comment-message{
+    width: 100%;
+}
 .comment{
     margin: 10px;
     padding: 10px;
@@ -101,21 +119,23 @@
 #comment-messange{
     width: 300px;
     font-size: 1rem;
+    align-self: center;
 }
-button[type="submit"]{
+#submit{
     background-color: orange;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
     color: white;
     width: 250px;
     margin: 10px;
     height: 30px;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 /* ipad */
 @media(min-width: 601px) {
-    .product-detail__action button{
-        font-size: 20px;
-    }
     .product__detail{
         margin: 10px;
         max-width: 95%;
@@ -131,8 +151,8 @@ button[type="submit"]{
     .product__detail-name{
         font-size: 1.4rem;
     }
-    .product-detail__img{
-        width: 350px;
-        height: 250px;
+    .product__detail-img{
+        width: 400px;
+        height: 300px;
     }
 }
