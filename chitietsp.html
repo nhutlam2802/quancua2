@@ -30,21 +30,23 @@
                         <button id="sum">+</button>
                     </div>
                     <p> Giá: <span class="product__detail-price">35000</span></p>
+                    <p>Trạng thái: còn hàng </p>
                     <div class="product__detail-action">
                         <button id="buy"> Mua ngay</button>
                         <button id="add-cart">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
             </article>
+
         </section>
-        <section class="suggest">
-            <h3 class="suggest__title"> Đề xuất khác </h3>
-            <div class="suggest__content"></div>
+        <section class="commit">
+            <h3>CAM KẾT</h3>
+            <p>Mọi sản phẩm đều bảo đảm vệ sinh an toàn thực phẩm.</p>
         </section>
         <section class="review">
             <article class="rating">
                 <h4> ĐÁNH GIÁ </h4>
-                <h5 id="rating-score"> TỔNG 4.5/5 trên tổng số 256 đánh giá </h5>
+                <h5> Tổng <span id="rating-score">4.5</span>/5 trên tổng số 256 đánh giá </h5>
                 <span class="fa-solid fa-star"><span class="fa-solid fa-star"></span>
                 <span class="fa-solid fa-star"></span>
                 <span class="fa-solid fa-star"></span>
@@ -64,9 +66,11 @@
                     <p> Chủ quán siêu có tâm </p>
                 </div>
                 <form class="comment-form">
-                    <label> Để lại bình luận </label>
-                    <input type="text" id="commet-messange" placeholder="Nhập bình luận của bạn....">
-                    <button type="submit">Gửi bình luận</button> 
+                    <label for="comment-message"> Để lại bình luận </label>
+                     <textarea id="comment-message"
+                     rows="6" 
+                     placeholder="Nhập bình luận của bạn"></textarea>
+                    <button type="button" id="submit">Gửi bình luận</button> 
                 </form>
             </article>
         </section>
