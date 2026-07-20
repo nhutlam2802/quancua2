@@ -10,6 +10,7 @@
     // +Xử lý sự kiện gửi bình luận
     // +Cập nhật điểm đánh giá khớp với đánh giá sao
     // +Đưa sản phẩm được chọn vào localStorange để xử lý giỏ hàng 
+    // +Hiển thị đề xuất 4 sản phẩm có id tiếp theo từ listproduct
 
 import { listproduct } from "./listproduct.js";
 //Hàm chuyển đổi định dạng giá tiền, từ chuỗi số bình thường thành định dạng VNĐ
@@ -55,6 +56,7 @@ function checklogin(){
     }
     else return true;
 }
+
 //Tăng giảm số lượng sản phẩm, theo nút bấm hoặc cho người dùng nhập theo ý muốn, ít nhất là 1, lớn nhất là 100, 
 // tự động sửa số lượng nếu nhập vượt ngoài phạm vi
 //Báo lỗi nếu nhập kí tự khác số hoặc bỏ trống, chuyển số lượng về thành 1
@@ -83,6 +85,40 @@ function inputamount(){
                 input.value=1;
             }
         })
+}
+//Thêm 4 sản phẩm có id kế sau sản phẩm đang xem vào phần đề xuất khác
+function addproduct(id){
+    let length = 0;
+    for(let id in listproduct) //Đếm số lượng sản phẩm có trong listproduct
+    {
+        length++;
+    }
+    id= Number(id); 
+    const content = document.querySelector(".suggest-content");
+    for(let i =id;i<id+4;i++)
+    {
+        let x = i%length+1;
+        if(!listproduct) return; 
+        let article = document.createElement("article");
+        article.className = "product";
+        content.appendChild(article);
+        let a = document.createElement("a");
+        a.href = "chitietsp.html?id="+x;
+        article.appendChild(a);
+        let img = document.createElement("img");
+        img.className = "product-img";
+        img.src = listproduct[x].img;
+        a.appendChild(img);
+        let h4 = document.createElement("h4");
+        h4.className = "product-name";
+        h4.textContent = listproduct[x].name;
+        a.appendChild(h4);
+        let p = document.createElement("p");
+        p.className = "product-price";
+        p.textContent = listproduct[x].variant[0].price;
+        a.appendChild(p);
+    }
+    setPrice();
 }
 //Thêm dữ liệu sản phẩm được chọn vào localStorage, lưu dưới khóa là cartKey.
 function addcart(id,sizeSelected,quantity,price){
@@ -179,6 +215,7 @@ function setupproductdetailpage(){
     })
     sendcomment();
     score(id);
+    addproduct(id);
 }
 
 function setup(){
