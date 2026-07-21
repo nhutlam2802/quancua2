@@ -8,8 +8,11 @@ a{
 .page-main{
     padding-top: 180px;
 }
+.main-section{
+    display: grid;
+}
 .title{
-    margin: auto 20px;
+    justify-self: center;
     width: 95%;
     padding: 5px;
     font-size: 1.5rem;
