@@ -46,7 +46,7 @@
     width:100%;
     display:flex;
     justify-content:space-between; /* căn đều các div trong cart-row*/
-    align-items:flex-end; /*canh dưới*/
+   
 }
 /*khi click vào thì đổi màu nền*/
 .cart-row:hover{
@@ -76,7 +76,6 @@
 /*id  của số tiền*/
 #tongtien{
     color:#ff4d1c;
-    font-size:32px;
 }
 
 .cart-buttons{
