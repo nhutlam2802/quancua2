@@ -224,10 +224,10 @@ function datHang(){
 }
 
 window.addEventListener("load", function(){
-    hienThiGioHang();
+    
     document.getElementById("back-btn").addEventListener("click", function () {
         window.location.href = "sanpham.html";
-    });
+    });hienThiGioHang();
     document.getElementById("checkout-btn").addEventListener("click", hienFormThanhToan);
     document.getElementById("close-modal").addEventListener("click", dongFormThanhToan);
     document.getElementById("btn-order").addEventListener("click", datHang);
