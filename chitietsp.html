@@ -6,7 +6,6 @@
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script type="module" src="js\sanpham\xuly.js"></script>
     <link rel="stylesheet" href="\css\styles-trangchu.css"> 
-    <link rel="stylesheet" href="\css\styles-sanpham.css"> 
     <link rel="icon" type="image/png" href="/images/quancua2-favicon.png">
     <link rel="stylesheet" href="/css/styles-chitietsp.css">
 </head>
@@ -14,25 +13,51 @@
     <div id="top"></div>
     <div id="header"></div>
     <main class="page-main">
-        <ul class="breadcrumb">
-        </ul>
-        <div class="product__detail"></div>
-        <section class="suggest">
-            <h3 class="suggest__title"> Đề xuất khác </h3>
-            <div class="suggest__content"></div>
+        <!-- <ul class="breadcrumb">
+        </ul> -->
+        <section class="detail-container">
+            <h3>Thông tin chi tiết: </h3>
+            <article class="product__detail">
+                <img class="product__detail-img" src="images\changa.png" alt="Chân gà sốt thái">
+                <div class="product-infor">
+                    <h2 class="product__detail-name"> Chân gà sốt thái</h2>
+                    <div class="product__detail-size">
+                        <p> Phân loại: </p>
+                    </div>
+                    <div class="product__detail-quantity">
+                        <p>Số lượng:</p>
+                        <button id="minus">-</button>
+                        <input id="quantity" type="number" value="1">
+                        <button id="sum">+</button>
+                    </div>
+                    <p> Giá: <span class="product__detail-price">35000</span></p>
+                    <p>Trạng thái: còn hàng </p>
+                    <div class="product__detail-action">
+                        <button id="buy"> Mua ngay</button>
+                        <button id="add-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </article>
+
         </section>
-        <section class="review">
+        <section class="suggest-container">
+            <h3 class="suggest-title">Đề xuất khác </h3>
+            <div class="suggest-content"></div>
+        </section>
+        <section class="review-container">
+            <h3> Đánh giá </h3>
+
             <article class="rating">
-                <h4> ĐÁNH GIÁ </h4>
-                <h5 id="rating-score"> TỔNG 4.5/5 trên tổng số 256 đánh giá </h4>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star-half-stroke"></span>
+                <h4> Tổng <span id="rating-score">4.5</span>/5 trên tổng số 256 đánh giá </h4>
+                <span class="fa-solid fa-star">
+                    <span class="fa-solid fa-star"></span>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="fa-solid fa-star-half-stroke"></span>
+                </span>
             </article>
             <article class="comment">
-                <h4> BÌNH LUẬN </h4>
+                <h4> Bình luận </h4>
                 <div class="account-comment">
                     <strong> Minh Luân </strong>
                     <span>3 giờ trước</span>
@@ -44,9 +69,11 @@
                     <p> Chủ quán siêu có tâm </p>
                 </div>
                 <form class="comment-form">
-                    <label for="comment-form"> Để lại bình luận </label>
-                    <input type="text" id="commet-messange" placeholder="Nhập bình luận của bạn....">
-                    <button type="submit">Gửi bình luận</button> 
+                    <label for="comment-message"> Để lại bình luận </label>
+                     <textarea id="comment-message"
+                     rows="6" 
+                     placeholder="Nhập bình luận của bạn"></textarea>
+                    <button type="button" id="submit">Gửi bình luận</button> 
                 </form>
             </article>
         </section>
@@ -54,5 +81,6 @@
     <footer id="footer"></footer>
     <script type="module" src="/js/load-components.js"></script>
     <script src="/js/user.js"></script>
+    <script type="module" src="/js/sanpham/xuly.js"></script>
 </body>
 </html>
