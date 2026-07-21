@@ -14,8 +14,8 @@ function hienThiGioHang() {
     let newCart = []; /*Tạo mảng mới để lưu các sản phẩm đã gộp.*/
     cart.forEach(item => {
         let index = newCart.findIndex(sp => /*Tìm kiếm sản phẩm cùng loại và cùng size trong mảng mới.*/
-            sp.product.id == item.product.id &&
-            sp.variant.size == item.variant.size
+            sp.id == item.id &&
+            sp.size == item.size
         );
         if (index != -1) { /*Nếu tìm thấy thì cộng dồn số lượng.*/
             newCart[index].quantity += Number(item.quantity);
@@ -33,17 +33,17 @@ function hienThiGioHang() {
 let tongTien = 0;
 
 cart.forEach((item, index) => {
-    const thanhTien = item.variant.price * item.quantity;
+    const thanhTien = item.price * item.quantity;
     tongTien += thanhTien;
 
     const row = document.createElement("div");
     row.className = "cart-row";
 
     const ten = document.createElement("div");
-    ten.append(item.product.name);
+    ten.append(item.name);
     ten.append(document.createElement("br"));
     const size = document.createElement("small");
-    size.textContent = "Size: " + item.variant.size;
+    size.textContent = "Size: " + item.size;
     ten.append(size);
 
     const sl = document.createElement("div");
@@ -65,7 +65,7 @@ cart.forEach((item, index) => {
     sl.append(tru, soLuong, cong);
 
     const gia = document.createElement("div");
-    gia.textContent = item.variant.price.toLocaleString("vi-VN") + "đ";
+    gia.textContent = item.price.toLocaleString("vi-VN") + "đ";
 
     const tt = document.createElement("div");
     tt.className = "thanhtien";
@@ -181,11 +181,11 @@ function hienFormThanhToan() {
 
         for (let i = 0; i < cart.length; i++) {
             tongSL += Number(cart[i].quantity);
-            tongTien += cart[i].quantity * cart[i].variant.price;
+            tongTien += cart[i].quantity * cart[i].price;
 
             const p = document.createElement("p");
-            p.textContent = cart[i].product.name +
-                " (" + cart[i].variant.size + ") x " + cart[i].quantity;
+            p.textContent = cart[i].name +
+                " (" + cart[i].size + ") x " + cart[i].quantity;
 
             orderList.append(p);
         }
