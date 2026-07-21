@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đăng nhập </title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="component.css">
-<link rel="stylesheet" href="dangnhap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles-trangchu.css">
+    <link rel="stylesheet" href="/css/dangnhap.css">
+    <link rel="icon" type="image/png" href="/images/quancua2-favicon.png">
 </head>
+
 <body>
 
-<div id="top"></div>
-<div id="header"></div>
+    <div id="top"></div>
+    <div id="header"></div>
 
-<main>
-    <div class="auth-wrap">
-        <div class="auth-form-col">
-            <form class="auth-form">
-                <h1>Đăng nhập</h1>
-                <p>Nhập thông tin tài khoản để tiếp tục.</p>
+    <main>
+        <div class="auth-wrap">
+            <div class="auth-form-col">
+                <form class="auth-form">
+                    <h1>Đăng nhập</h1>
+                    <p>Nhập thông tin tài khoản để tiếp tục.</p>
 
+                    <div class="field">
+                        <label for="login-id">Số điện thoại hoặc email</label>
+                        <input type="text" id="login-id" placeholder="09xx xxx xxx hoặc email" required>
+                    </div>
                 <div class="field">
-                    <label for="login-id">Số điện thoại hoặc email</label>
-                    <input type="text" id="login-id" placeholder="09xx xxx xxx hoặc email" required>
-                </div>
-               <div class="field">
-                    <label for="login-pass">Mật khẩu</label>
-                    <input type="password" id="login-pass" placeholder="Nhập mật khẩu">
-                    <p id="loi-dang-nhap" class="error-msg"></p>
-                </div>
+                        <label for="login-pass">Mật khẩu</label>
+                        <input type="password" id="login-pass" placeholder="Nhập mật khẩu">
+                        <p id="loi-dang-nhap" class="error-msg"></p>
+                    </div>
 
-                <div class="field-row">
-                    <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
-                </div>
-                <button type="button" class="btn" onclick="kiemTraDangNhap()">Đăng nhập</button>          
-                <p class="switch-line">Chưa có tài khoản? <a href="dangki.html">Đăng ký ngay</a></p>
-            </form>
-        </div>
-        <div class="auth-side">
-            <span class="badge">Chào mừng trở lại</span>
-            <h2>Đăng nhập để đặt món nhanh hơn.</h2>
-            <p>Tài khoản Quán của 2 giúp bạn lưu địa chỉ giao hàng và nhận ưu đãi riêng cho thành viên.</p>
-            <ul>
-                <li><i class="fa-solid fa-check"></i> Đặt lại món yêu thích chỉ 1 chạm</li>
-                <li><i class="fa-solid fa-check"></i> Theo dõi đơn hàng theo thời gian thực</li>
-                <li><i class="fa-solid fa-check"></i> Ưu đãi sinh nhật và mã giảm giá riêng</li>
-            </ul>
-
-            <div class="food-strip">
-                <span title="Bánh mì nướng chả trứng phô mai"><i class="fa-solid fa-bread-slice"></i></span>
-                <span title="Trứng chiên kiểu Đài Loan"><i class="fa-solid fa-egg"></i></span>
-                <span title="Chân gà sốt Thái"><i class="fa-solid fa-pepper-hot"></i></span>
-                <span title="Cánh gà chiên giòn"><i class="fa-solid fa-drumstick-bite"></i></span>
-                <span title="Bắp xào tôm khô"><i class="fa-solid fa-seedling"></i></span>
+                    <div class="field-row">
+                        <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
+                    </div>
+                    <button type="button" class="btn" onclick="kiemTraDangNhap()">Đăng nhập</button>          
+                    <p class="switch-line">Chưa có tài khoản? <a href="dangki.html">Đăng ký ngay</a></p>
+                </form>
             </div>
+            <div class="auth-side">
+                <span class="badge">Chào mừng trở lại</span>
+                <h2>Đăng nhập để đặt món nhanh hơn.</h2>
+                <p>Tài khoản Quán của 2 giúp bạn lưu địa chỉ giao hàng và nhận ưu đãi riêng cho thành viên.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Đặt lại món yêu thích chỉ 1 chạm</li>
+                    <li><i class="fa-solid fa-check"></i> Theo dõi đơn hàng theo thời gian thực</li>
+                    <li><i class="fa-solid fa-check"></i> Ưu đãi sinh nhật và mã giảm giá riêng</li>
+                </ul>
+
+                <div class="food-strip">
+                    <span title="Bánh mì nướng chả trứng phô mai"><i class="fa-solid fa-bread-slice"></i></span>
+                    <span title="Trứng chiên kiểu Đài Loan"><i class="fa-solid fa-egg"></i></span>
+                    <span title="Chân gà sốt Thái"><i class="fa-solid fa-pepper-hot"></i></span>
+                    <span title="Cánh gà chiên giòn"><i class="fa-solid fa-drumstick-bite"></i></span>
+                    <span title="Bắp xào tôm khô"><i class="fa-solid fa-seedling"></i></span>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-    </div>
-</main>
+    <footer id="footer"></footer>
 
-<footer id="footer"></footer>
-
-<script src="load-components.js"></script>
-<script src="dangnhap.js"></script>
+    <script type="module" src="/js/load-components.js"></script>
+    <script src="/js/user.js"></script>
+    <script src="/js/dangnhap.js"></script>
 </body>
 </html>
