@@ -1,84 +1,53 @@
-import { Product,Variant } from "./sanpham.js";
-export const list_product=[
-    new Product(
-        1,
-        "Chân gà sốt thái",
-        "/images/changa.png",
-        [
-            new Variant("S",35000),
-            new Variant("M",50000),
-            new Variant("L",80000)
-        ]
-    ),
-    new Product(
-        2,
-        "Bánh tráng nướng",
-        "/images/banhtrangnuong.png",
-        [new Variant("Phần",20000)]
-    ),
-    new Product(
-        3,
-        "Bánh mì nướng",
-        "/images/banhmi.png",
-        [new Variant("Phần",20000)]
-    ),
-    new Product(
-        4,
-        "Mì trộn",
-        "/images/mitron.png",
-        [
-            new Variant("S",25000),
-            new Variant("M",40000)
-        ]
-    ),
-    new Product(
-        5,
-        "Bánh tráng trộn",
-        "/images/banhtrangtron.png",
-        [new Variant("Phần",20000)]
-    ),
-    new Product(
-        6,
-        "Gà rán",
-        "/images/garan.png",
-        [new Variant("Phần",35000)]
-    ),
-    new Product(
-        7,
-        "Xúc xích chiên xù",
-        "/images/xucxich.png",
-        [new Variant("Phần",10000)]
-    ),
-    new Product(
-        8,
-        "Khoai tây chiên",
-        "/images/khoaichien.png",
-        [   new Variant("S",10000),
-            new Variant("M",15000)
-        ]
-    ),
-    new Product(
-        9,
-        "Bắp xào",
-        "/images/bapxao.png",
-        [new Variant("Phần",15000)]
-    ),
-    new Product(
-        10,
-        "Chả giò",
-        "/images/chagio.png",
-        [new Variant("Phần",12000)]
-    ),
-    new Product(
-        11,
-        "Gà lắc phô mai",
-        "images/galac.png",
-        [new Variant("Phần",30000)]
-    ),
-    new Product(
-        12,
-        "Xoài lắc",
-        "/images/xoailac.png",
-        [new Variant("Phần",10000)]
-    ),
-]
+export const listproduct={
+    "1": {  "name" :"Chân gà sốt thái",
+            "img" :"/images/changa.png",
+            "variant":[{"size":"S","price":"35000"},{"size":"M","price":"50000"},{"size":"L","price":"80000"}]
+        },
+    "2": {  "name" :"Bánh tráng nướng",
+            "img" :"/images/banhtrangnuong.png",
+            "variant":[{"size":"Phần","price":"20000"}]
+        },
+    "3": {  "name" :"Bánh mì nướng",
+            "img" :"/images/banhmi.png",
+            "variant":[{"size":"Phần","price":"20000"}]
+        },
+    "4": {  "name" :"Mì trộn",
+            "img" :"/images/mitron.png",
+            "variant":[{"size":"S","price":"25000"},{"size":"M","price":"40000"}]
+        },
+    "5": {  "name" :"Bánh tráng trộn",
+            "img" :"/images/banhtrangtron.png",
+            "variant":[{"size":"Phần","price":"20000"}]
+        },
+    "6": {  "name" :"Gà rán",
+            "img" :"/images/garan.png",
+            "variant":[{"size":"Phần","price":"35000"}]
+        },
+    "7": {  "name" :"Xúc xích chiên xù",
+            "img" :"/images/xucxich.png",
+            "variant":[{"size":"Phần","price":"10000"}]
+        },
+    "8": {  "name" :"Khoai tây chiên",
+            "img" :"/images/khoaichien.png",
+            "variant":[{"size":"S","price":"10000"},{"size":"M","price":"15000"}]
+        },
+    "9": {  "name" :"Bắp xào",
+            "img" :"/images/bapxao.png",
+            "variant":[{"size":"Phần","price":"15000"}]
+        },
+    "10": { "name" :"Chả giò",
+            "img" :"/images/chagio.png",
+            "variant":[{"size":"Phần","price":"12000"}]
+        },
+    "11": { "name" :"Gà lắc phô mai",
+            "img" :"/images/galac.png",
+            "variant":[{"size":"Phần","price":"30000"}]
+        },
+    "12": { "name" :"Xoài lắc",
+            "img" :"/images/xoailac.png",
+            "variant":[{"size":"Phần","price":"10000"}]
+        }
+        
+    
+}
+    
