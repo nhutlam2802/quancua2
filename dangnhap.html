@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Đăng nhập </title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="/css/styles-trangchu.css">
-<link rel="stylesheet" href="/css/dangnhap.css">
-<link rel="icon" type="image/png" href="/images/quancua2-favicon.png">
+<link rel="stylesheet" href="component.css">
+<link rel="stylesheet" href="dangnhap.css">
 </head>
 <body>
 
@@ -25,7 +24,6 @@
                     <label for="login-id">Số điện thoại hoặc email</label>
                     <input type="text" id="login-id" placeholder="09xx xxx xxx hoặc email" required>
                 </div>
-
                <div class="field">
                     <label for="login-pass">Mật khẩu</label>
                     <input type="password" id="login-pass" placeholder="Nhập mật khẩu">
@@ -34,16 +32,8 @@
 
                 <div class="field-row">
                     <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
-                    <a href="#">Quên mật khẩu?</a>
                 </div>
-                <button type="button" class="btn" onclick="kiemTraDangNhap()">Đăng nhập</button>
-                <div class="divider">hoặc</div>
-
-                <div class="social-row">
-                    <button type="button" class="social-btn"><i class="fa-brands fa-google"></i> Google</button>
-                    <button type="button" class="social-btn"><i class="fa-brands fa-facebook"></i> Facebook</button>
-                </div>
-
+                <button type="button" class="btn" onclick="kiemTraDangNhap()">Đăng nhập</button>          
                 <p class="switch-line">Chưa có tài khoản? <a href="dangki.html">Đăng ký ngay</a></p>
             </form>
         </div>
@@ -71,7 +61,7 @@
 
 <footer id="footer"></footer>
 
-<script type="module" src="/js/load-components.js"></script>
-<script src="/js/dangnhap.js"></script>
+<script src="load-components.js"></script>
+<script src="dangnhap.js"></script>
 </body>
 </html>
