@@ -1,6 +1,9 @@
 .page-main{
     padding-top: 180px;
 }
+.detail-container{
+    display: grid;
+}
 .product__detail{
     width: 95%;
 }
@@ -86,6 +89,7 @@
     padding: 10px;
     background-color: #fff8e1;
     border-radius: 10px;
+    display: grid;
 }
 .suggest-content{
     display: grid;
@@ -145,6 +149,7 @@ a{
 }
 .review-container h3{
     text-align: center;
+    display: grid;
 }
 .rating{
     margin: 5px;
