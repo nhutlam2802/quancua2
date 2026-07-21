@@ -17,20 +17,20 @@ function kiemTraDangNhap() {
         if (soDienThoai === "") oTaiKhoan.classList.add("input-error");
         if (matKhauNhapVao === "") oMatKhau.classList.add("input-error");
         
-        thongBaoLoi.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Vui lòng điền đầy đủ thông tin!';
+        // Gán trực tiếp đoạn chữ cảnh báo
+        thongBaoLoi.textContent = 'Vui lòng điền đầy đủ thông tin!';
         thongBaoLoi.style.display = "block";
         return; 
     }
 
-    // 2. Lấy thông tin khách hàng từ trong kho ra (dựa vào số điện thoại)
-    let khachHang = JSON.parse(localStorage.getItem(soDienThoai));
+    // 2. Lấy mật khẩu từ trong kho ra (dựa vào số điện thoại)
+    let matKhauTrongKho = localStorage.getItem(soDienThoai);
 
     // ===============================================================
     // 3. THÊM MỚI: Kiểm tra xem tài khoản đã tồn tại trong kho chưa
-    if (khachHang === null) {
+    if (matKhauTrongKho === null) {
         // Hiện hộp thoại báo lỗi (Hệ thống sẽ đứng đợi ở đây)
         alert("Chưa có tài khoản, hãy đăng ký tài khoản!");
-        
         
         window.location.href = "dangki.html";
         return; 
@@ -38,13 +38,11 @@ function kiemTraDangNhap() {
     // ===============================================================
 
     // 4. Kiểm tra xem mật khẩu nhập vào có khớp với kho không
-    if (khachHang.matKhau === matKhauNhapVao) {
+    if (matKhauTrongKho === matKhauNhapVao) {
         // Thành công: Chữ xanh và tự động chuyển trang
         thongBaoLoi.style.setProperty("color", "#27ae60", "important");
-        thongBaoLoi.innerText = "Đăng nhập thành công!";
+        thongBaoLoi.textContent = "Đăng nhập thành công!";
         thongBaoLoi.style.display = "block";
-
-        localStorage.setItem("userLogin", JSON.stringify(khachHang));
 
         setTimeout(function() {
             window.location.href = "trangchu.html";
@@ -54,7 +52,9 @@ function kiemTraDangNhap() {
         // Thất bại: Mật khẩu sai
         oTaiKhoan.classList.add("input-error");
         oMatKhau.classList.add("input-error");
-        thongBaoLoi.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Sai số điện thoại hoặc mật khẩu!';
+        
+        // Gán trực tiếp đoạn chữ cảnh báo
+        thongBaoLoi.textContent = 'Sai số điện thoại hoặc mật khẩu!';
         thongBaoLoi.style.display = "block";
-    }
+    } 
 }
