@@ -13,67 +13,68 @@
     <div id="top"></div>
     <div id="header"></div>
     <main class="page-main">
-    <section id="combo1">
+        <section id="combo1">
 
-        <article class="combo-container">
-            <div class="combo-content">
-                <h1 class="title">COMBO 1 NGƯỜI</h1>
-                <h2 class="title1">MỘT MÌNH VẪN VUI!</h2>
+            <article class="combo-container">
+                <div class="combo-content">
+                    <h1 class="title">COMBO 1 NGƯỜI</h1>
+                    <h2 class="title1">MỘT MÌNH VẪN VUI!</h2>
 
-                <ul class="combo-list">
-                    <li class="combo-list-item">Sự kết hợp khiến hội ăn vặt mê mẩn: mì trộn dai ngon hòa quyện cùng chân gà sốt Thái chua cay đậm đà.</li>
-                    <li class="combo-list-item">Từng miếng chân gà giòn sần sật, thấm đều sốt Thái cay nhẹ.</li>
-                    <li class="combo-list-item">Mì trộn thơm ngon, đậm vị, ăn một lần là nhớ mãi.</li>
-                    <li class="combo-list-item">Thêm cánh gà vàng giòn và chai nước mát lạnh, tạo nên combo vừa no bụng vừa đã vị.</li>
-                    <li class="combo-list-item">Bạn đã sẵn sàng thưởng thức combo <b>"MỘT MÌNH VẪN VUI!"</b> chưa?</li>
-                    <li class="combo-list-item">🔥 <i>Một mình vẫn chill, đồ ngon là đủ!</i> 😋</li>     
-                </ul>    
+                    <ul class="combo-list">
+                        <li class="combo-list-item">Sự kết hợp khiến hội ăn vặt mê mẩn: mì trộn dai ngon hòa quyện cùng chân gà sốt Thái chua cay đậm đà.</li>
+                        <li class="combo-list-item">Từng miếng chân gà giòn sần sật, thấm đều sốt Thái cay nhẹ.</li>
+                        <li class="combo-list-item">Mì trộn thơm ngon, đậm vị, ăn một lần là nhớ mãi.</li>
+                        <li class="combo-list-item">Thêm cánh gà vàng giòn và chai nước mát lạnh, tạo nên combo vừa no bụng vừa đã vị.</li>
+                        <li class="combo-list-item">Bạn đã sẵn sàng thưởng thức combo <b>"MỘT MÌNH VẪN VUI!"</b> chưa?</li>
+                        <li class="combo-list-item">🔥 <i>Một mình vẫn chill, đồ ngon là đủ!</i> 😋</li>     
+                    </ul>    
 
-            </div>
-
-            <div class="product">
-                <img src="/images/combo1nguoi.png" alt="Combo 1 Người">
-
-                <div class="price-box">
-                    <span class="old-price">95.000đ</span>
-                    <span class="discount">-23%</span>
-                    <span class="new-price">73.000đ</span>
                 </div>
 
-                <div class="product-detail__count">
-                    <button type="button" id="minus">-</button>
+                <div class="product">
+                    <img src="/images/combo1nguoi.png" alt="Combo 1 Người">
 
-                    <input
-                        type="number"
-                        class="product-detail__count-input"
-                        value="1"
-                        min="1"
-                        max="100">
+                    <div class="price-box">
+                        <span class="old-price">95.000đ</span>
+                        <span class="discount">-23%</span>
+                        <span class="new-price">73.000đ</span>
+                    </div>
 
-                    <button type="button" id="sum">+</button>
+                    <div class="product-detail__count">
+                        <button type="button" id="minus">-</button>
+
+                        <input
+                            type="number"
+                            class="product-detail__count-input"
+                            value="1"
+                            min="1"
+                            max="100">
+
+                        <button type="button" id="sum">+</button>
+                    </div>
+
+                    <button
+                        id="add-cart"
+                        class="product-detail__btn"
+                        data-id="101">
+                        Thêm vào giỏ hàng
+                    </button>
+
+                    <button
+                        id="buy"
+                        class="product-detail__btn"
+                        data-id="101">
+                        Mua ngay
+                    </button>
                 </div>
 
-                <button
-                    id="add-cart"
-                    class="product-detail__btn"
-                    data-id="101">
-                    Thêm vào giỏ hàng
-                </button>
+            </article>
 
-                <button
-                    id="buy"
-                    class="product-detail__btn"
-                    data-id="101">
-                    Mua ngay
-                </button>
-            </div>
-
-        </article>
-
-    </section>
-</main>
+        </section>
+    </main>
     <div id="footer"></div>
-    <script type="module" src="/js/load-components.js"></script>
     <script src="/js/user.js"></script>
+    <script type="module" src="/js/load-components.js"></script>
     <script type="module" src="/js/combo.js"></script>
 </body>
+</html>
