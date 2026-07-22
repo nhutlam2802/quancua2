@@ -31,6 +31,7 @@ function kiemTraDangNhap() {
         window.location.href = "dangki.html";
         return; 
     }
+    
     let matKhauTrongKho = "";
     try {
         let userObj = JSON.parse(duLieuTrongKho);
@@ -38,9 +39,10 @@ function kiemTraDangNhap() {
     } catch (error) {
         matKhauTrongKho = duLieuTrongKho; 
     }
+    
     // 4. Kiểm tra xem mật khẩu nhập vào có khớp với kho không
     if (matKhauTrongKho === matKhauNhapVao) {
-        localStorage.setItem("currentUser", soDienThoai);
+        localStorage.setItem("userLogin", duLieuTrongKho);
         thongBaoLoi.style.setProperty("color", "#27ae60", "important");
         thongBaoLoi.textContent = "Đăng nhập thành công!";
         thongBaoLoi.style.display = "block";
