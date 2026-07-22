@@ -1,6 +1,5 @@
-*,
-*::before,
-*::after {
+
+* {
     box-sizing: border-box;
 }
 
@@ -13,7 +12,6 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     background-color: #fff;
     color: #2C3E50;
-    /*border: 3px dashed yellow;  Wireframe*/
 }
 
 /* Top */
@@ -28,7 +26,6 @@ body {
     min-height: 3rem;
     padding: 0.5rem 1rem;
     background-color: #FFFDD0;
-    /*border: 3px dashed blue; Wireframe*/
     font-size: 0.875rem;
     z-index: 1000;
 }
@@ -48,7 +45,6 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.75rem;
-    /*border: 3px dashed green;   Wireframe*/
 }
 
 .top_right a {
@@ -69,7 +65,6 @@ body {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    /*border: 3px dashed purple;  Wireframe*/
 }
 
 #user-area span{
@@ -81,7 +76,6 @@ body {
 .search-box {
     display: flex;
     align-items: center;
-    /*border: 2px solid black;    Wireframe*/
 }
 
 .search-box input {
@@ -119,7 +113,6 @@ body {
     width: 100%;
     padding: 0.75rem 1rem;
     background: #FFB347;
-    /*border: 3px dashed black;   Wireframe*/
     z-index: 999;
 }
 
@@ -131,14 +124,12 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    /*border: 2px dashed purple;  Wireframe*/
 }
 
 .page-header__actions {
     display: flex;
     align-items: center;
     gap: 1rem;
-    /*border: 2px solid red;  Wireframe*/
 }
 
 .menu-toggle {
@@ -161,7 +152,6 @@ body {
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.15);
-    /*border: 2px solid green;    Wireframe*/
 }
 
 .page-header__navbar.active {
@@ -195,7 +185,6 @@ body {
     width: 100%;
     margin: 0 auto;
     padding-top: 8.5rem;
-    /*border: 3px dashed red; Wireframe*/
 }
 
 /* Banner Slider */
@@ -204,7 +193,6 @@ body {
     width: 100%;
     aspect-ratio: 1920 / 700;
     overflow: hidden;
-    /*border: 3px solid blue; Wireframe*/
 }
 
 .page-main__banner {
@@ -277,11 +265,10 @@ body {
     background-color: #ffd580;
 }
 
-/* Món ăn bán chạy (trang chi tiết sản phẩm) */
+/* Món ăn bán chạy */
 .suggest-detail {
     margin-top: 2.5rem;
     text-align: center;
-    /*border: 3px solid yellow;   Wireframe*/
 }
 
 .suggest-detail__content {
@@ -294,19 +281,17 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 1rem;
-    /*border: 2px dashed green;   Wireframe*/
 }
 
 .suggest-detail__content .product {
     width: 100%;
     max-width: 18.75rem;
-    padding: 1rem;
+    padding: 0.75rem;
     background-color: #fff8e1;
     border: 1px solid orange;
     border-radius: 0.75rem;
     text-align: center;
     transition: transform 0.3s ease;
-    /*border: 2px dashed purple;  Wireframe*/
 }
 
 .suggest-detail__content .product:hover {
@@ -314,17 +299,16 @@ body {
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
 }
 
-.suggest-detail__content .product__img {
+.suggest-detail__content .product-img {
     width: 100%;
-    height: 12.5rem;
+    height: 10rem;
     object-fit: cover;
     border-radius: 0.625rem;
-    /*border: 2px dashed black;   Wireframe*/
 }
 
 .suggest-detail__content .product a {
     display: block;
-    margin: 0.625rem 0;
+    margin: 0;
     color: #d35400;
     text-decoration: none;
     font-size: 1.25rem;
@@ -335,17 +319,43 @@ body {
     color: orange;
 }
 
-.suggest-detail__content .product p {
-    color: #000;
-    font-size: 1.125rem;
-    font-weight: bold;
+.suggest-detail__content .product-name {
+    color:#d35400;
+    font-size:1.25rem;
+    font-weight:bold;
+    margin:0.5rem 0 0.25rem;
+}
+
+.suggest-detail__content .product-price {
+    color:black;
+    font-size:1.125rem;
+    font-weight:bold;
+    margin:0.25rem 0;
+}
+
+.suggest-detail__content .rating {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    color:black;
+    gap: 0.15rem;
+    margin-top: 0.15rem;
+}
+
+.suggest-detail__content .product-score{
+    color: black;
+    margin: 0;
+}
+
+.suggest-detail__content .fa-star{
+    color: gold;
+    margin-left: 0.25rem;
 }
 
 /* Khuyến mãi */
 .promotion {
     margin-top: 3rem;
     text-align: center;
-    /*border: 3px solid green;    Wireframe*/
 }
 
 .suggest-detail__title,
@@ -356,7 +366,6 @@ body {
     color: orangered;
     font-size: 1.6rem;
     font-weight: bold;
-    /*border: 2px dashed blue;    Wireframe*/
 }
 
 .suggest-detail__title::after,
@@ -390,7 +399,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
-    /*border: 2px dashed green;   Wireframe*/
 }
 
 .promotion__link {
@@ -398,7 +406,6 @@ body {
     max-width: 20rem;
     color: inherit;
     text-decoration: none;
-    /*border: 2px dashed black;   Wireframe*/
 }
 
 .promotion__item {
@@ -425,13 +432,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem 0.25rem;
     margin-top: 2.5rem;
     background-color: #2C3E50;
     color: #fff;
     font-size: 0.875rem;
     text-align: center;
-    /*border: 3px dashed yellow;  Wireframe*/
 }
 
 .page-footer__logo {
@@ -442,7 +448,6 @@ body {
     max-width: 100%;
     max-height: 5rem;
     height: auto;
-    /*border: 3px dashed blue;   Wireframe*/
 }
 
 .page-footer__columns {
@@ -450,12 +455,7 @@ body {
     grid-template-columns: 1fr;
     gap: 2rem;
     width: 100%;
-    /*border: 3px solid orange;   Wireframe*/
 }
-
-/* .page-footer__col{
-    border: 2px solid green;    
-} */
 
 .page-footer__col h3 {
     margin-bottom: 0.75rem;
@@ -509,14 +509,14 @@ body {
 
 .page-footer__legal {
     width: 100%;
-    margin-top: 2rem;
-    padding-top: 1rem;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     color: #ccc;
-    /*border: 2px solid red;  Wireframe*/
 }
 
 /* Mobile-first Design */
+/* Ipad */
 @media screen and (min-width: 601px) {
 
     .top_container {
@@ -606,7 +606,7 @@ body {
     }
 
     .page-footer {
-        padding: 2.5rem 1.5rem;
+        padding: 2.5rem 0.5rem 0.5rem;
         text-align: left;
     }
 
@@ -626,8 +626,15 @@ body {
     .page-footer__social-icons {
         justify-content: flex-start;
     }
+
+    .page-footer__legal {
+        flex-basis: 100%;
+        margin-top: 2rem;
+        text-align: center;
+    }
 }
 
+/* Desktop */
 @media screen and (min-width: 1025px) {
 
     .top_container {
@@ -638,7 +645,6 @@ body {
 
     .top_left {
         display: block;
-        /*border: 2px solid blue; Wireframe*/
     }
 
     .top_right {
@@ -698,7 +704,7 @@ body {
 
     .suggest-detail__content {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        gap: 1.25rem;
     }
 
     .promotion {
@@ -728,7 +734,7 @@ body {
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 2.5rem 3rem;
+        padding: 1.5rem 3rem 0.5rem;
     }
 
     .page-footer__logo {
@@ -748,11 +754,5 @@ body {
 
     .page-footer__social-icons a {
         font-size: 1.5rem;
-    }
-
-    .page-footer__legal {
-        flex-basis: 100%;
-        margin-top: 2rem;
-        text-align: center;
-    }
+    }  
 }

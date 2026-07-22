@@ -1,88 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đăng ký</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="/css/styles-trangchu.css">
-<link rel="stylesheet" href="/css/dangki.css">
-<link rel="icon" type="image/png" href="/images/quancua2-favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles-trangchu.css">
+    <link rel="stylesheet" href="/css/dangki.css">
+    <link rel="icon" type="image/png" href="/images/quancua2-favicon.png">
 </head>
+
 <body>
 
-<div id="top"></div>
-<div id="header"></div>
+    <div id="top"></div>
+    <div id="header"></div>
 
-<main>
-    <div class="auth-wrap">
+    <main>
+        <div class="auth-wrap">
 
-        <div class="auth-side">
-            <span class="badge">Thành viên mới</span>
-            <h2>Tham gia Quán của 2 — ăn vặt xịn, ưu đãi riêng.</h2>
-            <p>Tạo tài khoản để lưu địa chỉ, theo dõi đơn hàng và mở khoá ưu đãi dành riêng cho thành viên.</p>
-            <ul>
-                <li><i class="fa-solid fa-gift"></i> Giảm 10% cho đơn đăng ký đầu tiên</li>
-                <li><i class="fa-solid fa-bolt"></i> Đặt lại đơn cũ chỉ trong 1 chạm</li>
-                <li><i class="fa-solid fa-bell"></i> Nhận thông báo món mới sớm nhất</li>
-            </ul>
+            <div class="auth-side">
+                <span class="badge">Thành viên mới</span>
+                <h2>Tham gia Quán của 2 — ăn vặt xịn, ưu đãi riêng.</h2>
+                <p>Tạo tài khoản để lưu địa chỉ, theo dõi đơn hàng và mở khoá ưu đãi dành riêng cho thành viên.</p>
+                <ul>
+                    <li><i class="fa-solid fa-gift"></i> Giảm 10% cho đơn đăng ký đầu tiên</li>
+                    <li><i class="fa-solid fa-bolt"></i> Đặt lại đơn cũ chỉ trong 1 chạm</li>
+                    <li><i class="fa-solid fa-bell"></i> Nhận thông báo món mới sớm nhất</li>
+                </ul>
 
-            <div class="food-strip">
-                <span title="Bánh mì nướng chả trứng phô mai"><i class="fa-solid fa-bread-slice"></i></span>
-                <span title="Trứng chiên kiểu Đài Loan"><i class="fa-solid fa-egg"></i></span>
-                <span title="Chân gà sốt Thái"><i class="fa-solid fa-pepper-hot"></i></span>
-                <span title="Cánh gà chiên giòn"><i class="fa-solid fa-drumstick-bite"></i></span>
-                <span title="Bắp xào tôm khô"><i class="fa-solid fa-seedling"></i></span>
+                <div class="food-strip">
+                    <span title="Bánh mì nướng chả trứng phô mai"><i class="fa-solid fa-bread-slice"></i></span>
+                    <span title="Trứng chiên kiểu Đài Loan"><i class="fa-solid fa-egg"></i></span>
+                    <span title="Chân gà sốt Thái"><i class="fa-solid fa-pepper-hot"></i></span>
+                    <span title="Cánh gà chiên giòn"><i class="fa-solid fa-drumstick-bite"></i></span>
+                    <span title="Bắp xào tôm khô"><i class="fa-solid fa-seedling"></i></span>
+                </div>
             </div>
+            <div class="auth-form-col">
+                <form class="auth-form">
+                    <h1>Tạo tài khoản</h1>
+                    <p>Chỉ mất chưa đầy 1 phút để bắt đầu đặt món.</p>
+
+                    <div class="field">
+                        <label for="reg-name">Họ và tên</label>
+                        <input type="text" id="reg-name" placeholder="Nguyễn Văn A" required>
+                    </div>
+
+                    <div class="field-2col">
+                        <div class="field">
+                            <label for="reg-phone">Số điện thoại</label>
+                            <input type="tel" id="reg-phone" placeholder="09xx xxx xxx" required>
+                        </div>
+                        <div class="field">
+                            <label for="reg-email">Email</label>
+                            <input type="email" id="reg-email" placeholder="ban@email.com">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="reg-pass">Mật khẩu</label>
+                        <input type="password" id="reg-pass" placeholder="Tối thiểu 8 ký tự" required minlength="8">
+                        <p class="hint">Nên có chữ hoa, chữ thường và ít nhất 1 số.</p>
+                    </div>
+                        <div class="field">
+                            <label for="reg-pass2">Nhập lại mật khẩu</label>
+                            <input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu" required minlength="8"> 
+                            <p id="loi-mat-khau" class="error-msg"></p>
+                        </div>
+                    <label class="terms-row">
+                        <input type="checkbox" required>
+                        <span>Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a>.</span>
+                    </label>
+
+                    <button type="button" class="btn" onclick="kiemTraDangKy()">Đăng ký tài khoản</button>
+                    <p class="switch-line">Đã có tài khoản? <a href="dangnhap.html">Đăng nhập</a></p>
+                </form>
+            </div>
+
         </div>
-        <div class="auth-form-col">
-            <form class="auth-form">
-                <h1>Tạo tài khoản</h1>
-                <p>Chỉ mất chưa đầy 1 phút để bắt đầu đặt món.</p>
+    </main>
 
-                <div class="field">
-                    <label for="reg-name">Họ và tên</label>
-                    <input type="text" id="reg-name" placeholder="Nguyễn Văn A" required>
-                </div>
+    <footer id="footer"></footer>
 
-                <div class="field-2col">
-                    <div class="field">
-                        <label for="reg-phone">Số điện thoại</label>
-                        <input type="tel" id="reg-phone" placeholder="09xx xxx xxx" required>
-                    </div>
-                    <div class="field">
-                        <label for="reg-email">Email</label>
-                        <input type="email" id="reg-email" placeholder="ban@email.com">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label for="reg-pass">Mật khẩu</label>
-                    <input type="password" id="reg-pass" placeholder="Tối thiểu 8 ký tự" required minlength="8">
-                    <p class="hint">Nên có chữ hoa, chữ thường và ít nhất 1 số.</p>
-                </div>
-                    <div class="field">
-                        <label for="reg-pass2">Nhập lại mật khẩu</label>
-                        <input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu" required minlength="8"> 
-                        <p id="loi-mat-khau" class="error-msg"></p>
-                    </div>
-                <label class="terms-row">
-                    <input type="checkbox" required>
-                    <span>Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a>.</span>
-                </label>
-
-                <button type="button" class="btn" onclick="kiemTraDangKy()">Đăng ký tài khoản</button>
-                <p class="switch-line">Đã có tài khoản? <a href="dangnhap.html">Đăng nhập</a></p>
-            </form>
-        </div>
-
-    </div>
-</main>
-
-<footer id="footer"></footer>
-
-<script type="module" src="/js/load-components.js"></script>
-<script src="/js/dangki.js"></script>
+    <script type="module" src="/js/load-components.js"></script>
+    <script src="/js/user.js"></script>
+    <script src="/js/dangki.js"></script>
 </body>
 </html>
