@@ -1,5 +1,4 @@
 import { list_product_combo } from "./listproductcombo.js";
-import { Item } from "./sanpham/sanpham.js";
 
 const input = document.querySelector(".product-detail__count-input");
 const plus = document.getElementById("sum");
@@ -9,18 +8,31 @@ const buy = document.getElementById("buy");
 
 input.value = 1;
 
+// Tìm vị trí sản phẩm theo id
+function findIndex(id) {
+    for (let i = 0; i < list_product_combo.length; i++) {
+        if (list_product_combo[i].id == id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 // Lấy id sản phẩm
 const id = Number(add.dataset.id);
 
-// Tìm sản phẩm
-const product = list_product_combo.find(item => item.id == id);
+// Tìm vị trí trong mảng
+const index = findIndex(id);
 
-// Kiểm tra sản phẩm đã có trong giỏ chưa
-function isExistedInCart(item, cartItemArr) {
-    for (let i = 0; i < cartItemArr.length; i++) {
+// Lấy thông tin sản phẩm
+const product = list_product_combo[index];
+
+// Kiểm tra sản phẩm đã tồn tại chưa
+function isExistedInCart(item, cart) {
+    for (let i = 0; i < cart.length; i++) {
         if (
-            cartItemArr[i].product.id == item.product.id &&
-            cartItemArr[i].variant.size == item.variant.size
+            cart[i].id == item.id &&
+            cart[i].size == item.size
         ) {
             return i;
         }
@@ -30,40 +42,42 @@ function isExistedInCart(item, cartItemArr) {
 
 // Tăng số lượng
 plus.addEventListener("click", function () {
-    input.value++;
+    input.value = Number(input.value) + 1;
 });
 
 // Giảm số lượng
 minus.addEventListener("click", function () {
-    if (input.value > 1) {
-        input.value--;
+    if (Number(input.value) > 1) {
+        input.value = Number(input.value) - 1;
     }
 });
 
-// Hàm thêm vào giỏ
+// Thêm vào giỏ hàng
 function addToCart() {
     const user = JSON.parse(localStorage.getItem("userLogin"));
-
-    // Chưa đăng nhập
     if (!user) {
         alert("Vui lòng đăng nhập trước khi mua hàng!");
         window.location.href = "dangnhap.html";
         return false;
     }
 
-    let cartKey = "cart_" + user.soDienThoai;
+    const cartKey = "cart_" + user.soDienThoai;
+
     let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-    const item = new Item(
-        product,
-        product.variant[0],
-        Number(input.value)
-    );
+    let item = {
+            id: id,
+            name: product.name,
+            img: product.img,
+            size: product.variant[0].size,
+            price: product.variant[0].price,
+            quantity: Number(input.value)
+};
 
-    const index = isExistedInCart(item, cart);
+    const existed = isExistedInCart(item, cart);
 
-    if (index >= 0) {
-        cart[index].quantity += Number(input.value);
+    if (existed != -1) {
+        cart[existed].quantity += item.quantity;
     } else {
         cart.push(item);
     }
