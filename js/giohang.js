@@ -5,15 +5,27 @@
                             Gán sự kiện cho các nút tăng, giảm, xóa.
                             Nếu giỏ hàng rỗng thì hiển thị thông báo.*/
 
+function layUser() {
+    return JSON.parse(localStorage.getItem("userLogin"));
+}
+
+function layCartKey() {
+    let user = layUser();
+    return "cart_" + user.soDienThoai;
+}
+
+function laygiohang() {
+    return JSON.parse(localStorage.getItem(layCartKey())) || [];
+}
+
 function hienThiGioHang() {
-    /*Đọc dữ liệu giỏ hàng từ localStorage. Nếu không có thì tạo mảng rỗng.*/
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    let cartKey = "cart_" + user.soDienThoai;
-    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-    /*Gộp các sản phẩm cùng loại và cùng size. Nếu đã tồn tại thì cộng dồn số lượng.*/
-    let newCart = []; /*Tạo mảng mới để lưu các sản phẩm đã gộp.*/
-    cart.forEach(item => {
-        let index = newCart.findIndex(sp => /*Tìm kiếm sản phẩm cùng loại và cùng size trong mảng mới.*/
+    let cart = laygiohang();
+    /*Tạo mảng mới để lưu các sản phẩm đã gộp.*/
+    let newCart = []; 
+    // duyệt từng sp 
+    cart.forEach(item => { 
+        /*Tìm kiếm sản phẩm cùng loại và cùng size trong mảng mới.*/
+        let index = newCart.findIndex(sp => 
             sp.id == item.id &&
             sp.size == item.size
         );
@@ -25,7 +37,7 @@ function hienThiGioHang() {
     }); 
     /*Cập nhật lại giỏ hàng trong localStorage với mảng mới đã gộp.*/
      cart = newCart;
-     localStorage.setItem(cartKey, JSON.stringify(cart));
+     localStorage.setItem(layCartKey(), JSON.stringify(cart));
      /*Hiển thị danh sách sản phẩm lên trang.*/
     const cartBody=document.getElementById("cart-body"); /*nơi hiển thị danh sách sản phẩm trong giỏ hàng.*/
     
@@ -82,8 +94,8 @@ cart.forEach((item, index) => {
     cartBody.append(row);
 });
 
-document.getElementById("tongtien").textContent =
-    tongTien.toLocaleString("vi-VN");
+    document.getElementById("tongtien").textContent =tongTien.toLocaleString("vi-VN");
+    
     
    
    
@@ -120,48 +132,38 @@ document.getElementById("tongtien").textContent =
 }
 
 function tangSL(index) {
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    let cartKey = "cart_" + user.soDienThoai;
-    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    let cart = laygiohang();
     cart[index].quantity++;
-    localStorage.setItem(cartKey, JSON.stringify(cart));
+    localStorage.setItem(layCartKey(), JSON.stringify(cart));
     hienThiGioHang();
 }
 
 function giamSL(index) {
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    let cartKey = "cart_" + user.soDienThoai;
-    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    let cart = laygiohang();
     if (cart[index].quantity > 1) {
         cart[index].quantity--;
     }
-    localStorage.setItem(cartKey, JSON.stringify(cart));
+    localStorage.setItem(layCartKey(), JSON.stringify(cart));
     
     hienThiGioHang();
 }
 
 function xoaSP(index) {
     if (confirm("Bạn có chắc muốn xóa sản phẩm?")) {
-        let user = JSON.parse(localStorage.getItem("userLogin"));
-        let cartKey = "cart_" + user.soDienThoai;
-        let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+        let cart = laygiohang();
         cart.splice(index, 1);
-        localStorage.setItem(cartKey,JSON.stringify(cart));
+        localStorage.setItem(layCartKey(),JSON.stringify(cart));
         hienThiGioHang();
     }
 }
 
 function hienFormThanhToan() {
-        const user = JSON.parse(localStorage.getItem("userLogin"));
-
+    const user = layUser();
+    let cart = laygiohang();
         if (!user) {
             alert("Vui lòng đăng nhập!");
             return;
         }
-
-        let cartKey = "cart_" + user.soDienThoai;
-        let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-
         // Không cho mở form nếu giỏ hàng trống
         if (cart.length === 0) {
             alert("Giỏ hàng đang trống! Vui lòng thêm sản phẩm trước khi đặt hàng.");
@@ -201,7 +203,7 @@ function dongFormThanhToan(){
 }
 
 function datHang(){
-    const user = JSON.parse(localStorage.getItem("userLogin"));
+   const user = layUser();
     if(!user){
         alert("Vui lòng đăng nhập để đặt hàng!");
         window.location.href = "dangnhap.html";
@@ -217,8 +219,7 @@ function datHang(){
     }
 
     alert("Đặt hàng thành công!");
-    let cartKey = "cart_" + user.soDienThoai;
-    localStorage.removeItem(cartKey);
+    localStorage.removeItem(layCartKey());
     document.getElementById("checkout-modal").style.display = "none";
     hienThiGioHang();
 }
