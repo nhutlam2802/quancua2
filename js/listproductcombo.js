@@ -1,41 +1,25 @@
-import { Product, Variant } from "./sanpham/sanpham.js";
+ export const list_product_combo = [
+    {  id: 101,
+        name: "Combo 1 người",
+        img: "/images/combo1nguoi.png",
+        variant: [{ size: "Combo", price: "73000" }]
+    },
 
-export const list_product_combo = [
-
-    new Product(
-        101,
-        "Combo 1 người",
-        "/images/combo1nguoi.png",
-        [
-            new Variant("Combo",73000)
-        ]
-    ),
-
-    new Product(
-        102,
-        "Combo 2 người",
-        "/images/combo2nguoi.png",
-        [
-            new Variant("Combo",179000)
-        ]
-    ),
-
-    new Product(
-        104,
-        "Combo 4 người",
-        "/images/combo4nguoi.png",
-        [
-            new Variant("Combo",349000)
-        ]
-    ),
-
-    new Product(
-        109,
-        "Combo 9 người",
-        "/images/combo9nguoi.png",
-        [
-            new Variant("Combo",815000)
-        ]
-    )
-
+    {  id: 102,
+        name: "Combo 2 người",
+        img: "/images/combo2nguoi.png",
+        variant: [{ size: "Combo", price: "179000" }]
+    },        
+        
+    {  id: 104,  
+        name: "Combo 4 người",
+        img: "/images/combo4nguoi.png",
+        variant: [{ size: "Combo", price: "349000" }]
+    },        
+       
+    {  id: 109,
+        name: "Combo 9 người",
+        img: "/images/combo9nguoi.png",
+        variant: [{ size: "Combo", price: "815000" }]
+     }         
 ];
