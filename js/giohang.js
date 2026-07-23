@@ -10,7 +10,9 @@ function layUser() {
 }
 
 function layCartKey() {
-    let user = layUser();
+    let user = layUser();if (user == null) {
+        return "";
+    }
     return "cart_" + user.soDienThoai;
 }
 
@@ -40,7 +42,6 @@ function hienThiGioHang() {
      localStorage.setItem(layCartKey(), JSON.stringify(cart));
      /*Hiển thị danh sách sản phẩm lên trang.*/
     const cartBody=document.getElementById("cart-body"); /*nơi hiển thị danh sách sản phẩm trong giỏ hàng.*/
-    
     cartBody.replaceChildren();
 let tongTien = 0;
 
