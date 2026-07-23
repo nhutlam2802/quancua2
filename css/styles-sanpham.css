@@ -1,11 +1,10 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
-}
+
 a{
     text-decoration: none;
 }
 .page-main{
+    width:100%;
+    margin:0 auto;
     padding-top: 180px;
 }
 .main-section{
@@ -40,7 +39,6 @@ a{
 }
 .product:hover{
     transform: scale(1.05);
-    transition: transform 0.5s ease;
 }
 .product-name:hover{
     color: rgb(60, 158, 214);
@@ -54,9 +52,7 @@ a{
     display: block;
     border-radius: 10xp;
     justify-self: center;
-}
-.fa-star {
-    color: gold;
+    transition: transform 0.5s ease;
 }
 .product-name{
     color: orangered;
