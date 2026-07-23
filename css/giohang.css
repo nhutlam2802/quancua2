@@ -8,7 +8,7 @@
     align-items:center;
     background:#f79e21;
     padding:5px;
-    margin-top:8px; 
+    margin-top:8px;
     margin-bottom:5px;
     box-shadow:0 4px 15px rgba(0,0,0,.15); /*tạo bóng 0 lệch trái 4px xuống 15px độ mờ*/
 }
@@ -23,7 +23,7 @@
     margin-right:5px;
 }
 /*khung chứa toàn bộ sp*/
-.cart-container{
+.cart-container{ 
     background:white;
     border-radius:15px;  /*bo góc*/
     overflow:hidden;     /* ẩn phần thừa*/
@@ -31,14 +31,15 @@
 }
 
 .cart-title{
-    display:none; /*ẩn tittle trên đt*/
+    display:none; /*ẩn tittle trên đt*/ 
+    
 }
 
 .cart-row{
     display:flex; 
     flex-direction:column; /*gom các div thành 1 cột*/
     align-items:flex-start; /*canh trái*/
-    gap:12px;
+    gap:12px; 
     padding:20px; 
 }
 /*áp cho các div trong cart-row*/
@@ -67,7 +68,7 @@
     padding:30px 20px; /*padding trên dưới 30px, trái phải 20px*/
 }
 
-.tong-tien{
+.tong-tien{ 
     font-size:32px;
     font-weight:bold;
     margin-bottom:10px;  
@@ -78,7 +79,7 @@
     color:#ff4d1c;
 }
 
-.cart-buttons{
+.cart-buttons{ 
     display:flex;
     flex-direction:column;
     width:100%;

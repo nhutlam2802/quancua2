@@ -1,4 +1,8 @@
-
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 180px 15px 0 15px; 
+}
 .news-intro {
     text-align: center;
     padding-top: 180px;
@@ -65,9 +69,7 @@
 .news-grid {
     display: grid;
     grid-template-columns:1fr;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
+    gap: 30px;  
 }
 
 .news-card {
@@ -117,7 +119,10 @@
     font-size: 18px;
     line-height: 1.4;
 }
-
+.featured-content h2 a,
+.news-card-body h3 a {
+    text-decoration: none;
+}
 .news-card-body p {
     font-size: 14px;
     color: #666;
