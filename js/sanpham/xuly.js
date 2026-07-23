@@ -13,6 +13,18 @@
     // +Hiển thị đề xuất 4 sản phẩm có id tiếp theo từ listproduct
 
 import { listproduct } from "./listproduct.js";
+
+//Tìm vị trí của sản phẩm theo id
+function findIndex(id){
+    for(let i=0;i<listproduct.length;i++)
+    {
+        if(listproduct[i].id==id)
+            return i;
+    }
+    return -1;
+}
+
+
 //Hàm chuyển đổi định dạng giá tiền, từ chuỗi số bình thường thành định dạng VNĐ
 function setPrice()
 {
@@ -22,7 +34,9 @@ function setPrice()
         .toLocaleString("de-DE",{style: 'currency',currency:'VND'});
     },false)
 }
-//Hàm cập nhật đánh giá sao, vì chưa có cơ sở dữ liệu để lưu trữ nên cập nhật thủ công theo id sản phẩm
+
+
+//Hàm cập nhật đánh giá sao, cập nhật thủ công theo id sản phẩm
 function rating()
 {
     const star=document.querySelectorAll(".product-score");
@@ -30,11 +44,13 @@ function rating()
     for(let i =0;i<id.length;i++)
     {
         if(id[i].textContent==1||id[i].textContent==4||id[i].textContent==7||id[i].textContent==10)
-            star[i].innerText="4.7";
-        else if(id[i].textContent==2||id[i].textContent==5||id[i].textContent==8||id[i].textContent==11)
-            star[i].innerText="4.0";
+            star[i].textContent="4.7"; 
+        else if(id[i].textContent==2||id[i].textContent==5||id[i].textContent==8||id[i].textContent==11) 
+            star[i].textContent="4.0"; 
     }
 }
+
+
 //Cập nhật điểm đánh giá trùng với đánh giá sao trước đó bên trang sản phẩm
 function score(id)
 {
@@ -42,11 +58,13 @@ function score(id)
     for(let i =0;i<id.length;i++)
     {
         if(id==1||id==4||id==7||id==10)
-            score.innerText="4.7";
+            score.textContent="4.7"; 
         else if(id==2||id==5||id==8||id==11)
-            score.innerText="4.0";
+            score.textContent="4.0"; 
     }
 }
+
+
 //Kiểm tra người dùng đã đăng nhập hay chưa, chỉ khi đăng nhập mới được sử dụng chức năng mua hàng
 function checklogin(){
     const user = JSON.parse(localStorage.getItem("userLogin"));
@@ -86,18 +104,16 @@ function inputamount(){
             }
         })
 }
-//Thêm 4 sản phẩm có id kế sau sản phẩm đang xem vào phần đề xuất khác
+
+
+// Thêm 4 sản phẩm có id kế sau sản phẩm đang xem vào phần đề xuất khác
 function addproduct(id){
-    let length = 0;
-    for(let id in listproduct) //Đếm số lượng sản phẩm có trong listproduct
-    {
-        length++;
-    }
     id= Number(id); 
     const content = document.querySelector(".suggest-content");
     for(let i =id;i<id+4;i++)
     {
-        let x = i%length+1;
+        let x = i%listproduct.length+1;
+        let index = findIndex(x);
         if(!listproduct) return; 
         let article = document.createElement("article");
         article.className = "product";
@@ -107,25 +123,28 @@ function addproduct(id){
         article.appendChild(a);
         let img = document.createElement("img");
         img.className = "product-img";
-        img.src = listproduct[x].img;
+        img.src = listproduct[index].img;
         a.appendChild(img);
         let h4 = document.createElement("h4");
         h4.className = "product-name";
-        h4.textContent = listproduct[x].name;
+        h4.textContent = listproduct[index].name;
         a.appendChild(h4);
         let p = document.createElement("p");
         p.className = "product-price";
-        p.textContent = listproduct[x].variant[0].price;
+        p.textContent = listproduct[index].variant[0].price;
         a.appendChild(p);
     }
     setPrice();
 }
+
+
 //Thêm dữ liệu sản phẩm được chọn vào localStorage, lưu dưới khóa là cartKey.
 function addcart(id,sizeSelected,quantity,price){
+    const index=findIndex(id);
     //Tạo object item để lưu dữ liệu sản phẩm, có các key bên trái, value bên phải
     let item={                          
         id: id,
-        name: listproduct[id].name,
+        name: listproduct[index].name,
         size: sizeSelected,
         price: price,
         quantity:Number(quantity),
@@ -141,12 +160,14 @@ function addcart(id,sizeSelected,quantity,price){
     //Lưu vào localStorage dưới khóa là cartKey
     localStorage.setItem(cartKey,JSON.stringify(cartItems));
 }
+
 //Kiểm tra xem người dùng đã nhập bình luận hay chưa
 function checkempty(){
     const comment = document.getElementById("comment-message");
     if (comment.value=="") return true;
     else return false;
 }
+
 //Gửi bình luận
 function sendcomment(){
     const comment = document.getElementById("comment-message");
@@ -162,6 +183,8 @@ function sendcomment(){
         }
     })
 }
+
+
 //Xu ly hien thi trang chi tiet san pham
 function setupproductdetailpage(){
     //Dùng URLSearchParams để lấy ra tham số trên đường dẫn, vì đường dẫn trước đó đã có tham số id 
@@ -170,14 +193,16 @@ function setupproductdetailpage(){
     const name=document.querySelector(".product__detail-name");
     const img = document.querySelector(".product__detail-img");
     const price = document.querySelector(".product__detail-price");
-    const product = listproduct[id];
-    const variant = listproduct[id].variant; 
+    const index = findIndex(id);
+    const product = listproduct[index];
+    console.log("index id là " +index);
+    const variant = listproduct[index].variant; 
     //Mặc định khi người dùng chưa chọn size thì lưu size và price là giá trị đầu tiên trong variant
     let sizeSelected=variant[0].size;
     let priceSelected=variant[0].price;
-    name.innerText=product.name;
+    name.textContent=product.name;
     img.src=product.img;
-    price.innerText=Number(variant[0].price).toLocaleString("vi-VN")+"đ";
+    price.textContent=Number(variant[0].price).toLocaleString("vi-VN")+"đ";
     const size=document.querySelector(".product__detail-size");
     let button="";
     //Dựa theo dữ liệu từng sản phẩm trong mảng listproduct, để tạo các nút chọn phân loại tương ứng
@@ -186,13 +211,25 @@ function setupproductdetailpage(){
         button = document.createElement("button");
         size.appendChild(button);
         button.textContent=variant[i].size;
-        button.className="size-button";
+        button.className=("size-button");
         button.addEventListener("click",()=>{
             price.innerText = Number(variant[i].price).toLocaleString("vi-VN")+"đ";
             sizeSelected = variant[i].size;
             priceSelected = variant[i].price;
-        })
+    })
     }
+    //Chỉnh hiệu ứng cho nút được chọn
+    const Arraybutton = document.querySelectorAll(".size-button");
+    Arraybutton.forEach(buttonclick=>{
+        buttonclick.addEventListener("click",()=>{
+            Arraybutton.forEach(button=>{
+                button.classList.remove("size-button-on");
+            })
+            buttonclick.classList.add("size-button-on");
+        })
+    })
+    
+
     //Thêm xử lý sự kiện các nút thêm vào giỏ hàng, mua hàng
     const add = document.getElementById("add-cart");
     const buy = document.getElementById("buy");
@@ -217,6 +254,7 @@ function setupproductdetailpage(){
     score(id);
     addproduct(id);
 }
+
 
 function setup(){
     setPrice();
