@@ -213,7 +213,7 @@ function setupproductdetailpage(){
         button.textContent=variant[i].size;
         button.className=("size-button");
         button.addEventListener("click",()=>{
-            price.innerText = Number(variant[i].price).toLocaleString("vi-VN")+"đ";
+            price.textContent = Number(variant[i].price).toLocaleString("vi-VN")+"đ";
             sizeSelected = variant[i].size;
             priceSelected = variant[i].price;
     })
