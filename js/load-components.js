@@ -33,7 +33,9 @@ async function initComponents() {
     if (typeof hienThiNguoiDung === "function") {
         hienThiNguoiDung();
     }
-    
+    if (typeof capNhatSoLuongGioHang === "function") {
+    capNhatSoLuongGioHang();
+}
     // Khởi tạo Menu
     initMenu();
 }
