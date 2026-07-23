@@ -226,6 +226,7 @@ function datHang(){
     localStorage.removeItem(layCartKey());
     document.getElementById("checkout-modal").style.display = "none";
     hienThiGioHang();
+    capNhatSoLuongGioHang();
 }
 
 window.addEventListener("load", function(){
