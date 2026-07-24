@@ -36,6 +36,7 @@ a{
     border: 3px solid orange;
     font-size: 1rem;
     justify-self: center;
+    transition: transform 0.5s ease;
 }
 .product:hover{
     transform: scale(1.05);
@@ -52,7 +53,6 @@ a{
     display: block;
     border-radius: 10xp;
     justify-self: center;
-    transition: transform 0.5s ease;
 }
 .product-name{
     color: orangered;
