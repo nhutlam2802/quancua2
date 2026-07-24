@@ -138,11 +138,6 @@
 }
 
 @media screen and (min-width: 601px) {
-    .news-grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
-@media screen and (min-width: 1025px) {
     .featured {
         flex-direction: row;
     }
@@ -152,6 +147,11 @@
     .featured-image {
         width: 40%;
     }
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media screen and (min-width: 1025px) {
     .news-grid {
         grid-template-columns: repeat(3, 1fr); 
     }
