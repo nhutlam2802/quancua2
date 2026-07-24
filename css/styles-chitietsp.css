@@ -165,7 +165,6 @@ a{
 }
 .review-title{
     text-align: center;
-    display: grid;
 }
 .rating{
     margin: 5px;
