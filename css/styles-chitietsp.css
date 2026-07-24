@@ -4,6 +4,9 @@
 .detail-container{
     display: grid;
 }
+.detail-title{
+    margin:20px 20px 20px 40px;
+}
 .product__detail{
     width: 95%;
 }
@@ -160,7 +163,7 @@ a{
     padding: 10px;
     background-color: #fff8e1;
 }
-.review-container h3{
+.review-title{
     text-align: center;
     display: grid;
 }
