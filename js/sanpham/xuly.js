@@ -190,7 +190,6 @@ function setupproductdetailpage(){
     const price = document.querySelector(".product__detail-price");
     const index = findIndex(id);
     const product = listproduct[index];
-    console.log("index id là " +index);
     const variant = listproduct[index].variant; 
     //Mặc định khi người dùng chưa chọn size thì lưu size và price là giá trị đầu tiên trong variant
     let sizeSelected=variant[0].size;
