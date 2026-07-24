@@ -93,16 +93,11 @@ function inputamount(){
             input.value--;
         })
         input.addEventListener("input",()=>{
+            //Chuyển số lượng sản phẩm nhập vào vào thành số nguyên
+            input.value = parseInt(input.value);  
             if (input.value>100) input.value=100;
-            if (input.value<0) input.value=1;
-            if (input.value==""||isNaN(input.value)) 
-            //isNaN(is not a number): kiểm tra xem dữ liệu có phải số hay k
-            //nếu là số trả về false, không phải số trả về true
-            {
-                alert("Vui lòng nhập số lượng hợp lệ!");
-                input.value=1;
-            }
-        })
+            if (input.value<=0 || input.value=="") input.value=1;
+            })
 }
 
 
