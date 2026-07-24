@@ -1,4 +1,4 @@
-
+/* Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870 */
 * {
     box-sizing: border-box;
 }
@@ -26,7 +26,7 @@ body {
     min-height: 3rem;
     padding: 0.5rem 1rem;
     background-color: #FFFDD0;
-    font-size: 0.875rem;
+    font-size: 1rem;
     z-index: 1000;
 }
 
@@ -61,46 +61,17 @@ body {
     color: orange;
 }
 
-#user-area{
+#user-area {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
-#user-area span{
+#user-area span {
     display: flex;
     align-items: center;
     gap: 0.2rem;
 }
-
-.search-box {
-    display: flex;
-    align-items: center;
-}
-
-.search-box input {
-    width: 8rem;
-    padding: 0.4rem 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 1.25rem 0 0 1.25rem;
-    outline: none;
-}
-
-.search-box button {
-    padding: 0.4rem 0.75rem;
-    border: 1px solid #ccc;
-    border-left: none;
-    background-color: orange;
-    color: #fff;
-    border-radius: 0 1.25rem 1.25rem 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.search-box button:hover {
-    background-color: #d35400;
-}
-
 
 /* Header */
 .page-header {
@@ -109,36 +80,20 @@ body {
     align-items: center;
     position: fixed;
     top: 3rem;
-    left: 0;
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.8rem 2rem;
     background: #FFB347;
     z-index: 999;
 }
 
 .page-header__logo {
-    height: 4rem;
+    height: 5rem;
 }
 
 .page-header__logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
-}
-
-.page-header__actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #2C3E50;
 }
 
 .page-header__navbar {
@@ -159,10 +114,12 @@ body {
 }
 
 .page-header__link {
-    padding: 0.9rem 1rem;
+    padding: 0.5rem 1rem;
     color: #2C3E50;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: bold;
     text-decoration: none;
+    border-radius: 0.5rem;
     transition: 0.3s;
 }
 
@@ -170,9 +127,24 @@ body {
     background: #FFF5E5;
 }
 
+.page-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #2C3E50;
+}
+
 .page-header__cart {
     position: relative;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
 .page-header__cart a {
@@ -180,11 +152,26 @@ body {
     color: #2C3E50;
 }
 
+.cart-count {
+    position: absolute;
+    top: -0.4rem;
+    right: -0.5rem;
+    min-width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.7rem;
+}
+
 /* Main */
 .page-main {
     width: 100%;
     margin: 0 auto;
-    padding-top: 8.5rem;
+    padding-top: 9.6rem;
 }
 
 /* Banner Slider */
@@ -192,7 +179,7 @@ body {
     position: relative;
     width: 100%;
     aspect-ratio: 1920 / 700;
-    overflow: hidden;
+    overflow: hidden; /* Ẩn phần vượt ra ngoài */
 }
 
 .page-main__banner {
@@ -219,12 +206,12 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 0.6rem;
+    padding: 0.7rem;
     border: none;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     cursor: pointer;
     z-index: 10;
     transition: background-color 0.3s ease;
@@ -235,17 +222,17 @@ body {
 }
 
 .page-main__banner-btn--prev {
-    left: 0.75rem;
+    left: 1rem;
 }
 
 .page-main__banner-btn--next {
-    right: 0.75rem;
+    right: 1rem;
 }
 
 .page-main__banner-dots {
     position: absolute;
     left: 50%;
-    bottom: 1rem;
+    bottom: 1.25rem;
     transform: translateX(-50%);
     display: flex;
     gap: 0.6rem;
@@ -267,7 +254,7 @@ body {
 
 /* Món ăn bán chạy */
 .suggest-detail {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     text-align: center;
 }
 
@@ -278,7 +265,7 @@ body {
     justify-items: center;
     align-items: start;
     width: 100%;
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -295,7 +282,7 @@ body {
 }
 
 .suggest-detail__content .product:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
 }
 
@@ -320,25 +307,24 @@ body {
 }
 
 .suggest-detail__content .product-name {
-    color:#d35400;
-    font-size:1.25rem;
-    font-weight:bold;
-    margin:0.5rem 0 0.25rem;
+    color: #d35400;
+    font-weight: bold;
+    margin: 0.5rem 0 0.25rem;
 }
 
 .suggest-detail__content .product-price {
-    color:black;
-    font-size:1.125rem;
-    font-weight:bold;
-    margin:0.25rem 0;
+    color: black;
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 0.25rem 0;
 }
 
 .suggest-detail__content .rating {
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    color:black;
-    gap: 0.15rem;
+    color: black;
+    gap:  0.15rem;
     margin-top: 0.15rem;
 }
 
@@ -364,7 +350,7 @@ body {
     display: inline-block;
     margin-bottom: 2.5rem;
     color: orangered;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
@@ -377,7 +363,7 @@ body {
     transform: translateX(-50%);
     width: 7.5rem;
     height: 2px;
-    background-color: #d35400;
+    background-color: currentColor;
 }
 
 .suggest-detail__title::before,
@@ -386,9 +372,9 @@ body {
     position: absolute;
     left: 50%;
     bottom: -1.3rem;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /*Lui lai nua chieu rong cua chinh no */
     font-size: 1.1rem;
-    color: #d35400;
+    color: currentColor;
 }
 
 .promotion__grid {
@@ -396,7 +382,7 @@ body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     justify-items: center;
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -432,7 +418,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem 1rem 0.25rem;
+    padding: 2.5rem 2rem 0.5rem;
     margin-top: 2.5rem;
     background-color: #2C3E50;
     color: #fff;
@@ -441,12 +427,13 @@ body {
 }
 
 .page-footer__logo {
+    text-align: center;
     margin-bottom: 2rem;
 }
 
 .page-footer__logo img {
     max-width: 100%;
-    max-height: 5rem;
+    max-height: 6rem;
     height: auto;
 }
 
@@ -465,11 +452,11 @@ body {
 
 .page-footer__col p {
     margin-bottom: 0.625rem;
-    line-height: 1.5;
+    line-height: 1.5; /* Khoang cach dong bang 1.5 lan co chu */
 }
 
 .page-footer__col ul {
-    list-style: none;
+    list-style: none; /* Bo cham dau dong */
     padding: 0;
     margin: 0;
 }
@@ -499,7 +486,7 @@ body {
 
 .page-footer__social-icons a {
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
@@ -519,26 +506,45 @@ body {
 /* Ipad */
 @media screen and (min-width: 601px) {
 
+    .suggest-detail__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .promotion__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-footer {
+        padding: 2.5rem 3rem 0.5rem;
+        text-align: left;
+    }
+
+    .page-footer__columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-footer__social-icons {
+        justify-content: flex-start;
+    }
+
+    .page-footer__legal {
+        text-align: center;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+
     .top_container {
-        justify-content: center;
-        padding: 0.5rem 1.25rem;
+        justify-content: space-between;
+    }
+
+    .top_left {
+        display: block;
     }
 
     .top_right {
-        justify-content: center;
-        align-items: center;
-    }
-
-    .search-box input {
-        width: 12rem;
-    }
-
-    .page-header {
-        padding: 0.8rem 1.5rem;
-    }
-
-    .page-header__logo {
-        height: 5rem;
+        justify-content: flex-end;
     }
 
     .menu-toggle {
@@ -556,203 +562,31 @@ body {
     }
 
     .page-header__link {
-        padding: 0.5rem 0.8rem;
-        border-radius: 0.5rem;
-        font-size: 1.3rem;
-    }
-
-    .page-main {
-        padding-top: 8.5rem;
-    }
-
-    .page-main__banner-btn {
-        padding: 0.7rem;
         font-size: 1.5rem;
-    }
-
-    .page-main__banner-btn--prev {
-        left: 1rem;
-    }
-
-    .page-main__banner-btn--next {
-        right: 1rem;
-    }
-
-    .page-main__banner-dots {
-        bottom: 1.25rem;
-    }
-
-    .suggest-detail__content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    .promotion {
-        margin-top: 3.5rem;
-    }
-
-    .suggest-detail__title,
-    .promotion__title {
-        font-size: 1.8rem;
-    }
-
-    .promotion__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    .promotion__item img {
-        height: 16rem;
-    }
-
-    .page-footer {
-        padding: 2.5rem 0.5rem 0.5rem;
-        text-align: left;
-    }
-
-    .page-footer__logo {
-        text-align: center;
-    }
-
-    .page-footer__logo img {
-        max-height: 6rem;
-    }
-
-    .page-footer__columns {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    .page-footer__social-icons {
-        justify-content: flex-start;
-    }
-
-    .page-footer__legal {
-        flex-basis: 100%;
-        margin-top: 2rem;
-        text-align: center;
-    }
-}
-
-/* Desktop */
-@media screen and (min-width: 1025px) {
-
-    .top_container {
-        justify-content: space-between;
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .top_left {
-        display: block;
-    }
-
-    .top_right {
-        width: auto;
-        justify-content: flex-end;
-        gap: 0.5rem;
-    }
-
-    .search-box input {
-        width: 14rem;
-    }
-
-    .page-header {
-        padding: 0.8rem 2rem;
-    }
-
-    .page-header__logo {
-        height: 6rem;
-    }
-
-    .page-header__navbar {
-        gap: 2.5rem;
-    }
-
-    .page-header__link {
-        font-size: 1.5rem;
-    }
-
-    .page-header__cart {
-        font-size: 1.8rem;
-    }
-
-    .page-main {
-        padding-top: 9rem;
-    }
-
-    .page-main__banner-btn {
-        padding: 0.8rem;
-        font-size: 1.7rem;
-    }
-
-    .page-main__banner-btn--prev {
-        left: 1.25rem;
-    }
-
-    .page-main__banner-btn--next {
-        right: 1.25rem;
-    }
-
-    .page-main__banner-dots {
-        bottom: 1.5rem;
-    }
-
-    .suggest-detail {
-        margin-top: 3rem;
     }
 
     .suggest-detail__content {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
     }
-
-    .promotion {
-        margin-top: 4rem;
-    }
-
-    .suggest-detail__title,
-    .promotion__title {
-        font-size: 2rem;
-    }
-
-    .promotion__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    } 
 
     .promotion__link {
         max-width: none;
     }
 
-    .promotion__item img {
-        height: 18.75rem;
-    }
-
     .page-footer {
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Cho phep xuong dong */
         justify-content: space-between;
-        align-items: flex-start;
-        padding: 1.5rem 3rem 0.5rem;
+        align-items: center;
     }
 
     .page-footer__logo {
-        flex: 1 1 12.5rem;
+        flex: 1 1 12.5rem; /* grow - shrink - basis */
         margin-bottom: 0;
-    }
-
-    .page-footer__logo img {
-        max-height: 7.5rem;
     }
 
     .page-footer__columns {
         flex: 3 1 37.5rem;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
     }
-
-    .page-footer__social-icons a {
-        font-size: 1.5rem;
-    }  
 }

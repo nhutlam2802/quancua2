@@ -51,3 +51,21 @@ function hienThiNguoiDung() {
     });
 
 }
+function capNhatSoLuongGioHang() {
+    const badge = document.querySelector(".cart-count");
+    if (!badge) return;
+
+    let user = JSON.parse(localStorage.getItem("userLogin"));
+
+    if (!user) {
+        badge.textContent = "0";
+        return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart_" + user.soDienThoai)) || [];
+
+    let tong = 0;
+    cart.forEach(item => tong += Number(item.quantity));
+
+    badge.textContent = tong;
+}

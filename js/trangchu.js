@@ -48,6 +48,11 @@ import {listproduct} from "./sanpham/listproduct.js"
 // Danh sách ID các món ăn bán chạy
 const bestseller = [1, 2, 3, 4, 5, 6];
 
+// Tìm sản phẩm theo ID
+function getProductById(id) {
+    return listproduct.find(product => product.id === id);
+}
+
 // Tạo và hiển thị danh sách món ăn bán chạy bằng DOM
 function renderBestSeller() {
     const content = document.querySelector(".suggest-detail__content");
@@ -55,7 +60,9 @@ function renderBestSeller() {
 
     for(let i = 0; i < bestseller.length; i++) {
         let id = bestseller[i];
-        if(!listproduct[id]) continue;
+        let product = getProductById(id);
+
+        if(!product) continue;
 
         let article = document.createElement("article");
         article.className = "product";
@@ -67,24 +74,24 @@ function renderBestSeller() {
 
         let img = document.createElement("img");
         img.className = "product-img";
-        img.src = listproduct[id].img;
-        img.alt = listproduct[id].name;
+        img.src = product.img;
+        img.alt = product.name;
         a.appendChild(img);
 
         let h3 = document.createElement("h3");
         h3.className = "product-name";
-        h3.textContent = listproduct[id].name;
+        h3.textContent = product.name;
         a.appendChild(h3);
 
         let productid = document.createElement("p");
         productid.className = "product-id";
         productid.hidden = true;
-        productid.textContent = id;
+        productid.textContent = product.id;
         a.appendChild(productid);
 
         let p = document.createElement("p");
         p.className = "product-price";
-        p.textContent = listproduct[id].variant[0].price;
+        p.textContent = product.variant[0].price;
         a.appendChild(p);
 
         let rating = document.createElement("div");

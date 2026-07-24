@@ -17,28 +17,7 @@
 
     <main>
         <div class="auth-wrap">
-            <div class="auth-form-col">
-                <form class="auth-form">
-                    <h1>Đăng nhập</h1>
-                    <p>Nhập thông tin tài khoản để tiếp tục.</p>
-
-                    <div class="field">
-                        <label for="login-id">Số điện thoại hoặc email</label>
-                        <input type="text" id="login-id" placeholder="09xx xxx xxx hoặc email" required>
-                    </div>
-                <div class="field">
-                        <label for="login-pass">Mật khẩu</label>
-                        <input type="password" id="login-pass" placeholder="Nhập mật khẩu">
-                        <p id="loi-dang-nhap" class="error-msg"></p>
-                    </div>
-
-                    <div class="field-row">
-                        <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
-                    </div>
-                    <button type="button" class="btn" onclick="kiemTraDangNhap()">Đăng nhập</button>          
-                    <p class="switch-line">Chưa có tài khoản? <a href="dangki.html">Đăng ký ngay</a></p>
-                </form>
-            </div>
+            
             <div class="auth-side">
                 <span class="badge">Chào mừng trở lại</span>
                 <h2>Đăng nhập để đặt món nhanh hơn.</h2>
@@ -56,6 +35,26 @@
                     <span title="Cánh gà chiên giòn"><i class="fa-solid fa-drumstick-bite"></i></span>
                     <span title="Bắp xào tôm khô"><i class="fa-solid fa-seedling"></i></span>
                 </div>
+            </div>
+
+            <div class="auth-form-col">
+                <form class="auth-form">
+                    <h1>Đăng nhập</h1>
+                    <p>Nhập thông tin tài khoản để tiếp tục.</p>
+
+                    <div class="field">
+                        <label for="login-id">Số điện thoại hoặc email</label>
+                        <input type="text" id="login-id" placeholder="09xx xxx xxx hoặc email" required>
+                    </div>
+                <div class="field">
+                        <label for="login-pass">Mật khẩu</label>
+                        <input type="password" id="login-pass" placeholder="Nhập mật khẩu">
+                        <p id="loi-dang-nhap" class="error-msg"></p>
+                    </div>
+
+                    <button type="button" class="btn" onclick="kiemTraDangNhap()">Đăng nhập</button>          
+                    <p class="switch-line">Chưa có tài khoản? <a href="dangki.html">Đăng ký ngay</a></p>
+                </form>
             </div>
 
         </div>

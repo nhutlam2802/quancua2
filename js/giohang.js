@@ -137,6 +137,7 @@ function tangSL(index) {
     cart[index].quantity++;
     localStorage.setItem(layCartKey(), JSON.stringify(cart));
     hienThiGioHang();
+    capNhatSoLuongGioHang();
 }
 
 function giamSL(index) {
@@ -147,6 +148,7 @@ function giamSL(index) {
     localStorage.setItem(layCartKey(), JSON.stringify(cart));
     
     hienThiGioHang();
+    capNhatSoLuongGioHang();
 }
 
 function xoaSP(index) {
@@ -156,6 +158,7 @@ function xoaSP(index) {
         localStorage.setItem(layCartKey(),JSON.stringify(cart));
         hienThiGioHang();
     }
+    capNhatSoLuongGioHang();
 }
 
 function hienFormThanhToan() {
@@ -223,6 +226,7 @@ function datHang(){
     localStorage.removeItem(layCartKey());
     document.getElementById("checkout-modal").style.display = "none";
     hienThiGioHang();
+    capNhatSoLuongGioHang();
 }
 
 window.addEventListener("load", function(){

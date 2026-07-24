@@ -1,6 +1,7 @@
+/* Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870 */
 .password-box {
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
 .password-box input {
@@ -10,6 +11,9 @@
 }
 
 .password-box button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 45px;
     border: 1px solid #ccc;
     border-left: none;
@@ -39,20 +43,4 @@ input[readonly] {
 
 .btn {
     margin-top: 10px;
-}
-
-@media screen and (min-width: 601px) {
-
-    .password-box button {
-        width: 50px;
-    }
-
-}
-
-@media screen and (min-width: 1025px) {
-
-    .password-box button {
-        width: 55px;
-    }
-
 }
