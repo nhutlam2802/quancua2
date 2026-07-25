@@ -1,3 +1,4 @@
+// Người thực hiện: Nguyễn Thị Thanh Trúc - MSSV: B2405543 
 export const listproduct=[
     {       id:1,
             name :"Chân gà sốt thái",
