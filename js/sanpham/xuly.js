@@ -1,3 +1,4 @@
+// /Người thực hiện: Nguyễn Thị Thanh Trúc - MSSV: B2405543 
 
 //Bao gồm các chức năng cho trang sản phẩm và chi tiết sản phẩm:
 //Trang sản phẩm: 
@@ -24,7 +25,6 @@ function findIndex(id){
     return -1;
 }
 
-
 //Hàm chuyển đổi định dạng giá tiền, từ chuỗi số bình thường thành định dạng VNĐ
 function setPrice()
 {
@@ -34,7 +34,6 @@ function setPrice()
         .toLocaleString("de-DE",{style: 'currency',currency:'VND'});
     },false)
 }
-
 
 //Hàm cập nhật đánh giá sao, cập nhật thủ công theo id sản phẩm
 function rating()
@@ -50,7 +49,6 @@ function rating()
     }
 }
 
-
 //Cập nhật điểm đánh giá trùng với đánh giá sao trước đó bên trang sản phẩm
 function score(id)
 {
@@ -63,7 +61,6 @@ function score(id)
             score.textContent="4.0"; 
     }
 }
-
 
 //Kiểm tra người dùng đã đăng nhập hay chưa, chỉ khi đăng nhập mới được sử dụng chức năng mua hàng
 function checklogin(){
@@ -78,7 +75,6 @@ function checklogin(){
 
 //Tăng giảm số lượng sản phẩm, theo nút bấm hoặc cho người dùng nhập theo ý muốn, ít nhất là 1, lớn nhất là 100, 
 // tự động sửa số lượng nếu nhập vượt ngoài phạm vi
-//Báo lỗi nếu nhập kí tự khác số hoặc bỏ trống, chuyển số lượng về thành 1
 function inputamount(){
     const sum = document.getElementById("sum");
     const minus = document.getElementById("minus");
@@ -100,7 +96,6 @@ function inputamount(){
             if (input.value<=0 || input.value=="") input.value=1;
             })
 }
-
 
 // Thêm 4 sản phẩm có id kế sau sản phẩm đang xem vào phần đề xuất khác
 function addproduct(id){
@@ -132,7 +127,6 @@ function addproduct(id){
     }
     setPrice();
 }
-
 
 //Thêm dữ liệu sản phẩm được chọn vào localStorage, lưu dưới khóa là cartKey.
 function addcart(id,sizeSelected,quantity,price){
