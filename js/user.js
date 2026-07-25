@@ -1,3 +1,5 @@
+// Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870
+
 // Hiển thị thông tin người dùng sau khi đăng nhập
 function hienThiNguoiDung() {
     
@@ -46,11 +48,16 @@ function hienThiNguoiDung() {
     // Xử lý đăng xuất
     logoutLink.addEventListener("click", function (e) {
         e.preventDefault();
-        localStorage.removeItem("userLogin");
-        window.location.reload();
+        
+        if(confirm("Bạn có chắc muốn đăng xuất không?")) {
+            localStorage.removeItem("userLogin");
+            window.location.reload();
+        }
     });
 
 }
+
+// Hàm cập nhật số lượng giỏ hàng khi thực hiện thêm vào giỏ hàng hoặc đặt hàng
 function capNhatSoLuongGioHang() {
     const badge = document.querySelector(".cart-count");
     if (!badge) return;

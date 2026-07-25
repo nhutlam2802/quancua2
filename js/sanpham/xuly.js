@@ -70,6 +70,7 @@ function checklogin(){
     const user = JSON.parse(localStorage.getItem("userLogin"));
     if (user==null) {
         alert("Vui lòng đăng nhập để tiếp tục.");
+        window.location.href = "dangnhap.html";
         return false;
     }
     else return true;
@@ -233,6 +234,7 @@ function setupproductdetailpage(){
         {   
             const quantity = document.getElementById("quantity").value;
             addcart(id,sizeSelected,quantity,priceSelected);
+            capNhatSoLuongGioHang();
             alert("Đã thêm vào giỏ hàng thành công");
         }
     })
@@ -241,6 +243,7 @@ function setupproductdetailpage(){
         {
             const quantity = document.getElementById("quantity").value;
             addcart(id,sizeSelected,quantity,priceSelected);
+            capNhatSoLuongGioHang();
             window.location.href="giohang.html";
         }
     })

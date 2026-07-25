@@ -85,6 +85,7 @@ function addToCart() {
 
     localStorage.setItem(cartKey, JSON.stringify(cart));
 
+    capNhatSoLuongGioHang();
     return true;
 }
 
