@@ -1,3 +1,4 @@
+/* NGUYỄN THỊ KIM CHI MSSV: B2404853*/
 .page-main{
     margin-top:21px; 
 }
@@ -32,7 +33,6 @@
 
 .cart-title{
     display:none; /*ẩn tittle trên đt*/ 
-    
 }
 
 .cart-row{
@@ -47,7 +47,6 @@
     width:100%;
     display:flex;
     justify-content:space-between; /* căn đều các div trong cart-row*/
-   
 }
 /*khi click vào thì đổi màu nền*/
 .cart-row:hover{
@@ -72,7 +71,6 @@
     font-size:32px;
     font-weight:bold;
     margin-bottom:10px;  
-    
 }
 /*id  của số tiền*/
 #tongtien{
