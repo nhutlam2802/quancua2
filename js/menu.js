@@ -1,3 +1,5 @@
+// Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870
+
 // Khởi tạo chức năng đóng/mở Menu trên Mobile
 export function initMenu() {
     const menuBtn = document.querySelector(".menu-toggle");

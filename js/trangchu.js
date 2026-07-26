@@ -1,3 +1,5 @@
+// Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870
+
 // Bao gồm các chức năng cho Trang chủ: 
 // Hiển thị Banner có nút prev va dot cho phép chuyển sang Banner khác hoặc chuyển tự động sau 5s
 // Hiển thị Món ăn bán chạy lấy từ listproduct.js

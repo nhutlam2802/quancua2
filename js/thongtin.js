@@ -1,3 +1,5 @@
+// Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870
+
 // Lấy thông tin tài khoản đăng nhập
 let user = JSON.parse(localStorage.getItem("userLogin"));
 

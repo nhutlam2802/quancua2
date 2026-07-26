@@ -1,3 +1,5 @@
+// Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870
+
 import { initMenu } from "./menu.js";
 
 // Tải nôi dung của một component và chèn vào phần tử tương ứng
