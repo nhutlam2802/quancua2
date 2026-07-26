@@ -1,3 +1,4 @@
+// Người thực hiện: Trương Phạm Anh Thư - MSSV: B2404922
 import { list_product_combo } from "./listproductcombo.js";
 
 const input = document.querySelector(".product-detail__count-input");
@@ -84,6 +85,7 @@ function addToCart() {
 
     localStorage.setItem(cartKey, JSON.stringify(cart));
 
+    capNhatSoLuongGioHang();
     return true;
 }
 

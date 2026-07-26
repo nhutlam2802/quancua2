@@ -1,3 +1,5 @@
+// Người thực hiện: Lâm Quang Nhứt - MSSV: B2408870
+
 // Lấy thông tin tài khoản đăng nhập
 let user = JSON.parse(localStorage.getItem("userLogin"));
 
@@ -33,8 +35,8 @@ btnToggle.addEventListener("click", function () {
 // Đổi mật khẩu
 function doiMatKhau(){
 
-    let mk1 = document.getElementById("new-pass").value;
-    let mk2 = document.getElementById("new-pass2").value;
+    let newPass = document.getElementById("new-pass");
+    let confirmPass = document.getElementById("new-pass2");
 
     let msg = document.getElementById("doi-pass-msg");
 
@@ -42,19 +44,19 @@ function doiMatKhau(){
     msg.textContent = "";
     
     // Kiểm tra đầy đủ
-    if(mk1 == "" || mk2 == ""){
+    if(newPass.value == "" || confirmPass.value == ""){
         msg.textContent ="Vui lòng nhập đầy đủ.";
         return;
     }
 
     // Kiểm tra trùng khớp
-    if(mk1 != mk2){
+    if(newPass.value != confirmPass.value){
         msg.textContent ="Hai mật khẩu không khớp.";
         return;
     }
 
     // Cập nhật mật khẩu
-    user.matKhau = mk1;
+    user.matKhau = newPass.value;
 
     // Lưu lại theo số điện thoại
     localStorage.setItem(user.soDienThoai, JSON.stringify(user));
@@ -66,6 +68,13 @@ function doiMatKhau(){
 
     // Cập nhật tài khoản đang đăng nhập
     localStorage.setItem("userLogin", JSON.stringify(user));
+
+    // Cập nhật ngay ô hiển thị mật khẩu
+    document.getElementById("info-pass").value = user.matKhau;
+
+    // Xóa các ô nhập
+    newPass.value = "";
+    confirmPass.value = "";
 
     msg.style.color="#27ae60";
     msg.textContent ="Đổi mật khẩu thành công!";

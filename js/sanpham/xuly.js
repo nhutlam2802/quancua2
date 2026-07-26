@@ -1,3 +1,4 @@
+// /Người thực hiện: Nguyễn Thị Thanh Trúc - MSSV: B2405543 
 
 //Bao gồm các chức năng cho trang sản phẩm và chi tiết sản phẩm:
 //Trang sản phẩm: 
@@ -24,7 +25,6 @@ function findIndex(id){
     return -1;
 }
 
-
 //Hàm chuyển đổi định dạng giá tiền, từ chuỗi số bình thường thành định dạng VNĐ
 function setPrice()
 {
@@ -34,7 +34,6 @@ function setPrice()
         .toLocaleString("de-DE",{style: 'currency',currency:'VND'});
     },false)
 }
-
 
 //Hàm cập nhật đánh giá sao, cập nhật thủ công theo id sản phẩm
 function rating()
@@ -50,7 +49,6 @@ function rating()
     }
 }
 
-
 //Cập nhật điểm đánh giá trùng với đánh giá sao trước đó bên trang sản phẩm
 function score(id)
 {
@@ -64,12 +62,12 @@ function score(id)
     }
 }
 
-
 //Kiểm tra người dùng đã đăng nhập hay chưa, chỉ khi đăng nhập mới được sử dụng chức năng mua hàng
 function checklogin(){
     const user = JSON.parse(localStorage.getItem("userLogin"));
     if (user==null) {
         alert("Vui lòng đăng nhập để tiếp tục.");
+        window.location.href = "dangnhap.html";
         return false;
     }
     else return true;
@@ -77,7 +75,6 @@ function checklogin(){
 
 //Tăng giảm số lượng sản phẩm, theo nút bấm hoặc cho người dùng nhập theo ý muốn, ít nhất là 1, lớn nhất là 100, 
 // tự động sửa số lượng nếu nhập vượt ngoài phạm vi
-//Báo lỗi nếu nhập kí tự khác số hoặc bỏ trống, chuyển số lượng về thành 1
 function inputamount(){
     const sum = document.getElementById("sum");
     const minus = document.getElementById("minus");
@@ -93,18 +90,12 @@ function inputamount(){
             input.value--;
         })
         input.addEventListener("input",()=>{
+            //Chuyển số lượng sản phẩm nhập vào vào thành số nguyên
+            input.value = parseInt(input.value);  
             if (input.value>100) input.value=100;
-            if (input.value<0) input.value=1;
-            if (input.value==""||isNaN(input.value)) 
-            //isNaN(is not a number): kiểm tra xem dữ liệu có phải số hay k
-            //nếu là số trả về false, không phải số trả về true
-            {
-                alert("Vui lòng nhập số lượng hợp lệ!");
-                input.value=1;
-            }
-        })
+            if (input.value<=0 || input.value=="") input.value=1;
+            })
 }
-
 
 // Thêm 4 sản phẩm có id kế sau sản phẩm đang xem vào phần đề xuất khác
 function addproduct(id){
@@ -136,7 +127,6 @@ function addproduct(id){
     }
     setPrice();
 }
-
 
 //Thêm dữ liệu sản phẩm được chọn vào localStorage, lưu dưới khóa là cartKey.
 function addcart(id,sizeSelected,quantity,price){
@@ -195,7 +185,6 @@ function setupproductdetailpage(){
     const price = document.querySelector(".product__detail-price");
     const index = findIndex(id);
     const product = listproduct[index];
-    console.log("index id là " +index);
     const variant = listproduct[index].variant; 
     //Mặc định khi người dùng chưa chọn size thì lưu size và price là giá trị đầu tiên trong variant
     let sizeSelected=variant[0].size;
@@ -213,7 +202,7 @@ function setupproductdetailpage(){
         button.textContent=variant[i].size;
         button.className=("size-button");
         button.addEventListener("click",()=>{
-            price.innerText = Number(variant[i].price).toLocaleString("vi-VN")+"đ";
+            price.textContent = Number(variant[i].price).toLocaleString("vi-VN")+"đ";
             sizeSelected = variant[i].size;
             priceSelected = variant[i].price;
     })
@@ -239,6 +228,7 @@ function setupproductdetailpage(){
         {   
             const quantity = document.getElementById("quantity").value;
             addcart(id,sizeSelected,quantity,priceSelected);
+            capNhatSoLuongGioHang();
             alert("Đã thêm vào giỏ hàng thành công");
         }
     })
@@ -247,6 +237,7 @@ function setupproductdetailpage(){
         {
             const quantity = document.getElementById("quantity").value;
             addcart(id,sizeSelected,quantity,priceSelected);
+            capNhatSoLuongGioHang();
             window.location.href="giohang.html";
         }
     })

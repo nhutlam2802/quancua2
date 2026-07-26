@@ -1,8 +1,12 @@
+/*  Người thực hiện: Nguyễn Thị Thanh Trúc - MSSV: B2405543 */
 .page-main{
     padding-top: 180px;
 }
 .detail-container{
     display: grid;
+}
+.detail-title{
+    margin:20px 20px 20px 40px;
 }
 .product__detail{
     width: 95%;
@@ -58,6 +62,19 @@
     border: none;
     cursor: pointer;
 }    
+.size-button-on{
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    background-color: orangered;
+    color: white;
+    align-self: center;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}    
 .size-button:hover,
 #submit:hover,
 .product__detail-action button:hover{
@@ -93,7 +110,7 @@
 }
 .suggest-content{
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: 1fr;
     color: black;
     gap:20px;
 }
@@ -147,9 +164,8 @@ a{
     padding: 10px;
     background-color: #fff8e1;
 }
-.review-container h3{
+.review-title{
     text-align: center;
-    display: grid;
 }
 .rating{
     margin: 5px;

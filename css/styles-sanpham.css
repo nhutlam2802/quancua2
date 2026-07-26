@@ -1,4 +1,4 @@
-
+/*  Người thực hiện: Nguyễn Thị Thanh Trúc - MSSV: B2405543 */
 a{
     text-decoration: none;
 }
@@ -23,7 +23,7 @@ a{
     margin:10px;
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 .product{
@@ -36,6 +36,7 @@ a{
     border: 3px solid orange;
     font-size: 1rem;
     justify-self: center;
+    transition: transform 0.5s ease;
 }
 .product:hover{
     transform: scale(1.05);
@@ -52,7 +53,6 @@ a{
     display: block;
     border-radius: 10xp;
     justify-self: center;
-    transition: transform 0.5s ease;
 }
 .product-name{
     color: orangered;
@@ -71,12 +71,13 @@ a{
 }
 .fa-star{
     color: gold;
+    align-self: center;
 }
 
 /*ipad*/
 @media (min-width: 601px) {
     .container{
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 }
 /*laptop */

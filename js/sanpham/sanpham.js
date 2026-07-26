@@ -1,3 +1,4 @@
+// Người thực hiện: Nguyễn Thị Thanh Trúc - MSSV: B2405543
 // Khai báo class phân loại 
 export class Variant{
     constructor(size,price){

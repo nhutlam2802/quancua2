@@ -1,4 +1,5 @@
- export const list_product_combo = [
+// Người thực hiện: Trương Phạm Anh Thư - MSSV: B2404922
+export const list_product_combo = [
     {  id: 101,
         name: "Combo 1 người",
         img: "/images/combo1nguoi.png",

@@ -1,6 +1,8 @@
 
 .auth-wrap {
     display: flex;
+    flex-direction: column;
+    width: 90%;
     max-width: 1000px;
     margin: 180px auto;
     background: white;
@@ -98,7 +100,7 @@
 
 .field-2col {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
 }
 
 .field-2col .field {
@@ -158,13 +160,16 @@
     outline: none;
 
 }
+
 @media screen and (min-width: 601px) {
     .field-2col {
         flex-direction: row; 
+        gap: 15px;
     }
 }
+
 @media screen and (min-width: 1025px) {
     .auth-wrap {
-        flex-direction: row; 
+        flex-direction: row;
     }
 }
