@@ -1,9 +1,4 @@
-/*chức năng hienThiGioHang: Đọc dữ liệu giỏ hàng từ localStorage.
-                            Gộp các sản phẩm cùng loại và cùng size.
-                            Hiển thị danh sách sản phẩm lên trang.
-                            Tính tổng tiền.
-                            Gán sự kiện cho các nút tăng, giảm, xóa.
-                            Nếu giỏ hàng rỗng thì hiển thị thông báo.*/
+/* NGUYỄN THỊ KIM CHI MSSV: B2404853*/
 
 function layUser() {
     return JSON.parse(localStorage.getItem("userLogin"));
@@ -96,10 +91,6 @@ cart.forEach((item, index) => {
 });
 
     document.getElementById("tongtien").textContent =tongTien.toLocaleString("vi-VN");
-    
-    
-   
-   
     document.querySelectorAll(".btn-plus").forEach(button => {
         button.addEventListener("click", function () {
             tangSL(Number(this.dataset.index));
@@ -146,7 +137,6 @@ function giamSL(index) {
         cart[index].quantity--;
     }
     localStorage.setItem(layCartKey(), JSON.stringify(cart));
-    
     hienThiGioHang();
     capNhatSoLuongGioHang();
 }
@@ -200,8 +190,6 @@ function hienFormThanhToan() {
             tongTien.toLocaleString("vi-VN"); 
 }
 
-
-
 function dongFormThanhToan(){
     document.getElementById("checkout-modal").style.display = "none";
 }
@@ -230,7 +218,6 @@ function datHang(){
 }
 
 window.addEventListener("load", function(){
-    
     document.getElementById("back-btn").addEventListener("click", function () {
         window.location.href = "sanpham.html";
     });hienThiGioHang();
