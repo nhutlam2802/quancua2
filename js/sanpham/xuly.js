@@ -81,7 +81,7 @@ function inputamount(){
     const input = document.getElementById("quantity");
         sum.addEventListener("click",()=>
         {
-            if(input.value>=1&&input.value<=1000)
+            if(input.value<=1000)
                 input.value++;
         })
         minus.addEventListener("click",()=>
@@ -92,8 +92,15 @@ function inputamount(){
         input.addEventListener("input",()=>{
             //Chuyển số lượng sản phẩm nhập vào vào thành số nguyên
             input.value = parseInt(input.value);  
-            if (input.value>100) input.value=100;
-            if (input.value<=0 || input.value=="") input.value=1;
+            if (input.value>100){
+                alert("Số lượng sản phẩm tối đa được mua là 100."); 
+                input.value=100;
+            }
+            if (input.value<=0) 
+               { 
+                alert("Vui lòng mua ít nhất 1 sản phẩm.");
+                input.value=1;
+               }
             })
 }
 
@@ -137,7 +144,7 @@ function addcart(id,sizeSelected,quantity,price){
         name: listproduct[index].name,
         size: sizeSelected,
         price: price,
-        quantity:Number(quantity),
+        quantity:quantity
     }
     //Lấy thông tin đăng nhập của người dùng hiện tại trong localStorage
     let user = JSON.parse(localStorage.getItem("userLogin"));
