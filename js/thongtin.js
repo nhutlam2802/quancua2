@@ -52,6 +52,9 @@ function doiMatKhau(){
     // Kiểm tra trùng khớp
     if(newPass.value != confirmPass.value){
         msg.textContent ="Hai mật khẩu không khớp.";
+        // Xóa các ô nhập
+        newPass.value = "";
+        confirmPass.value = "";
         return;
     }
 
