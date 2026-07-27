@@ -1,76 +1,48 @@
+/* Người thực hiện: Phạm Phước Hưng - MSSV: B2405506 */
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 180px 15px 0 15px; 
-}
-.news-intro {
-    text-align: center;
-    padding-top: 180px;
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 180px 15px 0 15px;
 }
 
-.news-intro h1 {
-    font-size: 28px;
-    margin-bottom: 25px;
-    color: #d35400;
-    line-height: 1.4;
+.banh-trang-banner {
+    width: 100%;
 }
 
-.filters {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.filters button {
-    padding: 10px 20px;
-    border: 2px solid #FFB347;
-    background: white;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #d35400;
-    transition: all 0.3s ease;
-    font-size: 15px;
-}
-
-.filters button:hover,
-.filters button.active {
-    background: #FFB347;
-    color: white;
-}
 .featured {
-    display: flex;  
-    flex-direction: column;       
-    overflow: hidden;     
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     background: linear-gradient(135deg, #FFB347, #FFD580);
     border-radius: 12px;
     margin-bottom: 40px;
     text-decoration: none;
     min-height: 350px;
 }
+
 .featured-content {
-    width: 100%;            
-    padding: 40px;         
+    width: 100%;
+    padding: 40px;
 }
 
 .featured-image {
-    width: 100%;            
+    width: 100%;
 }
 
 .featured-image img {
-    width: 100%;           
-    height: 100%;         
-    object-fit: cover;     
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
+.row-3-cards {
+    width: 100%;
+}
+
 .news-grid {
     display: grid;
-    grid-template-columns:1fr;
-    gap: 30px;  
+    grid-template-columns: 1fr;
+    gap: 30px;
 }
 
 .news-card {
@@ -101,6 +73,13 @@
     color: #FFB347;
 }
 
+.news-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .news-card-body {
     padding: 25px;
     flex-grow: 1;
@@ -120,39 +99,34 @@
     font-size: 18px;
     line-height: 1.4;
 }
-.featured-content h2 a,
-.news-card-body h3 a {
-    text-decoration: none;
-}
+
 .news-card-body p {
     font-size: 14px;
     color: #666;
     line-height: 1.6;
     margin-top: auto;
 }
-.news-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 
 @media screen and (min-width: 601px) {
     .featured {
         flex-direction: row;
     }
+
     .featured-content {
         width: 60%;
     }
+
     .featured-image {
         width: 40%;
     }
+
     .news-grid {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media screen and (min-width: 1025px) {
     .news-grid {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
 }

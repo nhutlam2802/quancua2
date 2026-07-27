@@ -1,10 +1,14 @@
+/* Người thực hiện: Phạm Phước Hưng - MSSV: B2405506 */
+.page-main {
+    margin-top: 50px;
+}
 
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1000px;
-    margin: 180px auto 50px auto;
+    margin: 50px auto;
     background: white;
     padding: 40px;
     border-radius: 10px;

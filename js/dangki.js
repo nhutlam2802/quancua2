@@ -1,3 +1,4 @@
+// Người thực hiện: Phạm Phước Hưng - MSSV: B2405506
 function kiemTraDangKy() {
     // 1. Lấy dữ liệu từ các ô nhập liệu
     let hoTen = document.getElementById("reg-name").value;
