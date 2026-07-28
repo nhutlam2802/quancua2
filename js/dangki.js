@@ -1,4 +1,3 @@
-// Người thực hiện: Phạm Phước Hưng - MSSV: B2405506
 function kiemTraDangKy() {
     // 1. Lấy dữ liệu từ các ô nhập liệu
     let hoTen = document.getElementById("reg-name").value;
@@ -10,6 +9,7 @@ function kiemTraDangKy() {
     // Lấy các phần tử HTML để thêm viền đỏ
     let oHoTen = document.getElementById("reg-name");
     let oDienThoai = document.getElementById("reg-phone");
+    let oEmail = document.getElementById("reg-email"); // Lấy thêm thẻ HTML của Email
     let oMatKhau = document.getElementById("reg-pass");
     let oNhapLai = document.getElementById("reg-pass2");
     let thongBaoLoi = document.getElementById("loi-mat-khau");
@@ -17,6 +17,7 @@ function kiemTraDangKy() {
     // Dọn dẹp lỗi cũ trước mỗi lần bấm nút
     oHoTen.classList.remove("input-error");
     oDienThoai.classList.remove("input-error");
+    oEmail.classList.remove("input-error"); // Dọn dẹp viền đỏ ô Email
     oMatKhau.classList.remove("input-error");
     oNhapLai.classList.remove("input-error");
     thongBaoLoi.style.display = "none";
@@ -32,13 +33,25 @@ function kiemTraDangKy() {
         thongBaoLoi.textContent = "Vui lòng điền đầy đủ thông tin bắt buộc!";
         thongBaoLoi.style.display = "block";
     }
-    // 3. Kiểm tra mật khẩu không khớp
+    // 3. Kiểm tra định dạng số điện thoại bằng Regex
+    else if (!/^(0|\+84)\d{9}$/.test(soDienThoai)) {
+        oDienThoai.classList.add("input-error");
+        thongBaoLoi.textContent = "Số điện thoại phải bắt đầu bằng 0 hoặc +84 và gồm đủ 10 số hợp lệ!";
+        thongBaoLoi.style.display = "block";
+    }
+    // 4. Kiểm tra định dạng Email (Chỉ kiểm tra khi người dùng CÓ nhập)
+    else if (email !== "" && !/^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,}$/.test(email)) {
+        oEmail.classList.add("input-error");
+        thongBaoLoi.textContent = "Email chỉ được chứa chữ, số, dấu gạch dưới (VD: ten_12@mien_34.com)!";
+        thongBaoLoi.style.display = "block";
+    }
+    // 5. Kiểm tra mật khẩu không khớp
     else if (matKhau !== nhapLai) {
         oNhapLai.classList.add("input-error"); 
         thongBaoLoi.textContent = "Hai mật khẩu không giống nhau!"; 
         thongBaoLoi.style.display = "block"; 
     }
-   else {
+    else {
         // TẠO OBJECT: Gom tất cả dữ liệu thành một khối
         let thongTinUser = {
             hoTen: hoTen,
