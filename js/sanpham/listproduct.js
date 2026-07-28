@@ -10,7 +10,7 @@ export const listproduct=[
             name :"Bánh tráng nướng",
             img :"/images/banhtrangnuong.png",
             variant:[{size:"Phần",price:"20000"}],
-            rate:4.0
+            rate:"4.0"
         },
      {      id:3,
             name :"Bánh mì nướng",
