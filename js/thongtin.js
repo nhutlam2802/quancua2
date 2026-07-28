@@ -49,6 +49,14 @@ function doiMatKhau(){
         return;
     }
 
+    // Kiểm tra độ mạnh mật khẩu
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{8,20}$/.test(newPass.value)) {
+        msg.textContent = "Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa và chữ thường.";
+        newPass.value = "";
+        confirmPass.value = "";
+        return;
+    }
+
     // Kiểm tra trùng khớp
     if(newPass.value != confirmPass.value){
         msg.textContent ="Hai mật khẩu không khớp.";
