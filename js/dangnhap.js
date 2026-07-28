@@ -1,5 +1,4 @@
 function kiemTraDangNhap() {
-   
     let taiKhoan = document.getElementById("login-id").value;
     let matKhauNhapVao = document.getElementById("login-pass").value;
 
@@ -23,22 +22,27 @@ function kiemTraDangNhap() {
         return; 
     }
 
-    // 2. Kiểm tra định dạng (Phải là Số điện thoại HOẶC Email hợp lệ)
-    let laSoDienThoai = /^(0|\+84)\d{9}$/.test(taiKhoan);
+    // 2. Chuẩn hóa đầu số: Nếu người dùng nhập +84 ở ô đăng nhập, tự động đổi thành số 0 để khớp với kho
+    if (taiKhoan.startsWith("+84")) {
+        taiKhoan = "0" + taiKhoan.slice(3);
+    }
+
+    // 3. Kiểm tra định dạng (Phải là Số điện thoại bắt đầu bằng 0 đủ 10 số HOẶC Email hợp lệ)
+    let laSoDienThoai = /^(0)\d{9}$/.test(taiKhoan);
     let laEmail = /^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,}$/.test(taiKhoan);
 
     // Nếu KHÔNG phải số điện thoại hợp lệ VÀ KHÔNG phải email hợp lệ -> Báo lỗi
     if (!laSoDienThoai && !laEmail) {
         oTaiKhoan.classList.add("input-error");
-        thongBaoLoi.textContent = "Tài khoản phải là Số điện thoại hoặc Email hợp lệ!";
+        thongBaoLoi.textContent = "Tài khoản phải là Số điện thoại (0... hoặc +84...) hoặc Email hợp lệ!";
         thongBaoLoi.style.display = "block";
         return;
     }
 
-    // 3. Lấy dữ liệu từ trong kho ra
+    // 4. Lấy dữ liệu từ trong kho ra
     let duLieuTrongKho = localStorage.getItem(taiKhoan);
 
-    // 4. Kiểm tra xem tài khoản đã tồn tại trong kho chưa
+    // 5. Kiểm tra xem tài khoản đã tồn tại trong kho chưa
     if (duLieuTrongKho === null) {
         alert("Chưa có tài khoản, hãy đăng ký tài khoản!");
         window.location.href = "dangki.html";
@@ -53,7 +57,7 @@ function kiemTraDangNhap() {
         matKhauTrongKho = duLieuTrongKho; 
     }
     
-    // 5. Kiểm tra xem mật khẩu nhập vào có khớp với kho không
+    // 6. Kiểm tra xem mật khẩu nhập vào có khớp với kho không
     if (matKhauTrongKho === matKhauNhapVao) {
         localStorage.setItem("userLogin", duLieuTrongKho);
         thongBaoLoi.style.setProperty("color", "#27ae60", "important");
