@@ -35,17 +35,15 @@ function setPrice()
     },false)
 }
 
-//Hàm cập nhật đánh giá sao, cập nhật thủ công theo id sản phẩm
+//Hàm cập nhật đánh giá sao, cập nhật theo giá trị rate đã lưu trong listproduct
 function rating()
 {
     const star=document.querySelectorAll(".product-score");
     const id = document.querySelectorAll(".product-id");
     for(let i =0;i<id.length;i++)
     {
-        if(id[i].textContent==1||id[i].textContent==4||id[i].textContent==7||id[i].textContent==10)
-            star[i].textContent="4.7"; 
-        else if(id[i].textContent==2||id[i].textContent==5||id[i].textContent==8||id[i].textContent==11) 
-            star[i].textContent="4.0"; 
+        const index = findIndex(id[i].textContent);
+        star[i].textContent = listproduct[index].rate;
     }
 }
 
@@ -53,13 +51,8 @@ function rating()
 function score(id)
 {
     const score=document.getElementById("rating-score");
-    for(let i =0;i<id.length;i++)
-    {
-        if(id==1||id==4||id==7||id==10)
-            score.textContent="4.7"; 
-        else if(id==2||id==5||id==8||id==11)
-            score.textContent="4.0"; 
-    }
+        const index = findIndex(id);
+        score.textContent = listproduct[index].rate;
 }
 
 //Kiểm tra người dùng đã đăng nhập hay chưa, chỉ khi đăng nhập mới được sử dụng chức năng mua hàng
