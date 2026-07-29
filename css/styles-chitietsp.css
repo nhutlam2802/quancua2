@@ -87,7 +87,8 @@
 }
 .product__detail-action{
     display: flex;
-    gap:10px;
+    flex-wrap: wrap;
+    gap:5px;
 }
 .product__detail-action button{
     margin: 10px;
