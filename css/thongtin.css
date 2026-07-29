@@ -10,7 +10,7 @@
     border-bottom-right-radius: 0;
 }
 
-.password-box button {
+.toggle-pass {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@
     transition: background 0.3s ease;
 }
 
-.password-box button:hover {
+.toggle-pass:hover {
     background: #f5f5f5;
 }
 
