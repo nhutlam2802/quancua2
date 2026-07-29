@@ -161,6 +161,35 @@
 
 }
 
+.password-box {
+    display: flex;
+    align-items: stretch;
+}
+
+.password-box input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.toggle-pass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background: #fff;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.toggle-pass:hover {
+    background: #f5f5f5;
+}
+
 @media screen and (min-width: 601px) {
     .field-2col {
         flex-direction: row; 

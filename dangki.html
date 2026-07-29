@@ -58,12 +58,22 @@
 
                 <div class="field">
                     <label for="reg-pass">Mật khẩu</label>
-                    <input type="password" id="reg-pass" placeholder="Tối thiểu 8 ký tự" required minlength="8">
+                    <div class="password-box">
+                        <input type="password" id="reg-pass" placeholder="Tối thiểu 8 ký tự" required minlength="8">
+                        <button type="button" class="toggle-pass">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
                     <p class="hint">Nên có chữ hoa, chữ thường và ít nhất 1 số.</p>
                 </div>
                 <div class="field">
                     <label for="reg-pass2">Nhập lại mật khẩu</label>
-                    <input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu" required minlength="8"> 
+                    <div class="password-box">
+                        <input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu" required minlength="8">
+                        <button type="button" class="toggle-pass">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div> 
                     <p id="loi-mat-khau" class="error-msg"></p>
                 </div>
                 <button type="button" class="btn" onclick="kiemTraDangKy()">Đăng ký tài khoản</button>
