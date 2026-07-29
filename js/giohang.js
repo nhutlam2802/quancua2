@@ -61,7 +61,7 @@ function hienThiGioHang() {
         tru.dataset.index = index; //de biet tru sp cua index nao
         tru.textContent = "-";
 
-        const soLuong = document.createElement("span"); // la the inline nen khong tu xuong dong nhu div
+        const soLuong = document.createElement("span");
         soLuong.className = "sl";
         soLuong.textContent = item.quantity;
 
