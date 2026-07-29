@@ -37,60 +37,62 @@ function hienThiGioHang() {
      localStorage.setItem(layCartKey(), JSON.stringify(cart));
      /*Hiển thị danh sách sản phẩm lên trang.*/
     const cartBody=document.getElementById("cart-body"); /*nơi hiển thị danh sách sản phẩm trong giỏ hàng.*/
+    // xoa nd hien tai cua body 
     cartBody.replaceChildren();
-let tongTien = 0;
+    let tongTien = 0;
 
-cart.forEach((item, index) => {
-    const thanhTien = item.price * item.quantity;
-    tongTien += thanhTien;
+    cart.forEach((item, index) => {
+        const thanhTien = item.price * item.quantity;
+        tongTien += thanhTien;
+        //tạo dòng chứa sp
+        const row = document.createElement("div");
+        row.className = "cart-row";
 
-    const row = document.createElement("div");
-    row.className = "cart-row";
+        const ten = document.createElement("div");
+        ten.append(item.name); //them ten sp vao div
+        ten.append(document.createElement("br")); //xuong dong
+        const size = document.createElement("small"); //them size co chu nho hon ten sp
+        size.textContent = "Size: " + item.size; // gan nd cho small
+        ten.append(size); // dua small vao div
 
-    const ten = document.createElement("div");
-    ten.append(item.name);
-    ten.append(document.createElement("br"));
-    const size = document.createElement("small");
-    size.textContent = "Size: " + item.size;
-    ten.append(size);
+        const sl = document.createElement("div");
 
-    const sl = document.createElement("div");
+        const tru = document.createElement("button"); 
+        tru.className = "btn-minus";
+        tru.dataset.index = index; //de biet tru sp cua index nao
+        tru.textContent = "-";
 
-    const tru = document.createElement("button");
-    tru.className = "btn-minus";
-    tru.dataset.index = index;
-    tru.textContent = "-";
+        const soLuong = document.createElement("span"); // la the inline nen khong tu xuong dong nhu div
+        soLuong.className = "sl";
+        soLuong.textContent = item.quantity;
 
-    const soLuong = document.createElement("span");
-    soLuong.className = "sl";
-    soLuong.textContent = item.quantity;
+        const cong = document.createElement("button");
+        cong.className = "btn-plus";
+        cong.dataset.index = index;
+        cong.textContent = "+";
 
-    const cong = document.createElement("button");
-    cong.className = "btn-plus";
-    cong.dataset.index = index;
-    cong.textContent = "+";
+        sl.append(tru, soLuong, cong); 
 
-    sl.append(tru, soLuong, cong);
+        const gia = document.createElement("div");
+        gia.textContent = item.price.toLocaleString("vi-VN") + "đ";
 
-    const gia = document.createElement("div");
-    gia.textContent = item.price.toLocaleString("vi-VN") + "đ";
+        const tt = document.createElement("div");
+        tt.className = "thanhtien";
+        tt.textContent = thanhTien.toLocaleString("vi-VN") + "đ";
 
-    const tt = document.createElement("div");
-    tt.className = "thanhtien";
-    tt.textContent = thanhTien.toLocaleString("vi-VN") + "đ";
+        const xoa = document.createElement("div");
+        const nutXoa = document.createElement("button");
+        nutXoa.className = "btn-delete";
+        nutXoa.dataset.index = index;
+        nutXoa.textContent = "X";
+        xoa.append(nutXoa);
 
-    const xoa = document.createElement("div");
-    const nutXoa = document.createElement("button");
-    nutXoa.className = "btn-delete";
-    nutXoa.dataset.index = index;
-    nutXoa.textContent = "X";
-    xoa.append(nutXoa);
-
-    row.append(ten, sl, gia, tt, xoa);
-    cartBody.append(row);
-});
+        row.append(ten, sl, gia, tt, xoa); // ghep thanh 1 dong
+        cartBody.append(row); // dua dong sp len trang
+    });
 
     document.getElementById("tongtien").textContent =tongTien.toLocaleString("vi-VN");
+    // lay tat ca ptu cung class ,gan sk
     document.querySelectorAll(".btn-plus").forEach(button => {
         button.addEventListener("click", function () {
             tangSL(Number(this.dataset.index));
