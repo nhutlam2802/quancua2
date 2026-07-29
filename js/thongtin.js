@@ -14,22 +14,25 @@ document.getElementById("info-phone").value = user.soDienThoai;
 document.getElementById("info-email").value = user.email || "Chưa cập nhật";
 document.getElementById("info-pass").value = user.matKhau;
 
-// Hiện / ẩn mật khẩu
-const btnToggle = document.getElementById("toggle-pass");
-const icon = btnToggle.querySelector("i");
+// Hiện/Ẩn mât khẩu
+document.querySelectorAll(".toggle-pass").forEach(button => {
 
-btnToggle.addEventListener("click", function () {
-    let input = document.getElementById("info-pass");
-    if(input.type == "password") {
-        input.type = "text";
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
-    }
-    else {
-        input.type = "password";
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
-    }
+    button.addEventListener("click", function () {
+
+        const input = this.previousElementSibling;
+        const icon = this.querySelector("i");
+
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.replace("fa-eye-slash", "fa-eye");
+        } 
+        else {
+            input.type = "password";
+            icon.classList.replace("fa-eye", "fa-eye-slash");
+        }
+
+    });
+
 });
 
 // Đổi mật khẩu
@@ -46,6 +49,14 @@ function doiMatKhau(){
     // Kiểm tra đầy đủ
     if(newPass.value == "" || confirmPass.value == ""){
         msg.textContent ="Vui lòng nhập đầy đủ.";
+        return;
+    }
+
+    // Kiểm tra độ mạnh mật khẩu
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{8,20}$/.test(newPass.value)) {
+        msg.textContent = "Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa và chữ thường.";
+        newPass.value = "";
+        confirmPass.value = "";
         return;
     }
 

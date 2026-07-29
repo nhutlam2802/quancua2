@@ -1,10 +1,14 @@
+/* Người thực hiện: Phạm Phước Hưng - MSSV: B2405506 */
+.page-main {
+    margin-top: 50px;
+}
 
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1000px;
-    margin: 180px auto 50px auto;
+    margin: 50px auto;
     background: white;
     padding: 40px;
     border-radius: 10px;
@@ -45,9 +49,11 @@
 
 .story {
     display: flex;
+    flex-direction: column;
     gap: 40px;
     max-width: 1000px;
     margin: 0 auto 50px;
+    padding: 40px;
     align-items: center;
 }
 
@@ -107,6 +113,7 @@
 .values h2 {
     margin-bottom: 30px;
     font-size: 26px;
+    padding: 40px;
 }
 
 .values-grid {
@@ -159,6 +166,9 @@
 }
 
 @media screen and (min-width: 601px) {
+    .story {
+        flex-direction: row;
+    }
     .values-grid {
         grid-template-columns: repeat(2, 1fr); 
     }
@@ -168,9 +178,7 @@
         flex-direction: row;
         text-align: left;
     }
-    .story {
-        flex-direction: row;
-    }
+    
     .values-grid {
         grid-template-columns: repeat(3, 1fr); 
     }

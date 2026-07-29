@@ -35,17 +35,15 @@ function setPrice()
     },false)
 }
 
-//Hàm cập nhật đánh giá sao, cập nhật thủ công theo id sản phẩm
+//Hàm cập nhật đánh giá sao, cập nhật theo giá trị rate đã lưu trong listproduct
 function rating()
 {
     const star=document.querySelectorAll(".product-score");
     const id = document.querySelectorAll(".product-id");
     for(let i =0;i<id.length;i++)
     {
-        if(id[i].textContent==1||id[i].textContent==4||id[i].textContent==7||id[i].textContent==10)
-            star[i].textContent="4.7"; 
-        else if(id[i].textContent==2||id[i].textContent==5||id[i].textContent==8||id[i].textContent==11) 
-            star[i].textContent="4.0"; 
+        const index = findIndex(id[i].textContent);
+        star[i].textContent = listproduct[index].rate;
     }
 }
 
@@ -53,13 +51,8 @@ function rating()
 function score(id)
 {
     const score=document.getElementById("rating-score");
-    for(let i =0;i<id.length;i++)
-    {
-        if(id==1||id==4||id==7||id==10)
-            score.textContent="4.7"; 
-        else if(id==2||id==5||id==8||id==11)
-            score.textContent="4.0"; 
-    }
+        const index = findIndex(id);
+        score.textContent = listproduct[index].rate;
 }
 
 //Kiểm tra người dùng đã đăng nhập hay chưa, chỉ khi đăng nhập mới được sử dụng chức năng mua hàng
@@ -81,7 +74,7 @@ function inputamount(){
     const input = document.getElementById("quantity");
         sum.addEventListener("click",()=>
         {
-            if(input.value>=1&&input.value<=1000)
+            if(input.value<=1000)
                 input.value++;
         })
         minus.addEventListener("click",()=>
@@ -92,8 +85,15 @@ function inputamount(){
         input.addEventListener("input",()=>{
             //Chuyển số lượng sản phẩm nhập vào vào thành số nguyên
             input.value = parseInt(input.value);  
-            if (input.value>100) input.value=100;
-            if (input.value<=0 || input.value=="") input.value=1;
+            if (input.value>100){
+                alert("Số lượng sản phẩm tối đa được mua là 100."); 
+                input.value=100;
+            }
+            if (input.value<=0) 
+               { 
+                alert("Vui lòng mua ít nhất 1 sản phẩm.");
+                input.value=1;
+               }
             })
 }
 
@@ -129,26 +129,34 @@ function addproduct(id){
 }
 
 //Thêm dữ liệu sản phẩm được chọn vào localStorage, lưu dưới khóa là cartKey.
-function addcart(id,sizeSelected,quantity,price){
-    const index=findIndex(id);
-    //Tạo object item để lưu dữ liệu sản phẩm, có các key bên trái, value bên phải
-    let item={                          
-        id: id,
+function addcart(id, sizeSelected, quantity, price) {
+    const index = findIndex(id);
+
+    let item = {
+        id: Number(id),
         name: listproduct[index].name,
         size: sizeSelected,
-        price: price,
-        quantity:Number(quantity),
-    }
-    //Lấy thông tin đăng nhập của người dùng hiện tại trong localStorage
+        price: Number(price),
+        quantity: Number(quantity)
+    };
+
     let user = JSON.parse(localStorage.getItem("userLogin"));
-    //Tạo key cartKey bằng cách ghép cart và số điện thoại của user
-    const cartKey = "cart_"+user.soDienThoai;
-    //Lấy ra cartKey lưu về cartItems, chưa có thì tạo 1 mảng cartItems rỗng
+    const cartKey = "cart_" + user.soDienThoai;
+
     let cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
-    //Đưa sản phẩm vào mảng cartItems
-    cartItems.push(item);
-    //Lưu vào localStorage dưới khóa là cartKey
-    localStorage.setItem(cartKey,JSON.stringify(cartItems));
+
+    const existed = cartItems.findIndex(sp =>
+        sp.id == item.id &&
+        sp.size == item.size
+    );
+
+    if (existed != -1) {
+        cartItems[existed].quantity += item.quantity;
+    } else {
+        cartItems.push(item);
+    }
+
+    localStorage.setItem(cartKey, JSON.stringify(cartItems));
 }
 
 //Kiểm tra xem người dùng đã nhập bình luận hay chưa
@@ -250,7 +258,9 @@ function setupproductdetailpage(){
 function setup(){
     setPrice();
     rating();
-    setupproductdetailpage();
+    if (window.location.pathname.includes("chitietsp.html")) {
+        setupproductdetailpage();
+    }
 }
 
 window.addEventListener("load",setup,false);

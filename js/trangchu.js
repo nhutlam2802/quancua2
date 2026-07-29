@@ -101,7 +101,7 @@ function renderBestSeller() {
 
         let score = document.createElement("p");
         score.className = "product-score";
-        score.textContent = "4.5";
+        score.textContent = product.rate;
 
         let star = document.createElement("span");
         star.className = "fa-solid fa-star";

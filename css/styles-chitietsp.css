@@ -2,11 +2,12 @@
 .page-main{
     padding-top: 180px;
 }
+/* khung chứa thông tin chi tiết sp (css3) */
 .detail-container{
     display: grid;
 }
 .detail-title{
-    margin:20px 20px 20px 40px;
+    margin:20px; 
 }
 .product__detail{
     width: 95%;
@@ -34,7 +35,7 @@
 .product__detail-quantity{
     height: 40px;
     gap:5px;
-    display: flex;
+    display: flex; /*thẳng hàng (css3)*/
 }
 .product__detail-quantity button{
     width: 20px;
@@ -73,7 +74,7 @@
     text-align: center;
     border-radius: 10px;
     border: none;
-    cursor: pointer;
+    cursor: pointer; 
 }    
 .size-button:hover,
 #submit:hover,
@@ -86,7 +87,8 @@
 }
 .product__detail-action{
     display: flex;
-    gap:10px;
+    flex-wrap: wrap;
+    gap:5px;
 }
 .product__detail-action button{
     margin: 10px;
@@ -151,7 +153,7 @@ a{
     height: 200px;
     object-fit: cover;
     display: block;
-    border-radius: 10xp;
+    border-radius: 10px;
     justify-self: center;
 }
 .fa-star,.fa-star-half-stroke{
@@ -177,11 +179,8 @@ a{
     border: 2px solid lightblue;
     background-color: white;
 }
-.commet-form {
+.comment-form {
     display: grid;
-}
-#comment-message{
-    width: 100%;
 }
 .comment{
     margin: 10px;
@@ -197,8 +196,8 @@ a{
     padding: 10px;
 }
 
-#comment-messange{
-    width: 300px;
+#comment-message{
+    width: 100%;
     font-size: 1rem;
     align-self: center;
 }

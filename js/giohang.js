@@ -1,5 +1,4 @@
-/* NGUYỄN THỊ KIM CHI MSSV: B2404853*/
-
+// Người thực hiện: Nguyễn Thị Kim Chi - MSSV: B2404853
 function layUser() {
     return JSON.parse(localStorage.getItem("userLogin"));
 }

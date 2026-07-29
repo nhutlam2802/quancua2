@@ -1,4 +1,6 @@
 // Người thực hiện: Trương Phạm Anh Thư - MSSV: B2404922
+/* Sử dụng cấu trúc dữ liệu dạng mảng (Array)
+   Cấu trúc đối tượng (Object) */
 export const list_product_combo = [
     {  id: 101,
         name: "Combo 1 người",
