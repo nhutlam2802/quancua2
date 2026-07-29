@@ -1,4 +1,27 @@
 /* Người thực hiện: Trương Phạm Anh Thư - MSSV: B2404922 */
+/* Dạng layout: Flexbox Layout
+                Cơ chế hoạt động: Tự động thích ứng màn hình
+                                  Màn hình nhỏ dưới 600px: .container và .combo-container đc xếp theo chiều dọc (flex-direction: column) 
+                                  Màn hình từ 601px trở lên: .card chuyển sang chiều ngang (flex-direction: row) 
+                                  Màn hình từ 1025px trở lên: .combo-container chuyển sang chiều ngang (flex-direction: row), chia màn hình thành 2 cột: một bên là nội dung giới thiệu (.combo-content) và một bên là hình ảnh/nút mua sản phẩm (.product) */
+/* CSS 2.1: width/height/padding: định dạng kích thước và khoảng cách cho khung
+            margin: 0 auto;: căn đều hai bên để đưa toàn bộ khối giao diện vào chính giữa màn hình
+            display: block;: ép phần tử hiển thị dạng khối để nhận kích thước và tự động xuống dòng
+            line-height: chỉnh khoảng cách giữa các dòng chữ, text-align: căn giữa
+            text-decoration: line-through; : để gạch ngang giá cũ, none; : để xóa gạch chân mặc định của thẻ link <a>
+            white-space: normal;: cho phép chữ tự động xuống dòng khi chạm viền, không bị tràn hàng ngang
+            overflow: hidden;: cắt bỏ phần nội dung bị tràn ra ngoài viền khung
+            list-style: none;: xóa bỏ các dấu chấm tròn mặc định ở đầu dòng của thẻ danh sách <ul>
+            border: none;: xóa đường viền mặc định của nút bấm
+            cursor: pointer;: đổi con trỏ chuột thành hình bàn tay để báo hiệu phần tử này có thể click được
+            :hover: thay đổi phong cách, màu sắc của phần tử khi người dùng di chuột qua
+            ::before, content: thêm ký tự tích (✔) vào trước dòng văn bản bằng CSS thay cho việc gõ bên HTML
+            id (#buy, #combo2): dùng để ghi đè thuộc tính và đổi màu riêng cho từng combo*/
+/*CSS 3:Bố cục: display: flex; :bố cục linh hoạt, flex-direction :xếp hàng dọc/ngang, align-items/justify-content: căn chỉnh phần tử con, gap: tạo khoảng cách, flex-shrink: 0 : giữ nguyên size ảnh, flex: 1 : tự co giãn lấp đầy khung
+        Hàm kích thước: clamp(min, val, max) :tự động co giãn kích thước chữ theo màn hình
+        Đồ họa: border-radius (bo góc), box-shadow (đổ bóng khối), text-shadow (đổ bóng chữ), background: linear-gradient(...) (nền chuyển màu), object-fit: cover (cắt ảnh vừa khung)
+        Chuyển động: transition (tạo hiệu ứng), transform: scale(...) (phóng to/thu nhỏ phần tử)
+        Giao diện đáp ứng: @media screen and (...) (tự động đổi bố cục theo kích thước màn hình) */
 /* KHUYẾN MÃI */
 
 .page-main{
