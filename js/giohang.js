@@ -186,8 +186,8 @@ function hienFormThanhToan() {
 
             orderList.append(p);
         }
-        document.getElementById("order-quantity").innerText = tongSL;
-        document.getElementById("order-total").innerText =
+        document.getElementById("order-quantity").textContent = tongSL;
+        document.getElementById("order-total").textContent =
             tongTien.toLocaleString("vi-VN"); 
 }
 
