@@ -1,3 +1,4 @@
+// Người thực hiện: Phạm Phước Hưng - MSSV: B2405506
 function kiemTraDangNhap() {
     let taiKhoan = document.getElementById("login-id").value;
     let matKhauNhapVao = document.getElementById("login-pass").value;
