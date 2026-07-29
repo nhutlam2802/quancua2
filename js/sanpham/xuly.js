@@ -129,26 +129,34 @@ function addproduct(id){
 }
 
 //Thêm dữ liệu sản phẩm được chọn vào localStorage, lưu dưới khóa là cartKey.
-function addcart(id,sizeSelected,quantity,price){
-    const index=findIndex(id);
-    //Tạo object item để lưu dữ liệu sản phẩm, có các key bên trái, value bên phải
-    let item={                          
-        id: id,
+function addcart(id, sizeSelected, quantity, price) {
+    const index = findIndex(id);
+
+    let item = {
+        id: Number(id),
         name: listproduct[index].name,
         size: sizeSelected,
-        price: price,
-        quantity:quantity
-    }
-    //Lấy thông tin đăng nhập của người dùng hiện tại trong localStorage
+        price: Number(price),
+        quantity: Number(quantity)
+    };
+
     let user = JSON.parse(localStorage.getItem("userLogin"));
-    //Tạo key cartKey bằng cách ghép cart và số điện thoại của user
-    const cartKey = "cart_"+user.soDienThoai;
-    //Lấy ra cartKey lưu về cartItems, chưa có thì tạo 1 mảng cartItems rỗng
+    const cartKey = "cart_" + user.soDienThoai;
+
     let cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
-    //Đưa sản phẩm vào mảng cartItems
-    cartItems.push(item);
-    //Lưu vào localStorage dưới khóa là cartKey
-    localStorage.setItem(cartKey,JSON.stringify(cartItems));
+
+    const existed = cartItems.findIndex(sp =>
+        sp.id == item.id &&
+        sp.size == item.size
+    );
+
+    if (existed != -1) {
+        cartItems[existed].quantity += item.quantity;
+    } else {
+        cartItems.push(item);
+    }
+
+    localStorage.setItem(cartKey, JSON.stringify(cartItems));
 }
 
 //Kiểm tra xem người dùng đã nhập bình luận hay chưa
@@ -250,7 +258,9 @@ function setupproductdetailpage(){
 function setup(){
     setPrice();
     rating();
-    setupproductdetailpage();
+    if (window.location.pathname.includes("chitietsp.html")) {
+        setupproductdetailpage();
+    }
 }
 
 window.addEventListener("load",setup,false);
