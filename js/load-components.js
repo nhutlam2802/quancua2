@@ -35,6 +35,7 @@ async function initComponents() {
     if (typeof hienThiNguoiDung === "function") {
         hienThiNguoiDung();
     }
+    // Hiển thị số lượng sản phẩm trong giỏ hàng khi Header được tải
     if (typeof capNhatSoLuongGioHang === "function") {
     capNhatSoLuongGioHang();
 }

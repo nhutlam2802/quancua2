@@ -81,7 +81,6 @@ function addToCart() {
     let item = {
             id: id,
             name: product.name,
-            img: product.img,
             size: product.variant[0].size,
             price: product.variant[0].price,
             quantity: Number(input.value)

@@ -39,15 +39,15 @@ function kiemTraDangKy() {
         thongBaoLoi.style.display = "block";
     }
     // 2. Kiểm tra định dạng số điện thoại
-    else if (!/^(0|\+84)\d{9}$/.test(soDienThoai)) {
+    else if (!/^(0|\+84)[3-9]\d{8}$/.test(soDienThoai)) {
         oDienThoai.classList.add("input-error");
         thongBaoLoi.textContent = "Số điện thoại phải bắt đầu bằng 0 hoặc +84 và gồm đủ 10 số hợp lệ!";
         thongBaoLoi.style.display = "block";
     }
     // 3. Kiểm tra định dạng Email
-    else if (email !== "" && !/^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,}$/.test(email)) {
+    else if (email !== "" && !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) {
         oEmail.classList.add("input-error");
-        thongBaoLoi.textContent = "Email chỉ được chứa chữ, số, dấu gạch dưới (VD: ten_12@mien_34.com)!";
+        thongBaoLoi.textContent = "Email không đúng định dạng (VD: ten.12@gmail.com hoặc ten_12@gmail.com).";
         thongBaoLoi.style.display = "block";
     }
     // 4. Kiểm tra độ mạnh mật khẩu
