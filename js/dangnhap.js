@@ -29,8 +29,8 @@ function kiemTraDangNhap() {
     }
 
     // 3. Kiểm tra định dạng (Phải là Số điện thoại bắt đầu bằng 0 đủ 10 số HOẶC Email hợp lệ)
-    let laSoDienThoai = /^(0)\d{9}$/.test(taiKhoan);
-    let laEmail = /^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,}$/.test(taiKhoan);
+    let laSoDienThoai = /^(0|\+84)[3-9]\d{8}$/.test(taiKhoan);
+    let laEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(taiKhoan);
 
     // Nếu KHÔNG phải số điện thoại hợp lệ VÀ KHÔNG phải email hợp lệ -> Báo lỗi
     if (!laSoDienThoai && !laEmail) {
